@@ -1,0 +1,23 @@
+SK v3 – Görsel yerleri
+Kendi görselini koymak için aynı isimle dosyayı değiştirmen yeterli.
+
+ŞEFFAF PNG (arka planı temizlenmiş, kişi alttan kesik olabilir)
+hero-ogrenci.png       Hero, ortadaki öğrenci
+kimler-ilkokul.png     "Kimler için" > İlkokul
+kimler-ortaokul.png    "Kimler için" > Ortaokul · LGS
+kimler-lise.png        "Kimler için" > Lise · YKS
+kimler-birebir.png     "Kimler için" > Birebir
+kimler-veli.png        "Kimler için" > Veliler
+iletisim-kisi.png      İletişim (Seviye Belirleme Görüşmesi), formun solu
+
+FOTOĞRAF (JPG)
+hero-fotograf.jpg      Akademik sistem sahnesi, soldaki polaroid (dikey)
+program-ilkokul.jpg    Programlar > İlkokul kartı
+program-lgs.jpg        Programlar > Ortaokul · LGS kartı (dikey)
+program-yks.jpg        Programlar > Lise · YKS / TYT kartı (dikey)
+program-birebir.jpg    Programlar > Birebir Özel Ders kartı
+deneme-kulubu.jpg      Deneme Kulübü kartı (yatay)
+vip-kutuphane.jpg      VIP Kütüphane kartı (yatay)
+atomica-atolye.jpg     Atomica Katı bölümü (yatay)
+
+Öneri: PNG'ler en az 900 px; JPG yataylar en az 1600 px, dikeyler en az 1200 px genişlikte, her biri 400 KB altı.
