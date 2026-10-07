@@ -8,6 +8,7 @@
 <title>SK Fen Bilimleri | Maltepe Küçükyalı LGS, YKS ve Özel Ders</title>
 <meta name="description" content="Maltepe Küçükyalı’da LGS, YKS/TYT, ara sınıf, birebir özel ders, koçluk, deneme kulübü, VIP kütüphane ve kişiselleştirilmiş eğitim.">
 <link rel="icon" href="assets/brand/sk-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="site.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
@@ -67,11 +68,13 @@
   .pill-btn:hover { background: var(--navy-h); }
   .menu-btn { display: none; height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font-weight: 500; }
 
-  .hero { position: relative; text-align: center; padding: 48px 20px 0; height: max(780px, calc(100vh - 68px)); overflow: hidden; }
-  .hero h1 { position: relative; z-index: 3; margin: 0 auto; max-width: 780px; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.06; letter-spacing: -.035em; font-weight: 500; animation: rise .9s var(--ease) both; }
+  .hero { position: relative; text-align: center; padding: 48px 20px 0; height: max(820px, calc(100vh - 68px)); overflow: hidden; }
+  .hero h1 { position: relative; z-index: 3; margin: 0 auto; max-width: 960px; font-size: clamp(32px, 3.9vw, 54px); line-height: 1.06; letter-spacing: -.035em; font-weight: 500; animation: rise .9s var(--ease) both; }
   .hero h1 span { color: var(--muted); }
+  .h-loc { position: relative; z-index: 3; display: inline-flex; height: 30px; align-items: center; padding: 0 13px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: 13.5px; color: var(--ink-2); margin-bottom: 18px; }
+  .h-sub { position: relative; z-index: 3; margin: 16px auto 0; max-width: 600px; font-size: 18px; line-height: 1.55; color: var(--ink-2); }
   .hero .actions { position: relative; z-index: 3; margin-top: 28px; display: flex; justify-content: center; align-items: center; gap: 22px; flex-wrap: wrap; animation: rise .9s .1s var(--ease) both; }
-  .scene { position: absolute; left: 50%; bottom: 0; width: 760px; height: calc(100% - 300px); max-height: 600px; transform: translateX(-50%); }
+  .scene { position: absolute; left: 50%; bottom: 0; width: 760px; height: calc(100% - 400px); max-height: 540px; z-index: 1; transform: translateX(-50%); }
   .arch { position: absolute; left: 50%; bottom: 0; width: 76%; height: 88%; transform: translateX(-50%); border-radius: 999px 999px 0 0; background: linear-gradient(180deg, #DCE5FF 0%, #EAEFFF 70%, #F1F4FF 100%); animation: grow 1.2s .1s var(--ease) both; transform-origin: bottom center; }
   .crest { position: absolute; left: 50%; top: 9%; width: 32%; transform: translateX(-50%); opacity: .08; }
   .girl { position: absolute; left: 50%; bottom: 0; height: 100%; width: auto; max-width: none; transform: translateX(-47%); z-index: 2; animation: up 1.1s .2s var(--ease) both; }
@@ -83,7 +86,14 @@
   @keyframes up { from { opacity: 0; transform: translate(-47%, 40px); } }
   @keyframes grow { from { opacity: 0; transform: translateX(-50%) scaleY(.85); } }
   @keyframes bob { 0%, 100% { transform: translateY(0) rotate(var(--r)); } 50% { transform: translateY(-10px) rotate(var(--r)); } }
-  .system { padding: 90px 20px 0; text-align: center; }
+  .system { padding: 40px 20px 0; text-align: center; }
+  .model-facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 46px; border-top: 1px solid var(--line); text-align: left; }
+  .model-facts > div { padding: 22px 22px 0 0; }
+  .model-facts > div + div { padding-left: 22px; border-left: 1px solid var(--line); }
+  .model-facts > div > span { font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--c-blue-ink); font-weight: 500; }
+  .model-facts p { margin: 8px 0 0; font-size: 15.5px; color: var(--ink-2); }
+  @media (max-width: 860px) { .model-facts { grid-template-columns: 1fr 1fr; } .model-facts > div:nth-child(3) { padding-left: 0; border-left: 0; } }
+  @media (max-width: 560px) { .model-facts { grid-template-columns: 1fr; } .model-facts > div, .model-facts > div + div { padding: 18px 0 0; border-left: 0; } }
   .sys-head .sub { margin: 22px auto 0; max-width: 620px; font-size: 19px; line-height: 1.55; color: var(--ink-2); }
   .badge { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 8px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
   .badge .loc { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--c-blue); }
@@ -164,6 +174,8 @@
   .prog-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: 48px; }
   .prog { grid-column: span 2; display: flex; flex-direction: column; border-radius: 26px; overflow: hidden; transition: transform .4s var(--ease); }
   .prog:hover { transform: translateY(-4px); }
+  .prog-grid.six { grid-template-columns: repeat(3, 1fr); }
+  .prog-grid.six .prog { grid-column: auto; }
   .prog.full { grid-column: span 6; display: grid; grid-template-columns: 1fr 1.25fr; }
   .prog.full .txt { align-self: center; padding: 40px; }
   .prog.full .ph { position: relative; margin: 14px; aspect-ratio: auto; min-height: 340px; }
@@ -272,6 +284,7 @@
   .atom-points { list-style: none; margin: 22px 0 28px; padding: 0; display: grid; gap: 10px; font-size: 15.5px; }
   .atom-points li { display: flex; gap: 12px; align-items: center; }
   .atom-points b { width: 10px; height: 10px; border-radius: 3px; transform: rotate(45deg); flex: none; }
+  .atom-actions { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
   .atom-cta { background: #252E5E; }
   .atom-cta:hover { background: #313c78; }
   .atom-stage { position: relative; height: 470px; }
@@ -291,6 +304,31 @@
   .trow p { margin: 0; font-size: 17.5px; line-height: 1.55; }
   .trow p span { color: var(--muted); }
 
+  .trust { padding: 140px 0 40px; }
+  .trust .lead { margin-inline: auto; max-width: 560px; }
+  .gallery { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: 220px 220px; gap: 14px; margin-top: 44px; }
+  .gallery figure { position: relative; margin: 0; border-radius: 22px; overflow: hidden; background: #eee; }
+  .gallery .g1 { grid-row: span 2; }
+  .gallery .g4 { grid-column: span 2; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery figcaption { position: absolute; left: 12px; bottom: 12px; background: rgba(255,255,255,.94); font-size: 13px; font-weight: 500; padding: 6px 11px; border-radius: 999px; }
+  .g-note { text-align: center; margin-top: 18px; color: var(--muted); font-size: 14.5px; }
+  .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
+  .tcard { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 26px; }
+  .tcard h3 { margin: 10px 0 6px; font-size: 21px; font-weight: 500; letter-spacing: -.02em; }
+  .tcard > p { margin: 0; color: var(--ink-2); font-size: 15.5px; }
+  .tcard .small { margin-top: 14px; font-size: 14px; color: var(--muted); }
+  .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; text-align: center; }
+  .tm i { display: block; width: 56px; height: 56px; margin: 0 auto 8px; border-radius: 50%; background: var(--c-blue) url("assets/brand/sk-logo.svg") center / 26px no-repeat; }
+  .tm b { display: block; font-size: 14px; font-weight: 500; }
+  .tm small { color: var(--muted); font-size: 12.5px; }
+  .tcard blockquote { margin: 18px 0 0; padding: 18px; border-radius: 16px; background: var(--bg); border: 1px dashed #DCDCD6; text-align: center; }
+  .plat { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 12px; }
+  .plat li { display: grid; gap: 4px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .plat li:last-child { border-bottom: 0; }
+  .plat b { font-weight: 500; }
+  .plat span { color: var(--ink-2); font-size: 14.5px; }
+  @media (max-width: 900px) { .trust-grid { grid-template-columns: 1fr; } .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 160px 160px; } .gallery .g1 { grid-column: span 2; grid-row: auto; } .gallery .g4 { grid-column: span 2; } }
   .faq-list { max-width: 720px; margin: 46px auto 0; display: grid; gap: 10px; }
   .faq details { background: #fff; border-radius: 18px; padding: 0 22px; border: 1px solid var(--line); }
   .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-size: 17px; font-weight: 500; }
@@ -365,10 +403,12 @@
     .hdr .right .pill-btn { display: none; }
     .menu-btn { display: inline-block; }
     .prog { grid-column: span 3; }
+    .prog-grid.six { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 760px) {
-    .hero { padding-top: 32px; height: 720px; }
-    .scene { width: 520px; height: 430px; }
+    .hero { padding-top: 28px; height: 830px; }
+    .h-sub { font-size: 16.5px; }
+    .scene { width: 500px; height: 390px; }
     .chip-f { font-size: 12.5px; padding: 8px 11px; }
     .chip-f.f1 { left: 15%; top: 26%; } .chip-f.f2 { right: 13%; top: 12%; } .chip-f.f3 { right: auto; left: 13%; top: 88%; }
     .system { overflow: hidden; }
@@ -380,7 +420,7 @@
     .prog.full { grid-template-columns: 1fr; }
     .prog.full .txt { padding: 28px 28px 10px; }
     .prog.full .ph { min-height: 0; aspect-ratio: 16 / 11; margin: 0 14px 14px; }
-    .programs, .who, .steps, .duo, .about, .faq, .contact { padding-top: 96px; }
+    .programs, .duo, .trust, .faq, .contact { padding-top: 96px; }
     .atomica { margin-top: 96px; }
     .atom-box { grid-template-columns: 1fr; padding: 34px 22px; }
     .atom-stage { height: 340px; }
@@ -403,14 +443,17 @@
 
 <header class="hdr">
   <a class="brand" href="./"><img src="assets/brand/sk-logo.svg" alt="">SK Fen Bilimleri</a>
-  <nav class="nav" aria-label="Ana menü"><a href="#programlar">Programlarımız</a><a href="#sistem">Akademik Sistem</a><a href="#deneme">Deneme Kulübü</a><a href="#deneme">VIP Kütüphane</a><a href="#atomica">Atomica Atölyesi</a><a href="#iletisim">İletişim</a></nav>
+  <nav class="nav" aria-label="Ana menü"><a href="#programlar">Programlar</a><a href="#sistem">Eğitim Modeli</a><a href="deneme-kulubu.html">Deneme Kulübü</a><a href="vip-kutuphane.html">VIP Kütüphane</a><a href="atomica.html">Atomica Matematik Atölyesi</a><a href="#iletisim">İletişim</a></nav>
   <div class="right"><a class="pill-btn" href="#iletisim">Bilgi Al</a><button class="menu-btn" type="button">Menü</button></div>
 </header>
+<nav class="mnav" id="mnav" aria-label="Mobil menü"><a href="#programlar">Programlar</a><a class="sub" href="ilkokul.html">İlkokul Katı</a><a class="sub" href="ortaokul.html">Ortaokul · 5–7. sınıf</a><a class="sub" href="lgs.html">LGS · 8. sınıf</a><a class="sub" href="lise.html">Lise · 9–11. sınıf</a><a class="sub" href="yks.html">YKS · 12. sınıf ve mezun</a><a class="sub" href="ozel-ders.html">Birebir Özel Ders</a><a href="#sistem">Eğitim Modeli</a><a href="deneme-kulubu.html">Deneme Kulübü</a><a href="vip-kutuphane.html">VIP Kütüphane</a><a href="atomica.html">Atomica Matematik Atölyesi</a><a href="#iletisim">İletişim</a><a class="cta" href="#iletisim">Tanışma Görüşmesi Planla</a></nav>
 
 <main>
   <section class="hero" aria-labelledby="h1">
-    <h1 id="h1">Her öğrenci için doğru plan, <span>doğru takip, doğru sonuç.</span></h1>
-    <div class="actions"><a class="cta" href="#iletisim">Seviye Belirleme Görüşmesi</a><a class="text-link" href="#programlar">Programları incele →</a></div>
+    <div class="h-loc">Maltepe · Küçükyalı</div>
+    <h1 id="h1">Küçükyalı’da öğrencinin ihtiyacına <span>göre şekillenen eğitim.</span></h1>
+    <p class="h-sub">LGS ve YKS hazırlığı, birebir özel ders, deneme analizi ve koçluk; hepsi öğrencinin kişisel çalışma planında birleşir.</p>
+    <div class="actions"><a class="cta" href="#iletisim">Tanışma Görüşmesi Planla</a><a class="text-link" href="#programlar">Programları Keşfet →</a></div>
     <div class="scene" aria-hidden="true">
       <div class="arch"></div>
       <img class="crest" src="assets/brand/sk-logo.svg" alt="">
@@ -422,15 +465,9 @@
   </section>
 
   <section class="system" aria-labelledby="sys-h">
-    <div class="sys-head">
-      <div class="badge"><span class="loc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1D2A6B" stroke-width="2.4"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>Küçükyalı, Maltepe</div>
-      <p class="sub">LGS’den YKS’ye, birebir dersten koçluğa; öğrencinin seviyesini ölçen, ihtiyacını belirleyen ve gelişimine göre yeniden planlanan bütüncül bir eğitim sistemi.</p>
-      <div class="tags" aria-label="Programlar"><span class="tag-c t-yellow">İlkokul</span><span class="tag-c t-blue">Ortaokul · LGS</span><span class="tag-c t-coral">Lise · YKS / TYT</span><span class="tag-c t-green">Birebir Özel Ders</span><span class="tag-c t-lilac">Deneme Kulübü</span><span class="tag-c t-lilac">VIP Kütüphane</span></div>
-    </div>
-
     <div class="stage" id="sistem" aria-label="SK akademik sistemden örnek görünümler">
       <button class="arrow l" type="button" id="prev" aria-label="Önceki"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
-      <figure class="polaroid" id="pol"><img id="polImg" src="gorseller/hero-fotograf.webp" alt=""><span id="polCap">Seviye belirleme görüşmesi</span></figure>
+      <figure class="polaroid" id="pol"><img id="polImg" src="gorseller/deneme-kulubu.webp" alt=""><span id="polCap">Deneme Kulübü</span></figure>
       <article class="paper" id="paper"></article>
       <div class="phone" aria-hidden="true">
         <div class="screen">
@@ -453,79 +490,44 @@
     </div>
 
     <div class="caption">
-      <div class="eyebrow">Akademik sistem</div>
-      <h2 class="h2" id="sys-h">Ölçülen, planlanan ve takip edilen bir hazırlık</h2>
-      <div class="chips" id="chips"><span class="chip" data-s="0">Tanıla</span><span class="chip">Planla</span><span class="chip">Öğret</span><span class="chip" data-s="1">Ölç</span><span class="chip" data-s="2">Hata analizi</span><span class="chip">+2 adım</span></div>
+      <div class="eyebrow">Eğitim modelimiz</div>
+      <h2 class="h2" id="sys-h">Özel ders, hangi veriye göre planlanıyor?</h2>
+      <div class="chips" id="chips"><span class="chip" data-s="0">Denemeye gir</span><span class="chip" data-s="1">Eksiklerini belirle</span><span class="chip">Kişisel plan</span><span class="chip" data-s="2">Hedefli özel ders</span><span class="chip">Yeniden ölç</span></div>
       <div class="cap-text" id="cap"></div>
     </div>
+    <div class="container"><div class="model-facts rv">
+      <div><span>Öğretmen açıklaması</span><p>Hata Karnesi’ndeki her eksik için öğretmen ne yapılacağını not eder.</p></div>
+      <div><span>Koçluk</span><p>Haftalık plan koçla birlikte hazırlanır. <span class="todo">Görüşme sıklığı eklenecek</span></p></div>
+      <div><span>Veli bilgilendirme</span><p>Deneme sonucu, Hata Karnesi ve plan veliyle paylaşılır. <span class="todo">Sıklık eklenecek</span></p></div>
+      <div><span>Plan ne zaman yenilenir</span><p>Her deneme ve kısa ölçmeden sonra, sonuçlara göre güncellenir.</p></div>
+    </div></div>
   </section>
 
   <section class="programs" id="programlar" aria-labelledby="prg">
     <div class="container">
       <div class="center rv"><div class="eyebrow">Programlarımız</div><h2 class="h2" id="prg">Hedefine uygun program</h2><p class="lead">Her program aynı akademik sistemin içinde ilerler: ölçülür, planlanır, takip edilir.</p></div>
-      <div class="prog-grid">
-        <a class="prog bg-yellow rv" href="#iletisim">
-          <div class="txt"><span class="k">1–4. sınıf</span><h3>İlkokul</h3><p>Bugünün eksiğini yarına taşımıyoruz.</p><ul><li>Temel güçlendirme</li><li>Ödev ve etüt desteği</li><li>Düzenli çalışma alışkanlığı</li></ul><span class="more">Programı incele →</span></div>
-          <div class="ph"><img src="gorseller/program-ilkokul.webp" alt="Defterine not alan öğrenci; temsili görsel" loading="lazy"></div>
-        </a>
-        <a class="prog bg-blue rv" href="#iletisim">
-          <div class="txt"><span class="k">5–8. sınıf</span><h3>Ortaokul · LGS</h3><p>LGS’ye sadece dersle değil, sistemle hazırlan.</p><ul><li>Ara sınıflarda ders desteği</li><li>Deneme ve Hata Karnesi</li><li>Koçluk ve kişisel plan</li></ul><span class="more">Programı incele →</span></div>
-          <div class="ph"><img src="gorseller/program-lgs.webp" alt="Ders çalışan ortaokul öğrencisi; temsili görsel" loading="lazy" style="object-position:50% 35%"></div>
-        </a>
-        <a class="prog bg-coral rv" href="#iletisim">
-          <div class="txt"><span class="k">9–12. sınıf ve mezun</span><h3>Lise · YKS / TYT</h3><p>Çalışmak yetmez; doğru çalışmayı yönetmek gerekir.</p><ul><li>Ara sınıflarda akademik destek</li><li>Branş ve genel denemeler</li><li>Net ve hata analizi</li></ul><span class="more">Programı incele →</span></div>
-          <div class="ph"><img src="gorseller/program-yks.webp" alt="Soru çözen lise öğrencisi; temsili görsel" loading="lazy" style="object-position:50% 30%"></div>
-        </a>
-        <a class="prog full bg-green rv" href="#iletisim">
-          <div class="txt"><span class="k">Tüm sınıflar</span><h3>Birebir Özel Ders</h3><p>İhtiyaç nerede başlıyorsa ders oradan başlar. Öğrencinin seviyesine ve eksiklerine göre planlanan hedefli akademik müdahale.</p><ul><li>İhtiyaç analizi</li><li>Ders ve öğretmen eşleştirme</li><li>Kısa ölçme ve gelişim takibi</li></ul><span class="more">Özel ders talebi oluştur →</span></div>
-          <div class="ph"><img src="gorseller/program-birebir.webp" alt="Öğretmeniyle birebir çalışan öğrenci; temsili görsel" loading="lazy" style="object-position:50% 40%"></div>
-        </a>
+      <div class="prog-grid six">
+        <a class="prog bg-yellow rv" href="ilkokul.html"><div class="txt"><span class="k">1–4. sınıf</span><h3>İlkokul Katı</h3><p>Ödev ve etüt desteği, Atomica Matematik Atölyesi, Dil Atölyesi ve Mutluluk Sokağı.</p><span class="more">İlkokul Katı →</span></div><div class="ph"><img src="gorseller/program-ilkokul.webp" alt="Defterine yazan öğrenci; temsili görsel" loading="lazy"></div></a>
+        <a class="prog bg-blue rv" href="ortaokul.html"><div class="txt"><span class="k">5, 6 ve 7. sınıf</span><h3>Ortaokul</h3><p>Okul başarısı, matematik temeli, düzenli çalışma ve eksiklerin erken kapanması.</p><span class="more">Programı incele →</span></div><div class="ph"><img src="gorseller/hero-fotograf.webp" alt="Öğretmeniyle çalışan öğrenci; temsili görsel" loading="lazy" style="object-position:50% 35%"></div></a>
+        <a class="prog bg-blue rv" href="lgs.html"><div class="txt"><span class="k">8. sınıf</span><h3>LGS Hazırlık</h3><p>LGS’ye sadece dersle değil, sistemle hazırlan: deneme, Hata Karnesi ve koçluk.</p><span class="more">Programı incele →</span></div><div class="ph"><img src="gorseller/program-lgs.webp" alt="Ders çalışan ortaokul öğrencisi; temsili görsel" loading="lazy" style="object-position:50% 30%"></div></a>
+        <a class="prog bg-coral rv" href="lise.html"><div class="txt"><span class="k">9, 10 ve 11. sınıf</span><h3>Lise Ara Sınıf</h3><p>Okul derslerinde akademik destek ve TYT’nin temeli aynı planda.</p><span class="more">Programı incele →</span></div><div class="ph"><img src="gorseller/vip-kutuphane.webp" alt="Ders çalışan lise öğrencisi; temsili görsel" loading="lazy"></div></a>
+        <a class="prog bg-coral rv" href="yks.html"><div class="txt"><span class="k">12. sınıf ve mezun</span><h3>YKS Hazırlık</h3><p>TYT ve YKS’de hedef, netler ve konu eksikleri birlikte yönetilir.</p><span class="more">Programı incele →</span></div><div class="ph"><img src="gorseller/program-yks.webp" alt="Soru çözen lise öğrencisi; temsili görsel" loading="lazy" style="object-position:50% 30%"></div></a>
+        <a class="prog bg-green rv" href="ozel-ders.html"><div class="txt"><span class="k">Tüm sınıflar</span><h3>Birebir Özel Ders</h3><p>Deneme ve Hata Karnesi verisine göre planlanan hedefli birebir ders.</p><span class="more">Programı incele →</span></div><div class="ph"><img src="gorseller/program-birebir.webp" alt="Öğretmeniyle birebir çalışan öğrenci; temsili görsel" loading="lazy" style="object-position:50% 40%"></div></a>
       </div>
     </div>
   </section>
 
-  <section class="who" id="kimler" aria-labelledby="who-h">
-    <div class="container">
-      <div class="center rv"><div class="eyebrow">Kimler için</div><h2 class="h2" id="who-h">SK kimler için?</h2></div>
-      <div class="who-grid">
-        <div class="who-fig rv"><div class="shape" id="whoShape"></div><img id="whoImg" src="gorseller/kimler-ilkokul.webp" alt=""><div class="chip-float" id="whoChip">İlkokul</div></div>
-        <div class="who-side rv">
-          <div class="picker">
-            <button class="icon-btn" type="button" id="wPrev" aria-label="Önceki"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
-            <div class="wheel"><ul id="wheel"></ul></div>
-            <button class="icon-btn" type="button" id="wNext" aria-label="Sonraki"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-          </div>
-          <div class="who-desc" id="whoDesc" aria-live="polite"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="steps" aria-labelledby="st-h">
-    <div class="container">
-      <div class="center rv"><div class="eyebrow">Nasıl başlıyoruz</div><h2 class="h2" id="st-h">Üç adımda doğru program</h2></div>
-      <div class="steps-grid">
-        <div class="step rv"><div class="txt"><span class="n">1</span><h3>Seviye belirleme. <span>Öğrencinin sınıfı, hedefi ve ihtiyacı birlikte değerlendirilir.</span></h3></div>
-          <div class="vis" data-anim="cal" style="background:var(--c-blue)"><div class="mini"><div class="mt">Görüşme <small>Örnek</small></div><div class="cal"><i>Pzt</i><i>Sal</i><i>Çar</i><i>Per</i><i>Cum</i><i>Cmt</i></div><div class="ln" style="margin-top:10px"><span>Saat</span><span><span data-f="saat"></span><span class="ok-tag">✓</span></span></div></div></div></div>
-        <div class="step rv"><div class="txt"><span class="n">2</span><h3>Kişisel plan. <span>Hedefe ve ihtiyaca göre program ve çalışma planı hazırlanır.</span></h3></div>
-          <div class="vis" data-anim="plan" style="background:var(--c-yellow)"><div class="mini"><div class="mt">Plan <small>Örnek</small></div><div class="ln"><span>Program</span><span data-f="program"></span></div><div class="ln"><span>Destek</span><span data-f="destek"></span></div><div class="ln"><span>Takip</span><span data-f="takip"></span></div></div></div></div>
-        <div class="step rv"><div class="txt"><span class="n">3</span><h3>Takip ve ölçme. <span>Deneme, Hata Karnesi ve koçlukla gelişim takip edilir, plan yenilenir.</span></h3></div>
-          <div class="vis" data-anim="spark" style="background:var(--c-green)"><div class="mini"><div class="mt">Gelişim <small>Örnek</small></div><div class="spark"><b></b><b></b><b></b><b></b><b></b><b class="hi"></b></div></div></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="duo" id="deneme" aria-labelledby="duo-h">
+  <section class="duo" id="calisma-alanlari" aria-labelledby="duo-h">
     <div class="container">
       <div class="center rv"><div class="eyebrow">Çalışma alanları</div><h2 class="h2" id="duo-h">Deneme Kulübü ve VIP Kütüphane</h2></div>
       <div class="duo-grid">
         <div class="duo-card bg-coral rv">
           <div class="ph"><img src="gorseller/deneme-kulubu.webp" alt="Deneme çözen öğrenci; temsili görsel" loading="lazy" style="object-position:60% 40%"></div>
-          <div class="txt"><span class="tag-c" style="background:rgba(255,255,255,.7)">Deneme Kulübü</span><h3>Denemeye gir, sonucunu görmekle yetinme; hatanı tanı.</h3><p>SK Deneme Kulübü’nde sınav yalnızca puan üretmez; sonraki çalışma planına veri sağlar.</p><a class="ghost" href="#iletisim">Deneme Kulübüne Katıl →</a></div>
+          <div class="txt"><span class="tag-c" style="background:rgba(255,255,255,.7)">Deneme Kulübü</span><h3>Denemeye gir, sonucunu görmekle yetinme; hatanı tanı.</h3><p>SK Deneme Kulübü’nde sınav yalnızca puan üretmez; sonraki çalışma planına veri sağlar.</p><a class="ghost" href="deneme-kulubu.html">Deneme Kulübü’nü incele →</a></div>
         </div>
         <div class="duo-card bg-blue rv">
           <div class="ph"><img src="gorseller/vip-kutuphane.webp" alt="Kütüphanede çalışan öğrenci; temsili görsel" loading="lazy" style="object-position:55% 45%"></div>
-          <div class="txt"><span class="tag-c" style="background:rgba(255,255,255,.7)">VIP Kütüphane</span><h3>Çalışmak için yer değil, çalışma disiplini.</h3><p>Öğrencinin odaklanabileceği, düzenli çalışabileceği ve akademik sistemle bağlantısını sürdürebileceği kontrollü çalışma alanı.</p><a class="ghost" href="#iletisim">Üyelik Bilgisi Al →</a></div>
+          <div class="txt"><span class="tag-c" style="background:rgba(255,255,255,.7)">VIP Kütüphane</span><h3>Çalışmak için yer değil, çalışma disiplini.</h3><p>Öğrencinin odaklanabileceği, düzenli çalışabileceği ve akademik sistemle bağlantısını sürdürebileceği kontrollü çalışma alanı.</p><a class="ghost" href="vip-kutuphane.html">VIP Kütüphane’yi incele →</a></div>
         </div>
       </div>
     </div>
@@ -536,7 +538,7 @@
       <div class="atom-box rv">
         <div class="atom-txt">
           <img class="atom-logo" src="gorseller/atomica-logo-yatay.webp" alt="Atomica" width="190" height="38" loading="lazy">
-          <div class="eyebrow" style="margin-top:22px">SK Fen Bilimleri’nde · Atomica Atölyesi</div>
+          <div class="eyebrow" style="margin-top:22px">SK Fen Bilimleri’nde · Atomica Matematik Atölyesi</div>
           <h2 id="atm">Matematiğe dokun. Dene. <em>Kalıcı öğren.</em></h2>
           <p>Fiziksel matematik materyalleri, öğretmen rehberliği ve Atomica’nın etkileşimli dijital oyunları aynı atölyede. Atölyede başlayan öğrenme, Atomica’da yeniden deneyime dönüşür.</p>
           <ul class="atom-points">
@@ -544,7 +546,7 @@
             <li><b style="background:#1F94C2"></b>Birlikte düşün, farklı yolları dene</li>
             <li><b style="background:#F5A918"></b>Öğretmen, ilerlemeyi panelden takip eder</li>
           </ul>
-          <a class="cta atom-cta" href="#iletisim">Deneme Dersi Talep Et</a>
+          <div class="atom-actions"><a class="cta atom-cta" href="atomica.html">Atölyeyi incele</a><a class="text-link" href="#iletisim">Deneme dersi talep et →</a></div>
         </div>
         <div class="atom-stage" aria-hidden="true">
           <img class="atom-mark" src="gorseller/atomica-isaret.webp" alt="">
@@ -558,14 +560,26 @@
     </div>
   </section>
 
-  <section class="about" aria-labelledby="ab-h">
+  <section class="trust" id="kampus" aria-labelledby="tr-h">
     <div class="container">
-      <div class="center rv"><div class="eyebrow">Kısaca SK</div><h2 class="h2" id="ab-h">SK Fen Bilimleri nedir?</h2></div>
-      <div class="table rv">
-        <div class="trow"><div class="k">Ne sunuyoruz</div><p>İlkokul, ortaokul ve LGS, lise ve YKS/TYT; birebir özel ders. <span>Yanında Deneme Kulübü, VIP Kütüphane ve Atomica Atölyesi.</span></p></div>
-        <div class="trow"><div class="k">Nasıl çalışıyoruz</div><p>Ders, deneme, koçluk, hata analizi ve bireysel müdahale <span>aynı akademik döngünün parçalarıdır.</span></p></div>
-        <div class="trow"><div class="k">Kim takip ediyor</div><p>Öğretmen ve koç, öğrencinin gelişimini birlikte takip eder; <span>veli süreç hakkında bilgilendirilir.</span></p></div>
-        <div class="trow"><div class="k">Nerede</div><p>Küçükyalı, Maltepe. <span>Kampüsü yerinde görmek için ziyaret planlayabilirsiniz.</span></p></div>
+      <div class="center rv"><div class="eyebrow">Kampüs ve ekip</div><h2 class="h2" id="tr-h">Eğitimin içinde yaşadığı mekânı görün</h2><p class="lead">Küçükyalı kampüsümüzü dersliklerimiz, VIP Kütüphanemiz ve Atomica Matematik Atölyemizle yakından tanıyın.</p></div>
+      <div class="gallery rv">
+        <figure class="g1"><img src="gorseller/atomica-atolye-sinif.webp" alt="Atomica Matematik Atölyesi sınıf düzeni" loading="lazy"><figcaption>Atomica Matematik Atölyesi</figcaption></figure>
+        <figure class="g2"><img src="gorseller/vip-kutuphane.webp" alt="VIP Kütüphane; temsili görsel" loading="lazy"><figcaption>VIP Kütüphane</figcaption></figure>
+        <figure class="g3"><img src="gorseller/deneme-kulubu.webp" alt="Deneme salonu; temsili görsel" loading="lazy"><figcaption>Deneme salonu</figcaption></figure>
+        <figure class="g4"><img src="gorseller/program-birebir.webp" alt="Birebir ders alanı; temsili görsel" loading="lazy"><figcaption>Birebir ders alanı</figcaption></figure>
+      </div>
+      <p class="g-note rv"><span class="todo">Gerçek kampüs fotoğrafları ve kampüs turu videosu eklenecek</span> · Kampüsü yerinde görmek için <a class="text-link" href="#iletisim">ziyaret planlayın →</a></p>
+
+      <div class="trust-grid">
+        <div class="tcard rv"><div class="eyebrow">Ekibimiz</div><h3>Öğrenciyi tanıyan bir ekip</h3><p>Yönetici, öğretmen ve koçlarımızı yakından tanıyın.</p>
+          <div class="team"><div class="tm"><i></i><b>Ayşe Hanım</b><small>Veli görüşmeleri</small></div><div class="tm"><i></i><b><span class="todo">İsim</span></b><small>Yönetici</small></div><div class="tm"><i></i><b><span class="todo">İsim</span></b><small>Öğretmen</small></div></div>
+          <p class="small"><span class="todo">Fotoğraflı ekip tanıtımları eklenecek</span></p></div>
+        <div class="tcard rv"><div class="eyebrow">Veliler ne diyor</div><h3>Velilerimizden</h3><p>Yalnızca izinli ve gerçek veli yorumlarına yer veriyoruz.</p>
+          <blockquote><span class="todo">İzinli veli yorumu eklenecek</span></blockquote>
+          <p class="small">Doğrulanabilir öğrenci gelişim örnekleri de burada yer alacak.</p></div>
+        <div class="tcard rv"><div class="eyebrow">Kullandığımız içerik ve platformlar</div><h3>Derste ve evde aynı sistem</h3>
+          <ul class="plat"><li><b>Atomica</b><span>Etkileşimli matematik içerikleri, 2D oyunlar ve 3D öğrenme dünyaları</span></li><li><b>3-4-5 All Star</b><span class="todo">Öğrenciye faydası eklenecek</span></li><li><b>Kunduz</b><span class="todo">Öğrenciye faydası eklenecek</span></li></ul></div>
       </div>
     </div>
   </section>
@@ -574,11 +588,12 @@
     <div class="container">
       <div class="center rv"><div class="eyebrow">Sıkça sorulanlar</div><h2 class="h2" id="faq-h">Aklındaki sorular</h2></div>
       <div class="faq-list rv">
-        <details open><summary>Seviye belirleme görüşmesi nedir?<i></i></summary><p>Öğrencinin sınıfı, hedefi ve ihtiyacı birlikte değerlendirilir; buna göre uygun program belirlenir.</p></details>
+        <details open><summary>Tanışma görüşmesi nasıl geçiyor?<i></i></summary><p>Öğrencinin sınıfı, hedefi ve ihtiyacı birlikte değerlendirilir; buna göre uygun program belirlenir. Görüşmeyi yüz yüze kampüsümüzde yapabiliriz. <span class="todo">Online seçenek ve süre eklenecek</span></p></details>
         <details><summary>Hata Karnesi ne işe yarar?<i></i></summary><p>Deneme ve ölçmelerdeki hatalar konu ve kazanım bazında kaydedilir; sonraki çalışma planı bu veriye göre şekillenir.</p></details>
         <details><summary>Birebir özel ders nasıl ilerliyor?<i></i></summary><p>İhtiyaç analiziyle başlar, ders ve öğretmen eşleştirmesi yapılır. Gelişim kısa ölçmelerle takip edilir; gerekirse ana akademik sisteme ve koçluğa bağlanır.</p></details>
         <details><summary>Deneme Kulübü’ne kimler katılabilir?<i></i></summary><p>Katılım koşulları için bizimle iletişime geçebilirsiniz.</p></details>
-        <details><summary>Atomica Atölyesi hangi sınıflar için?<i></i></summary><p>Atomica Atölyesi şu anda 5. sınıf matematik odağında çalışır.</p></details>
+        <details><summary>Atomica Matematik Atölyesi hangi sınıflar için?<i></i></summary><p>Atölye şu anda 5. sınıf matematik odağında çalışır. Ayrıntılar için <a class="text-link" href="atomica.html">atölye sayfasına</a> bakabilirsiniz.</p></details>
+        <details><summary>Ücretsiz tanışma dersi var mı?<i></i></summary><p><span class="todo">Hangi programlarda geçerli olduğu eklenecek</span></p></details>
       </div>
     </div>
   </section>
@@ -592,23 +607,23 @@
           <div class="fig"><div class="shape"></div><img src="gorseller/iletisim-kisi.webp" alt="Öğretmeniyle çalışan öğrenci; temsili görsel" loading="lazy"></div>
         </div>
         <form class="form rv" id="lead" novalidate>
-          <h3>Seviye Belirleme Görüşmesi</h3>
+          <h3>Tanışma Görüşmesi</h3>
           <p>Kısa formu doldurun, sizi arayalım.</p>
           <div class="two">
             <div class="field"><label for="f-name">Ad Soyad</label><input id="f-name" required autocomplete="name"></div>
             <div class="field"><label for="f-phone">Telefon</label><input id="f-phone" type="tel" inputmode="tel" required autocomplete="tel"></div>
           </div>
           <div class="field"><label>Öğrencinin sınıfı</label><div class="seg"><label><input type="radio" name="g" required><span>1–4 · İlkokul</span></label><label><input type="radio" name="g"><span>5–7</span></label><label><input type="radio" name="g"><span>8 · LGS</span></label><label><input type="radio" name="g"><span>9–11</span></label><label><input type="radio" name="g"><span>12 · Mezun</span></label></div></div>
-          <div class="field"><label>İlgilenilen program</label><div class="seg"><label><input type="radio" name="p"><span>İlkokul</span></label><label><input type="radio" name="p"><span>Ortaokul · LGS</span></label><label><input type="radio" name="p"><span>Lise · YKS / TYT</span></label><label><input type="radio" name="p"><span>Birebir</span></label><label><input type="radio" name="p"><span>Deneme Kulübü</span></label><label><input type="radio" name="p"><span>VIP Kütüphane</span></label><label><input type="radio" name="p"><span>Atomica</span></label></div></div>
+          <div class="field"><label>İlgilenilen program</label><div class="seg"><label><input type="radio" name="p"><span>İlkokul Katı</span></label><label><input type="radio" name="p"><span>Ortaokul</span></label><label><input type="radio" name="p"><span>LGS</span></label><label><input type="radio" name="p"><span>Lise ara sınıf</span></label><label><input type="radio" name="p"><span>YKS</span></label><label><input type="radio" name="p"><span>Birebir</span></label><label><input type="radio" name="p"><span>Deneme Kulübü</span></label><label><input type="radio" name="p"><span>VIP Kütüphane</span></label><label><input type="radio" name="p"><span>Atomica Matematik Atölyesi</span></label></div></div>
           <div class="field"><label for="f-time">Tercih edilen görüşme zamanı</label><select id="f-time"><option>Fark etmez</option><option>Hafta içi gündüz</option><option>Hafta içi akşam</option><option>Hafta sonu</option></select></div>
-          <label class="kvkk"><input type="checkbox" required> KVKK aydınlatma metnini okudum; iletişim için bilgilerimin işlenmesini onaylıyorum.</label>
+          <label class="kvkk"><input type="checkbox" required> <span><a class="text-link" href="kvkk.html" target="_blank" style="text-decoration:underline">KVKK aydınlatma metnini</a> okudum; iletişim için bilgilerimin işlenmesini onaylıyorum.</span></label>
           <button class="cta" type="submit">Görüşme Talep Et</button>
           <div class="form-note" id="note" role="status">Önizleme: form henüz bir sisteme bağlı değil, bilgi gönderilmedi.</div>
         </form>
       </div>
       <div class="quick rv">
-        <a href="#iletisim" data-wa><span class="ql">WhatsApp</span><span class="qv" data-wa-num>Numara eklenecek</span><span class="qa">Yaz →</span></a>
-        <a href="tel:+905398569980"><span class="ql">Telefon · 09.00–18.30</span><span class="qv">0539 856 99 80</span><span class="qa">Ara →</span></a>
+        <a href="#iletisim" data-wa><span class="ql">WhatsApp hattı</span><span class="qv" data-wa-num>Numara eklenecek</span><span class="qa">Yaz →</span></a>
+        <a href="#iletisim"><span class="ql">Sabit hat · 09.00–18.30</span><span class="qv"><span class="todo">Alan koduyla eklenecek</span></span><span class="qa">Ara →</span></a>
         <a href="https://share.google/GG1858TpRNTLzTRQy" target="_blank" rel="noopener"><span class="ql">Adres · Küçükyalı Şubesi</span><span class="qv">Altıntepe Mah. Bağdat Cad. No: 101</span><span class="qa">Yol tarifi →</span></a>
       </div>
     </div>
@@ -618,12 +633,12 @@
 <footer class="footer">
   <div class="container">
     <div class="foot-grid">
-      <div><a class="brand" href="./"><img src="assets/brand/sk-logo.svg" alt="">SK Fen Bilimleri</a><p>Öğrencinin seviyesini, hedefini ve öğrenme sürecini merkeze alan eğitim yaklaşımı.</p></div>
-      <div><h4>Programlar</h4><a href="#programlar">İlkokul</a><a href="#programlar">Ortaokul · LGS</a><a href="#programlar">Lise · YKS / TYT</a><a href="#programlar">Birebir Özel Ders</a></div>
-      <div><h4>SK’de</h4><a href="#sistem">Akademik Sistem</a><a href="#deneme">Deneme Kulübü</a><a href="#deneme">VIP Kütüphane</a><a href="#atomica">Atomica Atölyesi</a></div>
-      <div><h4>İletişim</h4><a href="#iletisim">Bilgi Al</a><a href="#iletisim" data-wa>WhatsApp</a><a href="https://share.google/GG1858TpRNTLzTRQy" target="_blank" rel="noopener">Yol Tarifi</a><a href="#iletisim">KVKK</a></div>
+      <div><a class="brand" href="./"><img src="assets/brand/sk-logo.svg" alt="">SK Fen Bilimleri</a><p>Maltepe Küçükyalı’da öğrencinin seviyesini, hedefini ve öğrenme sürecini merkeze alan eğitim kurumu.</p></div>
+      <div><h4>Programlar</h4><a href="ilkokul.html">İlkokul Katı</a><a href="ortaokul.html">Ortaokul · 5–7. sınıf</a><a href="lgs.html">LGS · 8. sınıf</a><a href="lise.html">Lise · 9–11. sınıf</a><a href="yks.html">YKS · 12. sınıf ve mezun</a><a href="ozel-ders.html">Birebir Özel Ders</a></div>
+      <div><h4>SK’de</h4><a href="#sistem">Eğitim Modeli</a><a href="deneme-kulubu.html">Deneme Kulübü</a><a href="vip-kutuphane.html">VIP Kütüphane</a><a href="atomica.html">Atomica Matematik Atölyesi</a><a href="#kampus">Kampüs ve ekip</a></div>
+      <div><h4>İletişim</h4><a href="#iletisim">Bilgi Al</a><a href="#iletisim" data-wa>WhatsApp</a><a href="https://share.google/GG1858TpRNTLzTRQy" target="_blank" rel="noopener">Yol Tarifi</a><a href="kvkk.html">KVKK Aydınlatma Metni</a></div>
     </div>
-    <div class="copy"><span>© 2026 SK Fen Bilimleri · Küçükyalı, Maltepe</span><span>Görseller temsilidir.</span></div>
+    <div class="copy"><span>© 2026 SK Fen Bilimleri · Altıntepe Mah. Bağdat Cad. No: 101, Küçükyalı / Maltepe</span><span>Görseller temsilidir.</span></div>
   </div>
 </footer>
 
@@ -633,41 +648,31 @@
 </a>
 <script>
 (() => {
-  // ---- WhatsApp ayarı: numarayı ülke koduyla, boşluksuz yaz (örn. 905321234567) ----
-  const WHATSAPP_NUMARA = '905398569980';
-  const WHATSAPP_MESAJ = 'Merhaba, SK Fen Bilimleri programları hakkında bilgi almak istiyorum.';
-  if (WHATSAPP_NUMARA) {
-    const waUrl = `https://wa.me/${WHATSAPP_NUMARA}?text=${encodeURIComponent(WHATSAPP_MESAJ)}`;
-    document.querySelectorAll('[data-wa]').forEach(a => { a.href = waUrl; a.target = '_blank'; a.rel = 'noopener'; });
-    const n = WHATSAPP_NUMARA.replace(/^90/, '0');
-    document.querySelectorAll('[data-wa-num]').forEach(el => el.textContent = n.replace(/(\d{4})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4'));
-  }
   const fab = document.querySelector('.wa-fab');
   setTimeout(() => { fab.classList.add('hint'); setTimeout(() => fab.classList.remove('hint'), 4000); }, 2500);
 
   const logo = '<img src="assets/brand/sk-logo.svg" alt="">';
   const slides = [
-    { photo: 'gorseller/hero-fotograf.webp', cap: 'Seviye belirleme görüşmesi', title: 'Seviye belirleme', text: 'Her şey öğrencinin bugünkü seviyesini, hedefini ve çalışma alışkanlığını anlamakla başlar.',
-      html: `<div class="tag"><span>ÖRNEK GÖRÜNÜM</span>${logo}</div><h3>Seviye Belirleme</h3><p class="lede">Öğrencinin seviyesi ölçülür, ihtiyacı belirlenir.</p>
-        <dl class="kv"><dt>Sınıf</dt><dd>8. sınıf</dd><dt>Hedef</dt><dd>LGS</dd><dt>Çalışma düzeni</dt><dd>Düzensiz, haftada 3 gün</dd></dl>
-        <h4>Ders bazında başlangıç</h4>
-        <div class="row"><span>Matematik</span><span class="bar"><b style="width:58%"></b></span></div><div class="row"><span>Fen Bilimleri</span><span class="bar"><b style="width:71%"></b></span></div>
-        <div class="row"><span>Türkçe</span><span class="bar"><b style="width:66%"></b></span></div><div class="row"><span>İnkılap Tarihi</span><span class="bar"><b style="width:48%"></b></span></div>
-        <div class="foot"><span>Önerilen</span><b>LGS programı + koçluk</b></div>` },
-    { photo: 'gorseller/deneme-kulubu.webp', cap: 'Deneme Kulübü', title: 'Deneme Kulübü', text: 'Denemeye gir, sonucunu görmekle yetinme; hatanı tanı. Sınav yalnızca puan üretmez, sonraki plana veri sağlar.',
+    { photo: 'gorseller/deneme-kulubu.webp', cap: 'Deneme Kulübü', title: 'Denemeye gir', text: 'Deneme yalnızca puan üretmez; ders ve kazanım bazında sonraki plana veri sağlar.',
       html: `<div class="tag"><span>ÖRNEK GÖRÜNÜM</span>${logo}</div><h3>Deneme Sonucu</h3><p class="lede">Deneme 4 · Ders bazında doğru, yanlış ve boşlar.</p>
         <div class="row"><span>Türkçe</span><span class="st ok">17 D · 2 Y · 1 B</span></div><div class="row"><span>Matematik</span><span class="st warn">12 D · 6 Y · 2 B</span></div>
         <div class="row"><span>Fen Bilimleri</span><span class="st ok">16 D · 3 Y · 1 B</span></div><div class="row"><span>İnkılap Tarihi</span><span class="st">8 D · 2 Y · 0 B</span></div>
         <div class="row"><span>Din Kültürü</span><span class="st ok">9 D · 1 Y · 0 B</span></div><div class="row"><span>İngilizce</span><span class="st">8 D · 1 Y · 1 B</span></div>
         <div class="foot"><span>Sonraki adım</span><b>Hata Karnesi →</b></div>` },
-    { photo: 'gorseller/program-birebir.webp', cap: 'Öğretmenle eksik konu çalışması', title: 'Hata Karnesi', text: 'Hatalar konu ve kazanım bazında kaydedilir; çalışma planı ve öğretmen müdahalesi bu veriye göre şekillenir.',
-      html: `<div class="tag"><span>ÖRNEK GÖRÜNÜM</span>${logo}</div><h3>Hata Karnesi</h3><p class="lede">Matematik · Konu ve kazanım bazında.</p>
+    { photo: 'gorseller/hero-fotograf.webp', cap: 'Öğretmenle hata analizi', title: 'Eksiklerini belirle', text: 'Hatalar konu ve kazanım bazında Hata Karnesi’ne işlenir; öğretmen her eksik için ne yapılacağını not eder.',
+      html: `<div class="tag"><span>ÖRNEK GÖRÜNÜM · KİMLİK BİLGİSİ YOK</span>${logo}</div><h3>Hata Karnesi</h3><p class="lede">Matematik · Konu ve kazanım bazında.</p>
         <div class="row"><span>Üslü ifadeler</span><span class="bub"><i class="c">A</i><i>B</i><i>C</i><i>D</i></span></div><div class="row"><span>Kareköklü ifadeler</span><span class="bub"><i>A</i><i class="x">B</i><i>C</i><i>D</i></span></div>
         <div class="row"><span>Veri analizi</span><span class="bub"><i>A</i><i>B</i><i class="c">C</i><i>D</i></span></div><div class="row"><span>Olasılık</span><span class="bub"><i>A</i><i>B</i><i>C</i><i class="x">D</i></span></div>
-        <h4>Durum</h4><div class="row"><span>Kareköklü ifadeler</span><span class="st warn">Tekrar + öğretmen</span></div><div class="row"><span>Olasılık</span><span class="st warn">Konu tekrarı</span></div>
-        <div class="foot"><span>Sonraki adım</span><b>Müdahale → Yeniden ölç</b></div>` }
+        <h4>Öğretmen notu</h4><div class="row"><span>Kareköklü ifadeler</span><span class="st warn">Birebir ders + tekrar</span></div><div class="row"><span>Olasılık</span><span class="st warn">Konu tekrarı</span></div>
+        <div class="foot"><span>Sonraki adım</span><b>Haftalık plan →</b></div>` },
+    { photo: 'gorseller/program-birebir.webp', cap: 'Hedefli birebir ders', title: 'Hedefli özel ders', text: 'Özel ders, Hata Karnesi’nde çıkan eksik konuya göre planlanır; bir sonraki denemede yeniden ölçülür.',
+      html: `<div class="tag"><span>ÖRNEK GÖRÜNÜM</span>${logo}</div><h3>Birebir Ders Planı</h3><p class="lede">Hata Karnesi’ne göre hazırlanan hedefli ders.</p>
+        <dl class="kv"><dt>Konu</dt><dd>Kareköklü ifadeler</dd><dt>Neden</dt><dd>Son iki denemede tekrarlayan hata</dd><dt>Ders</dt><dd>2 oturum + kısa ölçme</dd></dl>
+        <h4>Ölçme</h4>
+        <div class="row"><span>Ders öncesi</span><span class="bar"><b style="width:38%"></b></span></div><div class="row"><span>Kısa ölçme</span><span class="bar"><b style="width:72%"></b></span></div>
+        <div class="foot"><span>Sonraki adım</span><b>Yeniden ölç → Plan güncellenir</b></div>` }
   ];
-  const chipIdx = [0, 3, 4];
+  const chipIdx = [0, 1, 3];
   const paper = document.getElementById('paper'), cap = document.getElementById('cap');
   const pol = document.getElementById('pol'), pImg = document.getElementById('polImg'), pCap = document.getElementById('polCap');
   [...new Set(slides.map(x => x.photo))].forEach(u => { const i = new Image(); i.src = u; });
@@ -692,70 +697,6 @@
   chips.forEach(c => { if (c.dataset.s) { c.style.cursor = 'pointer'; c.onclick = () => { show(+c.dataset.s); restart(); }; } });
   show(0, true); restart();
 
-  const who = [
-    ['İlkokul öğrencileri', 'İlkokul', 'gorseller/kimler-ilkokul.webp', 'Temelini erken yaşta güçlendirmek, ödev ve etüt desteğiyle düzenli çalışma alışkanlığı kazanmak isteyen öğrenciler.', 'var(--c-yellow)'],
-    ['Ortaokul · LGS', '5–8. sınıf · LGS', 'gorseller/kimler-ortaokul.webp', 'Ara sınıflarda ders desteği; 8. sınıfta deneme, kazanım analizi ve koçlukla LGS’ye sistemle hazırlanan öğrenciler.', 'var(--c-blue)'],
-    ['Lise · YKS / TYT', '9–12. sınıf · YKS', 'gorseller/kimler-lise.webp', 'Hedefi, netleri ve konu eksikleri birlikte yönetilen; deneme, koçluk ve VIP Kütüphane ile çalışan lise öğrencileri ve mezunlar.', 'var(--c-coral)'],
-    ['Birebir destek arayanlar', 'Birebir ders', 'gorseller/kimler-birebir.webp', 'Seviyesine ve eksiklerine göre planlanan, hedefli birebir ders ihtiyacı olan öğrenciler.', 'var(--c-green)'],
-    ['Veliler', 'Veliler', 'gorseller/kimler-veli.webp', 'Çocuğunun nerede olduğunu, neyi eksik bıraktığını ve nasıl ilerlediğini bilmek isteyen aileler.', 'var(--c-lilac)']
-  ];
-  const ul = document.getElementById('wheel'), desc = document.getElementById('whoDesc'), img = document.getElementById('whoImg'), wchip = document.getElementById('whoChip');
-  ul.innerHTML = who.map(w => `<li><span>${w[0]}</span></li>`).join('');
-  const lis = [...ul.children];
-  let wi = 0;
-  const wset = i => {
-    wi = (i + who.length) % who.length;
-    ul.style.transform = `translateY(${66 - wi * 44}px)`;
-    lis.forEach((li, j) => { li.classList.toggle('on', j === wi); li.classList.toggle('near', Math.abs(j - wi) === 1); });
-    desc.style.opacity = 0; img.style.opacity = 0; img.style.transform = 'translate(-50%, 16px)'; document.getElementById('whoShape').style.background = who[wi][4];
-    setTimeout(() => {
-      desc.innerHTML = who[wi][3] + '<br><a class="who-link" href="#programlar">Programı gör →</a>'; desc.style.opacity = 1;
-      img.src = who[wi][2]; wchip.textContent = who[wi][1]; img.style.opacity = 1; img.style.transform = 'translateX(-50%)';
-    }, 200);
-  };
-  document.getElementById('wNext').onclick = () => wset(wi + 1);
-  document.getElementById('wPrev').onclick = () => wset(wi - 1);
-  lis.forEach((li, j) => li.onclick = () => wset(j));
-  wset(0);
-
-
-  // Steps: rotating student profiles
-  const profiles = [
-    { tab: '8. sınıf · LGS', sinif: '8. sınıf', gun: 2, saat: 'Hafta içi akşam', program: 'LGS', destek: 'Koçluk', takip: 'Deneme Kulübü', olcu: 'LGS denemeleri', bars: [38, 46, 44, 58, 66, 78] },
-    { tab: '11. sınıf · YKS', sinif: '11. sınıf', gun: 5, saat: 'Hafta sonu', program: 'YKS / TYT', destek: 'Koçluk', takip: 'VIP Kütüphane', olcu: 'TYT netleri', bars: [30, 34, 41, 39, 52, 64] },
-    { tab: '9. sınıf · Birebir', sinif: '9. sınıf', gun: 0, saat: 'Hafta içi gündüz', program: 'Birebir · Matematik', destek: 'Öğretmen', takip: 'Kısa ölçmeler', olcu: 'Matematik', bars: [42, 40, 50, 55, 61, 72] },
-    { tab: '3. sınıf · İlkokul', sinif: '3. sınıf', gun: 3, saat: 'Hafta içi akşam', program: 'İlkokul', destek: 'Ödev ve etüt', takip: 'Veli bilgilendirme', olcu: 'Ödev düzeni', bars: [50, 55, 52, 63, 70, 82] }
-  ];
-  const DUR = 5200;
-  const vis = [...document.querySelectorAll('.vis[data-anim]')];
-  const reduceM = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let pi = 0, ptimer = null, running = false;
-  const fill = p => {
-    document.querySelectorAll('.steps [data-f]').forEach(el => { el.textContent = p[el.dataset.f]; });
-    document.querySelectorAll('.steps .spark b').forEach((b, k) => b.style.setProperty('--h', p.bars[k] + '%'));
-  };
-  const playProfile = i => {
-    pi = (i + profiles.length) % profiles.length;
-    const p = profiles[pi];
-    vis.forEach(v => v.classList.add('out'));
-    setTimeout(() => {
-      vis.forEach(v => { v.classList.remove('play', 'out'); v.querySelectorAll('.cal i').forEach(d => d.classList.remove('on')); const r = v.querySelector('[data-anim="cal"] .ln, .ln.show'); });
-      const calV = vis.find(v => v.dataset.anim === 'cal'), row = calV.querySelector('.ln'), days = [...calV.querySelectorAll('.cal i')];
-      row.classList.remove('show');
-      fill(p);
-      void calV.offsetWidth;
-      vis.filter(v => v.dataset.anim !== 'cal').forEach(v => v.classList.add('play'));
-      if (reduceM) { days[p.gun].classList.add('on'); row.classList.add('show'); calV.classList.add('play'); return; }
-      const path = []; for (let k = 0; k <= p.gun; k++) path.push(k);
-      path.forEach((k, j) => setTimeout(() => { days.forEach(d => d.classList.remove('on')); days[k].classList.add('on'); }, 150 + j * 220));
-      setTimeout(() => { row.classList.add('show'); calV.classList.add('play'); }, 300 + path.length * 220);
-    }, 300);
-  };
-  const start = () => { if (running || reduceM) return; running = true; playProfile(pi); ptimer = setInterval(() => playProfile(pi + 1), DUR); };
-  const stop = () => { running = false; clearInterval(ptimer); };
-  playProfile(0);
-  new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? start() : stop()), { threshold: .15 }).observe(document.querySelector('.steps-grid'));
-
   const lead = document.getElementById('lead');
   lead.addEventListener('submit', e => { e.preventDefault(); if (lead.reportValidity()) document.getElementById('note').classList.add('on'); });
 
@@ -763,5 +704,6 @@
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
 })();
 </script>
+<script src="site.js"></script>
 </body>
 </html>
