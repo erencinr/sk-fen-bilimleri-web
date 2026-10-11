@@ -350,6 +350,14 @@
   .atom-actions { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
   .atom-cta { background: #252E5E; }
   .atom-cta:hover { background: #313c78; }
+  .founder { display: grid; grid-template-columns: 200px 1fr; gap: 36px; align-items: center; margin-top: 16px; background: #fff; border: 1px solid var(--line); border-radius: 28px; padding: 30px 40px 30px 30px; }
+  .f-photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; }
+  .f-quote { margin: 12px 0 0; font-family: var(--serif); font-size: clamp(20px, 1.9vw, 26px); line-height: 1.35; color: var(--ink); font-weight: 500; letter-spacing: -.01em; }
+  .f-quote .todo { font-family: var(--sans); font-weight: 500; margin-left: 6px; }
+  .f-who { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; font-size: 15px; }
+  .f-who b { font-weight: 500; }
+  .f-who span { color: var(--muted); }
+  @media (max-width: 760px) { .founder { grid-template-columns: 1fr; padding: 24px; text-align: center; justify-items: center; } .f-photo { width: 150px; height: 150px; } .f-who { justify-content: center; } }
   .atom-stage { position: relative; height: 470px; }
   .atom-mark { position: absolute; right: -40px; top: -50px; width: 300px; opacity: .08; }
   .atom-floor { position: absolute; left: 2%; right: 2%; bottom: 4%; height: 50%; border-radius: 999px; background: linear-gradient(180deg, #ECE6FB 0%, #E4EBFF 100%); }
@@ -657,6 +665,14 @@
           <div class="atom-floor"></div>
           <img class="atom-photo" src="gorseller/atomica-atolye.webp" alt="" loading="lazy">
           <div class="atom-panel"><img src="gorseller/atomica-ogretmen-paneli.webp" alt="" loading="lazy"><span>Öğretmen paneli</span></div>
+        </div>
+      </div>
+      <div class="founder rv">
+        <img class="f-photo" src="gorseller/gizem-aynaci.webp" alt="Gizem Aynacı" width="700" height="700" loading="lazy">
+        <div class="f-body">
+          <div class="eyebrow">Atomica’nın kurucusundan</div>
+          <blockquote class="f-quote">Atomica’yı neden kurduğunu ve SK’deki atölyeye nasıl baktığını anlatan 2–3 cümlelik söz buraya gelecek. <span class="todo">Gizem Hanım’dan onaylı söz eklenecek</span></blockquote>
+          <div class="f-who"><b>Gizem Aynacı</b><span>Atomica kurucusu <span class="todo">Unvan ve kısa özgeçmiş teyit edilecek</span></span></div>
         </div>
       </div>
     </div>
