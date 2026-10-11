@@ -87,13 +87,6 @@
   @keyframes grow { from { opacity: 0; transform: translateX(-50%) scaleY(.85); } }
   @keyframes bob { 0%, 100% { transform: translateY(0) rotate(var(--r)); } 50% { transform: translateY(-10px) rotate(var(--r)); } }
   .system { padding: 40px 20px 0; text-align: center; }
-  .model-facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 46px; border-top: 1px solid var(--line); text-align: left; }
-  .model-facts > div { padding: 22px 22px 0 0; }
-  .model-facts > div + div { padding-left: 22px; border-left: 1px solid var(--line); }
-  .model-facts > div > span { font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--c-blue-ink); font-weight: 500; }
-  .model-facts p { margin: 8px 0 0; font-size: 15.5px; color: var(--ink-2); }
-  @media (max-width: 860px) { .model-facts { grid-template-columns: 1fr 1fr; } .model-facts > div:nth-child(3) { padding-left: 0; border-left: 0; } }
-  @media (max-width: 560px) { .model-facts { grid-template-columns: 1fr; } .model-facts > div, .model-facts > div + div { padding: 18px 0 0; border-left: 0; } }
   .sys-head .sub { margin: 22px auto 0; max-width: 620px; font-size: 19px; line-height: 1.55; color: var(--ink-2); }
   .badge { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 8px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
   .badge .loc { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--c-blue); }
@@ -274,6 +267,75 @@
   .duo-card p { margin: 0; font-size: 16px; opacity: .85; max-width: 460px; }
   .duo-card .ghost { margin-top: 20px; }
 
+  /* Farkımız ne? — renkli kutu ızgarası */
+  .diff { padding: 120px 0 0; }
+  .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 46px; }
+  .dtile { position: relative; display: flex; flex-direction: column; min-height: 196px; padding: 22px 22px 20px; border-radius: 22px; background: #fff; border: 1px solid var(--line); color: var(--ink); transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+  a.dtile:hover { transform: translateY(-3px); box-shadow: 0 22px 40px -26px rgba(17,19,24,.35); }
+  .dtile > svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .dtile b { display: block; margin-top: auto; padding-top: 26px; font-weight: 500; font-size: 17px; letter-spacing: -.015em; line-height: 1.3; }
+  .dtile span { display: block; margin-top: 6px; font-size: 14px; line-height: 1.45; opacity: .82; }
+  .dtile .go { position: absolute; right: 16px; top: 16px; width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,.75); display: grid; place-items: center; transition: transform .3s var(--ease); }
+  .dtile .go svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  a.dtile:hover .go { transform: translateX(3px); }
+  .dtile.c-blue { background: var(--c-blue); color: #15265C; border-color: transparent; }
+  .dtile.c-coral { background: var(--c-coral); color: #5A2112; border-color: transparent; }
+  .dtile.c-yellow { background: var(--c-yellow); color: #4D3300; border-color: transparent; }
+  .dtile.c-green { background: var(--c-green); color: #12402A; border-color: transparent; }
+  .dtile.c-lilac { background: var(--c-lilac); color: #2F2460; border-color: transparent; }
+  .dtile.c-atom { background: var(--atomica); color: #fff; border-color: transparent; }
+  .dtile.c-atom .go { background: rgba(255,255,255,.18); }
+  .dtile .todo { margin-top: 10px; align-self: flex-start; }
+
+  /* Başarı hikayeleri — dikey video kartları */
+  .stories { padding: 140px 0 40px; }
+  .story-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 46px; }
+  .story { display: block; }
+  .story .frame { position: relative; aspect-ratio: 9 / 14; border-radius: 22px; overflow: hidden; background: linear-gradient(180deg, #EDEDEA 0%, #DEDEDA 100%); border: 1px solid var(--line); transition: transform .4s var(--ease); }
+  .story:hover .frame { transform: translateY(-4px); }
+  .story .frame .cr { position: absolute; left: 50%; top: 44%; width: 42%; transform: translate(-50%, -50%); opacity: .07; }
+  .story .frame .tag-c { position: absolute; left: 14px; top: 14px; height: 30px; font-size: 13px; }
+  .story .play { position: absolute; left: 50%; bottom: 18px; width: 56px; height: 56px; border-radius: 50%; background: var(--navy); display: grid; place-items: center; transform: translateX(-50%); box-shadow: 0 14px 28px -12px rgba(29,42,107,.65); transition: transform .3s var(--ease); }
+  .story:hover .play { transform: translateX(-50%) scale(1.08); }
+  .story b { display: block; margin-top: 14px; text-align: center; font-weight: 500; font-size: 17px; letter-spacing: -.01em; }
+  .story small { display: block; margin-top: 3px; text-align: center; color: var(--muted); font-size: 14px; }
+
+  /* Tam destek yanındayız — 3 sütun */
+  .support { padding: 140px 0 40px; }
+  .sup-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .sup { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 26px; padding: 28px 28px 0; overflow: hidden; }
+  .sup h3 { margin: 10px 0 8px; font-size: 23px; font-weight: 500; letter-spacing: -.02em; line-height: 1.2; }
+  .sup h3 em { font-style: normal; color: var(--c-blue-ink); }
+  .sup > p { margin: 0; color: var(--ink-2); font-size: 15.5px; }
+  .sup .list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 7px; font-size: 14.5px; color: var(--ink-2); }
+  .sup .list li { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .sup .list li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--c-blue-ink); flex: none; }
+  .sup .list b { font-weight: 500; color: var(--ink); }
+  .sup .fig { position: relative; margin-top: 26px; height: 250px; }
+  .sup .fig .shape { position: absolute; left: 0; right: 0; bottom: 0; height: 64%; border-radius: 28px 28px 0 0; }
+  .sup .fig img { position: absolute; left: 50%; bottom: 0; max-height: 94%; max-width: 86%; width: auto; transform: translateX(-50%); filter: drop-shadow(0 18px 24px rgba(17,19,24,.16)); }
+  .sup .fig.photo img { inset: 0; left: 0; width: 100%; height: 100%; max-width: none; max-height: none; object-fit: cover; transform: none; filter: none; border-radius: 28px 28px 0 0; }
+  .sup .team { margin-top: 18px; }
+
+  /* Öğrenci ve veli yorumları — yatay kaydırma */
+  .reviews { padding: 140px 0 40px; }
+  .rev-wrap { margin-top: 46px; }
+  .rev-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; scrollbar-width: none; }
+  .rev-track::-webkit-scrollbar { display: none; }
+  .rev { flex: 0 0 300px; scroll-snap-align: start; display: flex; flex-direction: column; min-height: 380px; background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 26px; }
+  .rev.bg-blue { background: var(--c-blue); border-color: transparent; }
+  .rev.bg-coral { background: var(--c-coral); border-color: transparent; }
+  .rev.bg-yellow { background: var(--c-yellow); border-color: transparent; }
+  .rev.bg-green { background: var(--c-green); border-color: transparent; }
+  .rev .rw { display: flex; gap: 12px; align-items: center; }
+  .rev .rw i { flex: none; width: 44px; height: 44px; border-radius: 50%; background: #fff url("assets/brand/sk-logo.svg") center / 22px no-repeat; border: 1px solid var(--line); }
+  .rev .rw b { display: block; font-weight: 500; font-size: 15px; }
+  .rev .rw small { color: var(--muted); font-size: 13px; }
+  .rev q { quotes: none; display: block; margin-top: 20px; font-family: var(--serif); font-size: 19.5px; line-height: 1.42; color: var(--ink-2); }
+  .rev .mark { margin-top: auto; padding-top: 18px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .rev .mark span:first-child { font-family: var(--serif); font-size: 46px; line-height: .6; color: var(--c-blue-ink); opacity: .5; }
+  .rev-nav { display: flex; justify-content: center; gap: 10px; margin-top: 8px; }
+
   .atomica { margin-top: 140px; }
   .atom-box { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 32px; padding: 56px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; overflow: hidden; }
   .atom-box::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: linear-gradient(90deg, #5F4897 0 33.3%, #1F94C2 33.3% 66.6%, #F5A918 66.6%); }
@@ -289,15 +351,11 @@
   .atom-cta:hover { background: #313c78; }
   .atom-stage { position: relative; height: 470px; }
   .atom-mark { position: absolute; right: -40px; top: -50px; width: 300px; opacity: .08; }
-  .atom-room { position: absolute; left: 4%; top: 6%; width: 80%; border-radius: 20px; overflow: hidden; background: #F4F6FB; box-shadow: 0 24px 50px -30px rgba(17,19,24,.4); }
-  .atom-room img { width: 100%; display: block; }
-  .atom-panel { position: absolute; right: 0; bottom: 6%; width: 54%; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 50px -24px rgba(17,19,24,.55); transform: rotate(3deg); background: #1B1F3A; }
-  .atom-game { position: absolute; left: 0; bottom: 0; width: 38%; border-radius: 14px; overflow: hidden; box-shadow: 0 24px 40px -22px rgba(17,19,24,.5); transform: rotate(-4deg); background: #fff; }
-  .atom-panel img, .atom-game img { width: 100%; display: block; }
-  .atom-panel span, .atom-game span { position: absolute; left: 10px; bottom: 10px; background: rgba(255,255,255,.95); color: #252E5E; font-size: 12px; font-weight: 500; padding: 5px 10px; border-radius: 999px; }
-  .atom-obj { position: absolute; width: 110px; filter: drop-shadow(0 14px 18px rgba(17,19,24,.18)); animation: bob 6s ease-in-out infinite; --r: 0deg; }
-  .atom-obj.o1 { right: 4%; top: 2%; }
-  .atom-obj.o2 { left: 30%; bottom: 14%; animation-delay: -3s; }
+  .atom-floor { position: absolute; left: 2%; right: 2%; bottom: 4%; height: 50%; border-radius: 999px; background: linear-gradient(180deg, #ECE6FB 0%, #E4EBFF 100%); }
+  .atom-photo { position: absolute; left: 50%; bottom: 7%; width: 96%; max-width: none; transform: translateX(-50%); z-index: 1; filter: drop-shadow(0 26px 30px rgba(17,19,24,.18)); }
+  .atom-panel { position: absolute; right: -2%; bottom: 0; width: 36%; z-index: 2; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 50px -24px rgba(17,19,24,.55); transform: rotate(3deg); background: #1B1F3A; }
+  .atom-panel img { width: 100%; display: block; }
+  .atom-panel span { position: absolute; left: 10px; bottom: 10px; background: rgba(255,255,255,.95); color: #252E5E; font-size: 12px; font-weight: 500; padding: 5px 10px; border-radius: 999px; }
   .table { max-width: 720px; margin: 46px auto 0; border-top: 1px solid var(--line); }
   .trow { display: grid; grid-template-columns: 210px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); }
   .trow .k { font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--c-blue-ink); font-weight: 500; padding-top: 3px; }
@@ -313,22 +371,11 @@
   .gallery img { width: 100%; height: 100%; object-fit: cover; }
   .gallery figcaption { position: absolute; left: 12px; bottom: 12px; background: rgba(255,255,255,.94); font-size: 13px; font-weight: 500; padding: 6px 11px; border-radius: 999px; }
   .g-note { text-align: center; margin-top: 18px; color: var(--muted); font-size: 14.5px; }
-  .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
-  .tcard { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 26px; }
-  .tcard h3 { margin: 10px 0 6px; font-size: 21px; font-weight: 500; letter-spacing: -.02em; }
-  .tcard > p { margin: 0; color: var(--ink-2); font-size: 15.5px; }
-  .tcard .small { margin-top: 14px; font-size: 14px; color: var(--muted); }
   .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; text-align: center; }
   .tm i { display: block; width: 56px; height: 56px; margin: 0 auto 8px; border-radius: 50%; background: var(--c-blue) url("assets/brand/sk-logo.svg") center / 26px no-repeat; }
   .tm b { display: block; font-size: 14px; font-weight: 500; }
   .tm small { color: var(--muted); font-size: 12.5px; }
-  .tcard blockquote { margin: 18px 0 0; padding: 18px; border-radius: 16px; background: var(--bg); border: 1px dashed #DCDCD6; text-align: center; }
-  .plat { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 12px; }
-  .plat li { display: grid; gap: 4px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
-  .plat li:last-child { border-bottom: 0; }
-  .plat b { font-weight: 500; }
-  .plat span { color: var(--ink-2); font-size: 14.5px; }
-  @media (max-width: 900px) { .trust-grid { grid-template-columns: 1fr; } .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 160px 160px; } .gallery .g1 { grid-column: span 2; grid-row: auto; } .gallery .g4 { grid-column: span 2; } }
+  @media (max-width: 900px) { .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 160px 160px; } .gallery .g1 { grid-column: span 2; grid-row: auto; } .gallery .g4 { grid-column: span 2; } }
   .faq-list { max-width: 720px; margin: 46px auto 0; display: grid; gap: 10px; }
   .faq details { background: #fff; border-radius: 18px; padding: 0 22px; border: 1px solid var(--line); }
   .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-size: 17px; font-weight: 500; }
@@ -404,6 +451,9 @@
     .menu-btn { display: inline-block; }
     .prog { grid-column: span 3; }
     .prog-grid.six { grid-template-columns: repeat(2, 1fr); }
+    .diff-grid { grid-template-columns: repeat(2, 1fr); }
+    .story-row { grid-template-columns: repeat(2, 1fr); }
+    .sup-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 760px) {
     .hero { padding-top: 28px; height: 830px; }
@@ -420,11 +470,18 @@
     .prog.full { grid-template-columns: 1fr; }
     .prog.full .txt { padding: 28px 28px 10px; }
     .prog.full .ph { min-height: 0; aspect-ratio: 16 / 11; margin: 0 14px 14px; }
-    .programs, .duo, .trust, .faq, .contact { padding-top: 96px; }
+    .programs, .duo, .trust, .faq, .contact, .stories, .support, .reviews { padding-top: 96px; }
+    .diff { padding-top: 80px; }
+    .dtile { min-height: 164px; padding: 18px 18px 16px; }
+    .dtile b { font-size: 16px; }
+    .story-row { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding: 4px 4px 14px; scrollbar-width: none; }
+    .story-row::-webkit-scrollbar { display: none; }
+    .story { flex: 0 0 66%; scroll-snap-align: start; }
+    .rev { flex-basis: 84%; min-height: 340px; }
     .atomica { margin-top: 96px; }
     .atom-box { grid-template-columns: 1fr; padding: 34px 22px; }
-    .atom-stage { height: 340px; }
-    .atom-obj { width: 76px; }
+    .atom-stage { height: 300px; }
+    .atom-panel { width: 44%; }
     .trow { grid-template-columns: 1fr; gap: 8px; }
     .two { grid-template-columns: 1fr; }
     .who-fig { height: 420px; }
@@ -433,6 +490,7 @@
     .wheel { width: 240px; }
     .picker { gap: 6px; }
   }
+  @media (max-width: 480px) { .diff-grid { grid-template-columns: 1fr; } .dtile { min-height: 0; } .dtile b { padding-top: 18px; } }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; animation: none !important; }
     .rv { opacity: 1; transform: none; }
@@ -495,12 +553,26 @@
       <div class="chips" id="chips"><span class="chip" data-s="0">Denemeye gir</span><span class="chip" data-s="1">Eksiklerini belirle</span><span class="chip">Kişisel plan</span><span class="chip" data-s="2">Hedefli özel ders</span><span class="chip">Yeniden ölç</span></div>
       <div class="cap-text" id="cap"></div>
     </div>
-    <div class="container"><div class="model-facts rv">
-      <div><span>Öğretmen açıklaması</span><p>Hata Karnesi’ndeki her eksik için öğretmen ne yapılacağını not eder.</p></div>
-      <div><span>Koçluk</span><p>Haftalık plan koçla birlikte hazırlanır. <span class="todo">Görüşme sıklığı eklenecek</span></p></div>
-      <div><span>Veli bilgilendirme</span><p>Deneme sonucu, Hata Karnesi ve plan veliyle paylaşılır. <span class="todo">Sıklık eklenecek</span></p></div>
-      <div><span>Plan ne zaman yenilenir</span><p>Her deneme ve kısa ölçmeden sonra, sonuçlara göre güncellenir.</p></div>
-    </div></div>
+  </section>
+
+  <section class="diff" id="fark" aria-labelledby="diff-h">
+    <div class="container">
+      <div class="center rv"><div class="eyebrow">SK Fen Bilimleri</div><h2 class="h2" id="diff-h">Farkımız ne?</h2><p class="lead">Ders anlatmakla yetinmeyiz; ölçer, planlar, takip eder ve veliyle paylaşırız. Bu düzenin parçaları:</p></div>
+      <div class="diff-grid rv">
+        <a class="dtile c-coral" href="deneme-kulubu.html"><svg viewBox="0 0 24 24"><path d="M9 4h6v3H9z"/><path d="M7 5H5v15h14V5h-2"/><path d="M9 13l2 2 4-4"/></svg><b>Hata Karnesi</b><span>Her hata konu ve kazanım bazında kaydedilir; sonraki plan buna göre şekillenir.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+        <div class="dtile"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 20v-7M12 20V6M17 20v-10"/></svg><b>Seviye belirleme</b><span>Her program, öğrencinin seviyesini ölçmekle başlar; eksik kazanımlar baştan belirlenir.</span></div>
+        <div class="dtile c-blue"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/></svg><b>Kişisel çalışma planı</b><span>Haftalık plan koçla birlikte hazırlanır; her denemeden sonra güncellenir.</span></div>
+        <a class="dtile c-green" href="ozel-ders.html"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 20c0-2.6 1.4-4.5 3.5-5"/></svg><b>Hedefli birebir ders</b><span>Özel ders, Hata Karnesi’nde çıkan eksik konuya göre planlanır.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+        <div class="dtile"><svg viewBox="0 0 24 24"><path d="M5 19l1-4L16 5l3 3L9 18z"/><path d="M13 8l3 3"/></svg><b>Öğretmen açıklaması</b><span>Hata Karnesi’ndeki her eksik için öğretmen ne yapılacağını not eder.</span></div>
+        <a class="dtile c-yellow" href="deneme-kulubu.html"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 12h6M9 16h6"/></svg><b>Deneme Kulübü</b><span>LGS ve YKS denemeleri; sonuç puan değil, sonraki çalışmanın verisidir.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+        <div class="dtile"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H9l-5 4z"/></svg><b>Koçluk görüşmeleri</b><span>Düzenli görüşmelerle hedef netleşir, çalışma disiplini oturur.</span><span class="todo">Görüşme sıklığı eklenecek</span></div>
+        <div class="dtile c-lilac"><svg viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg><b>Veli bilgilendirme</b><span>Deneme sonucu, Hata Karnesi ve plan veliyle paylaşılır.</span><span class="todo">Sıklık eklenecek</span></div>
+        <a class="dtile" href="vip-kutuphane.html"><svg viewBox="0 0 24 24"><path d="M4 5h7a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-7a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h7z"/></svg><b>VIP Kütüphane</b><span>Odaklanılan, takip edilen, kontrollü bir çalışma alanı.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+        <a class="dtile c-atom" href="atomica.html"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="4"/><path d="M13 20l4-8 4 8z"/><rect x="4" y="14" width="6" height="6" rx="1"/></svg><b>Atomica Matematik Atölyesi</b><span>Materyallerle dokunarak, deneyerek öğrenilen matematik.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+        <div class="dtile"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg><b>Yeniden ölçme</b><span>Kısa ölçmelerle ilerleme görülür; plan sonuca göre yenilenir.</span></div>
+        <div class="dtile"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg><b>Derste ve evde aynı sistem</b><span>Atomica ve dijital platformlarla destek ders dışında da sürer.</span></div>
+      </div>
+    </div>
   </section>
 
   <section class="programs" id="programlar" aria-labelledby="prg">
@@ -513,6 +585,48 @@
         <a class="prog bg-coral rv" href="lise.html"><div class="txt"><span class="k">9, 10 ve 11. sınıf</span><h3>Lise Ara Sınıf</h3><p>Okul derslerinde akademik destek ve TYT’nin temeli aynı planda.</p><span class="more">Programı incele →</span></div><div class="ph"><img src="gorseller/vip-kutuphane.webp" alt="Ders çalışan lise öğrencisi; temsili görsel" loading="lazy"></div></a>
         <a class="prog bg-coral rv" href="yks.html"><div class="txt"><span class="k">12. sınıf ve mezun</span><h3>YKS Hazırlık</h3><p>TYT ve YKS’de hedef, netler ve konu eksikleri birlikte yönetilir.</p><span class="more">Programı incele →</span></div><div class="ph"><img src="gorseller/program-yks.webp" alt="Soru çözen lise öğrencisi; temsili görsel" loading="lazy" style="object-position:50% 30%"></div></a>
         <a class="prog bg-green rv" href="ozel-ders.html"><div class="txt"><span class="k">Tüm sınıflar</span><h3>Birebir Özel Ders</h3><p>Deneme ve Hata Karnesi verisine göre planlanan hedefli birebir ders.</p><span class="more">Programı incele →</span></div><div class="ph"><img src="gorseller/program-birebir.webp" alt="Öğretmeniyle birebir çalışan öğrenci; temsili görsel" loading="lazy" style="object-position:50% 40%"></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stories" id="basari" aria-labelledby="st-h">
+    <div class="container">
+      <div class="center rv"><div class="eyebrow">Başarı hikayeleri</div><h2 class="h2" id="st-h">Onlar yaptı, sen de yapabilirsin</h2><p class="lead">Öğrencilerimiz LGS ve YKS hazırlık süreçlerini kendi ağızlarından anlatıyor.</p></div>
+      <div class="story-row rv">
+        <a class="story" href="#iletisim"><div class="frame"><span class="tag-c t-blue">LGS 2026</span><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><b>Ad Soyad</b><small>LGS · Türkiye derecesi</small></a>
+        <a class="story" href="#iletisim"><div class="frame"><span class="tag-c t-coral">YKS 2026</span><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><b>Ad Soyad</b><small>YKS · Sayısal derecesi</small></a>
+        <a class="story" href="#iletisim"><div class="frame"><span class="tag-c t-blue">LGS 2026</span><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><b>Ad Soyad</b><small>LGS · İl derecesi</small></a>
+        <a class="story" href="#iletisim"><div class="frame"><span class="tag-c t-coral">YKS 2026</span><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><b>Ad Soyad</b><small>YKS · Eşit Ağırlık derecesi</small></a>
+      </div>
+      <p class="g-note rv"><span class="todo">Örnek düzen: gerçek öğrenci adı, derecesi ve videosu eklenecek</span></p>
+    </div>
+  </section>
+
+  <section class="support" id="destek" aria-labelledby="sup-h">
+    <div class="container">
+      <div class="center rv"><div class="eyebrow">Destek</div><h2 class="h2" id="sup-h">Tam destek yanındayız</h2><p class="lead">Sınıfta öğretmen, görüşmede koç, evde dijital içerik: aynı planın üç ayağı.</p></div>
+      <div class="sup-grid">
+        <div class="sup rv">
+          <div class="eyebrow">Ekibimiz</div>
+          <h3><em>Profesyonel destek,</em> tanıdık yüzler</h3>
+          <p>Yönetici, öğretmen ve koçlar aynı sistemin içinde çalışır; veli görüşmelerini Ayşe Hanım yürütür.</p>
+          <div class="team"><div class="tm"><i></i><b>Ayşe Hanım</b><small>Veli görüşmeleri</small></div><div class="tm"><i></i><b><span class="todo">İsim</span></b><small>Yönetici</small></div><div class="tm"><i></i><b><span class="todo">İsim</span></b><small>Öğretmen</small></div></div>
+          <div class="fig photo"><img src="gorseller/program-birebir.webp" alt="Öğrenciyle çalışan öğretmen; temsili görsel" loading="lazy" style="object-position:50% 35%"></div>
+        </div>
+        <div class="sup rv">
+          <div class="eyebrow">Birebir koçluk</div>
+          <h3><em>Doğru rehberlik,</em> düzenli takip</h3>
+          <p>Koç, haftalık planı öğrenciyle birlikte hazırlar; hedefi netleştirir, çalışma disiplinini oturtur.</p>
+          <ul class="list"><li><b>Haftalık çalışma planı</b></li><li><b>Hedef ve motivasyon görüşmesi</b><span class="todo">Görüşme sıklığı eklenecek</span></li><li><b>Veliye düzenli bilgilendirme</b></li></ul>
+          <div class="fig"><div class="shape" style="background:var(--c-coral)"></div><img src="gorseller/kimler-birebir.webp" alt="Koçuyla çalışan öğrenci; temsili görsel" loading="lazy"></div>
+        </div>
+        <div class="sup rv">
+          <div class="eyebrow">Derste ve evde</div>
+          <h3><em>Dijital platformlar,</em> aynı sistem</h3>
+          <p>Ders dışında da öğrencinin yanında olan içerik ve uygulamalar; hepsi aynı çalışma planına bağlı.</p>
+          <ul class="list"><li><b>Atomica</b> Etkileşimli matematik içerikleri</li><li><b>3-4-5 All Star</b><span class="todo">Öğrenciye faydası eklenecek</span></li><li><b>Kunduz</b><span class="todo">Öğrenciye faydası eklenecek</span></li></ul>
+          <div class="fig"><div class="shape" style="background:var(--c-green)"></div><img src="gorseller/kimler-lise.webp" alt="Tabletle çalışan öğrenci; temsili görsel" loading="lazy"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -550,19 +664,34 @@
         </div>
         <div class="atom-stage" aria-hidden="true">
           <img class="atom-mark" src="gorseller/atomica-isaret.webp" alt="">
-          <div class="atom-room"><img src="gorseller/atomica-atolye-sinif.webp" alt=""></div>
-          <div class="atom-panel"><img src="gorseller/atomica-ogretmen-paneli.webp" alt=""><span>Öğretmen paneli</span></div>
-          <div class="atom-game"><img src="gorseller/atomica-oyun.webp" alt=""><span>Kesir oyunu</span></div>
-          <img class="atom-obj o1" src="gorseller/atomica-kesir.webp" alt="">
-          <img class="atom-obj o2" src="gorseller/atomica-bloklar.webp" alt="">
+          <div class="atom-floor"></div>
+          <img class="atom-photo" src="gorseller/atomica-atolye.webp" alt="" loading="lazy">
+          <div class="atom-panel"><img src="gorseller/atomica-ogretmen-paneli.webp" alt="" loading="lazy"><span>Öğretmen paneli</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="yorumlar" aria-labelledby="rv-h">
+    <div class="container">
+      <div class="center rv"><div class="eyebrow">Öğrenci ve veli yorumları</div><h2 class="h2" id="rv-h">Bizi bizden değil, onlardan dinleyin</h2><p class="lead">Yalnızca izinli ve gerçek yorumlara yer veriyoruz.</p></div>
+      <div class="rev-wrap rv">
+        <div class="rev-track" id="revTrack">
+          <article class="rev bg-blue"><div class="rw"><i></i><div><b>Ad Soyad</b><small>Veli · 8. sınıf</small></div></div><q>Buraya izinli veli yorumu gelecek. İki üç cümlelik bir yorum kartı dengeli gösterir.</q><div class="mark"><span>”</span><span class="todo">Örnek</span></div></article>
+          <article class="rev"><div class="rw"><i></i><div><b>Ad Soyad</b><small>Öğrenci · YKS 2026</small></div></div><q>Buraya izinli öğrenci yorumu gelecek. Hazırlık sürecini kısa anlatan bir cümle yeterli.</q><div class="mark"><span>”</span><span class="todo">Örnek</span></div></article>
+          <article class="rev bg-coral"><div class="rw"><i></i><div><b>Ad Soyad</b><small>Veli · 5. sınıf</small></div></div><q>Buraya izinli veli yorumu gelecek. Velinin ilk görüşmeden sonraki izlenimi burada yer alır.</q><div class="mark"><span>”</span><span class="todo">Örnek</span></div></article>
+          <article class="rev"><div class="rw"><i></i><div><b>Ad Soyad</b><small>Öğrenci · LGS 2026</small></div></div><q>Buraya izinli öğrenci yorumu gelecek. Deneme ve Hata Karnesi deneyimi anlatılabilir.</q><div class="mark"><span>”</span><span class="todo">Örnek</span></div></article>
+          <article class="rev bg-yellow"><div class="rw"><i></i><div><b>Ad Soyad</b><small>Veli · 11. sınıf</small></div></div><q>Buraya izinli veli yorumu gelecek. Veli bilgilendirme sıklığıyla ilgili bir cümle olabilir.</q><div class="mark"><span>”</span><span class="todo">Örnek</span></div></article>
+          <article class="rev bg-green"><div class="rw"><i></i><div><b>Ad Soyad</b><small>Öğrenci · Mezun</small></div></div><q>Buraya izinli öğrenci yorumu gelecek. VIP Kütüphane ve koçluk deneyimi anlatılabilir.</q><div class="mark"><span>”</span><span class="todo">Örnek</span></div></article>
+        </div>
+        <div class="rev-nav"><button class="icon-btn" type="button" id="revPrev" aria-label="Önceki yorumlar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button><button class="icon-btn" type="button" id="revNext" aria-label="Sonraki yorumlar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button></div>
       </div>
     </div>
   </section>
 
   <section class="trust" id="kampus" aria-labelledby="tr-h">
     <div class="container">
-      <div class="center rv"><div class="eyebrow">Kampüs ve ekip</div><h2 class="h2" id="tr-h">Eğitimin içinde yaşadığı mekânı görün</h2><p class="lead">Küçükyalı kampüsümüzü dersliklerimiz, VIP Kütüphanemiz ve Atomica Matematik Atölyemizle yakından tanıyın.</p></div>
+      <div class="center rv"><div class="eyebrow">Kampüs</div><h2 class="h2" id="tr-h">Eğitimin içinde yaşadığı mekânı görün</h2><p class="lead">Küçükyalı kampüsümüzü dersliklerimiz, VIP Kütüphanemiz ve Atomica Matematik Atölyemizle yakından tanıyın.</p></div>
       <div class="gallery rv">
         <figure class="g1"><img src="gorseller/atomica-atolye-sinif.webp" alt="Atomica Matematik Atölyesi sınıf düzeni" loading="lazy"><figcaption>Atomica Matematik Atölyesi</figcaption></figure>
         <figure class="g2"><img src="gorseller/vip-kutuphane.webp" alt="VIP Kütüphane; temsili görsel" loading="lazy"><figcaption>VIP Kütüphane</figcaption></figure>
@@ -570,17 +699,6 @@
         <figure class="g4"><img src="gorseller/program-birebir.webp" alt="Birebir ders alanı; temsili görsel" loading="lazy"><figcaption>Birebir ders alanı</figcaption></figure>
       </div>
       <p class="g-note rv"><span class="todo">Gerçek kampüs fotoğrafları ve kampüs turu videosu eklenecek</span> · Kampüsü yerinde görmek için <a class="text-link" href="#iletisim">ziyaret planlayın →</a></p>
-
-      <div class="trust-grid">
-        <div class="tcard rv"><div class="eyebrow">Ekibimiz</div><h3>Öğrenciyi tanıyan bir ekip</h3><p>Yönetici, öğretmen ve koçlarımızı yakından tanıyın.</p>
-          <div class="team"><div class="tm"><i></i><b>Ayşe Hanım</b><small>Veli görüşmeleri</small></div><div class="tm"><i></i><b><span class="todo">İsim</span></b><small>Yönetici</small></div><div class="tm"><i></i><b><span class="todo">İsim</span></b><small>Öğretmen</small></div></div>
-          <p class="small"><span class="todo">Fotoğraflı ekip tanıtımları eklenecek</span></p></div>
-        <div class="tcard rv"><div class="eyebrow">Veliler ne diyor</div><h3>Velilerimizden</h3><p>Yalnızca izinli ve gerçek veli yorumlarına yer veriyoruz.</p>
-          <blockquote><span class="todo">İzinli veli yorumu eklenecek</span></blockquote>
-          <p class="small">Doğrulanabilir öğrenci gelişim örnekleri de burada yer alacak.</p></div>
-        <div class="tcard rv"><div class="eyebrow">Kullandığımız içerik ve platformlar</div><h3>Derste ve evde aynı sistem</h3>
-          <ul class="plat"><li><b>Atomica</b><span>Etkileşimli matematik içerikleri, 2D oyunlar ve 3D öğrenme dünyaları</span></li><li><b>3-4-5 All Star</b><span class="todo">Öğrenciye faydası eklenecek</span></li><li><b>Kunduz</b><span class="todo">Öğrenciye faydası eklenecek</span></li></ul></div>
-      </div>
     </div>
   </section>
 
@@ -635,7 +753,7 @@
     <div class="foot-grid">
       <div><a class="brand" href="./"><img src="assets/brand/sk-logo.svg" alt="">SK Fen Bilimleri</a><p>Maltepe Küçükyalı’da öğrencinin seviyesini, hedefini ve öğrenme sürecini merkeze alan eğitim kurumu.</p></div>
       <div><h4>Programlar</h4><a href="ilkokul.html">İlkokul Katı</a><a href="ortaokul.html">Ortaokul · 5–7. sınıf</a><a href="lgs.html">LGS · 8. sınıf</a><a href="lise.html">Lise · 9–11. sınıf</a><a href="yks.html">YKS · 12. sınıf ve mezun</a><a href="ozel-ders.html">Birebir Özel Ders</a></div>
-      <div><h4>SK’de</h4><a href="#sistem">Eğitim Modeli</a><a href="deneme-kulubu.html">Deneme Kulübü</a><a href="vip-kutuphane.html">VIP Kütüphane</a><a href="atomica.html">Atomica Matematik Atölyesi</a><a href="#kampus">Kampüs ve ekip</a></div>
+      <div><h4>SK’de</h4><a href="#sistem">Eğitim Modeli</a><a href="deneme-kulubu.html">Deneme Kulübü</a><a href="vip-kutuphane.html">VIP Kütüphane</a><a href="atomica.html">Atomica Matematik Atölyesi</a><a href="#basari">Başarı Hikayeleri</a><a href="#kampus">Kampüs</a></div>
       <div><h4>İletişim</h4><a href="#iletisim">Bilgi Al</a><a href="#iletisim" data-wa>WhatsApp</a><a href="https://share.google/GG1858TpRNTLzTRQy" target="_blank" rel="noopener">Yol Tarifi</a><a href="kvkk.html">KVKK Aydınlatma Metni</a></div>
     </div>
     <div class="copy"><span>© 2026 SK Fen Bilimleri · Altıntepe Mah. Bağdat Cad. No: 101, Küçükyalı / Maltepe</span><span>Görseller temsilidir.</span></div>
@@ -696,6 +814,11 @@
   document.getElementById('prev').onclick = () => { show(cur - 1); restart(); };
   chips.forEach(c => { if (c.dataset.s) { c.style.cursor = 'pointer'; c.onclick = () => { show(+c.dataset.s); restart(); }; } });
   show(0, true); restart();
+
+  const track = document.getElementById('revTrack');
+  const revStep = () => track.querySelector('.rev').offsetWidth + 16;
+  document.getElementById('revNext').onclick = () => track.scrollBy({ left: revStep(), behavior: 'smooth' });
+  document.getElementById('revPrev').onclick = () => track.scrollBy({ left: -revStep(), behavior: 'smooth' });
 
   const lead = document.getElementById('lead');
   lead.addEventListener('submit', e => { e.preventDefault(); if (lead.reportValidity()) document.getElementById('note').classList.add('on'); });
