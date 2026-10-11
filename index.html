@@ -269,12 +269,17 @@
 
   /* Farkımız ne? — renkli kutu ızgarası */
   .diff { padding: 120px 0 0; }
-  .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 46px; }
-  .dtile { position: relative; display: flex; flex-direction: column; min-height: 196px; padding: 22px 22px 20px; border-radius: 22px; background: #fff; border: 1px solid var(--line); color: var(--ink); transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+  .diff-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 46px; }
+  .dtile { position: relative; grid-column: span 2; display: flex; flex-direction: column; align-items: flex-start; min-height: 292px; padding: 26px 26px 24px; border-radius: 24px; overflow: hidden; background: #fff; border: 1px solid var(--line); color: var(--ink); transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+  .dtile:nth-child(4), .dtile:nth-child(5) { grid-column: span 3; }
   a.dtile:hover { transform: translateY(-3px); box-shadow: 0 22px 40px -26px rgba(17,19,24,.35); }
-  .dtile > svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-  .dtile b { display: block; margin-top: auto; padding-top: 26px; font-weight: 500; font-size: 17px; letter-spacing: -.015em; line-height: 1.3; }
-  .dtile span { display: block; margin-top: 6px; font-size: 14px; line-height: 1.45; opacity: .82; }
+  .dtile b { display: block; max-width: 22ch; padding-right: 36px; font-weight: 500; font-size: 20px; letter-spacing: -.02em; line-height: 1.25; }
+  .dtile span { display: block; margin-top: 10px; max-width: 30ch; font-size: 14.5px; line-height: 1.5; opacity: .85; }
+  .dtile:nth-child(4) b, .dtile:nth-child(5) b { max-width: 28ch; }
+  .dtile:nth-child(4) span, .dtile:nth-child(5) span { max-width: 40ch; }
+  .dtile .art { position: absolute; right: -4px; bottom: -8px; width: 46%; max-width: 200px; height: auto; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: .85; pointer-events: none; transition: transform .5s var(--ease); }
+  .dtile:nth-child(4) .art, .dtile:nth-child(5) .art { width: 36%; }
+  a.dtile:hover .art { transform: translateY(-4px); }
   .dtile .go { position: absolute; right: 16px; top: 16px; width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,.75); display: grid; place-items: center; transition: transform .3s var(--ease); }
   .dtile .go svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   a.dtile:hover .go { transform: translateX(3px); }
@@ -283,9 +288,7 @@
   .dtile.c-yellow { background: var(--c-yellow); color: #4D3300; border-color: transparent; }
   .dtile.c-green { background: var(--c-green); color: #12402A; border-color: transparent; }
   .dtile.c-lilac { background: var(--c-lilac); color: #2F2460; border-color: transparent; }
-  .dtile.c-atom { background: var(--atomica); color: #fff; border-color: transparent; }
-  .dtile.c-atom .go { background: rgba(255,255,255,.18); }
-  .dtile .todo { margin-top: 10px; align-self: flex-start; }
+  .dtile .todo { margin-top: 12px; position: relative; z-index: 1; }
 
   /* Başarı hikayeleri — dikey video kartları */
   .stories { padding: 140px 0 40px; }
@@ -451,7 +454,9 @@
     .menu-btn { display: inline-block; }
     .prog { grid-column: span 3; }
     .prog-grid.six { grid-template-columns: repeat(2, 1fr); }
-    .diff-grid { grid-template-columns: repeat(2, 1fr); }
+    .diff-grid { grid-template-columns: 1fr 1fr; }
+    .dtile, .dtile:nth-child(4) { grid-column: auto; }
+    .dtile:nth-child(5) { grid-column: span 2; }
     .story-row { grid-template-columns: repeat(2, 1fr); }
     .sup-grid { grid-template-columns: 1fr; }
   }
@@ -472,8 +477,9 @@
     .prog.full .ph { min-height: 0; aspect-ratio: 16 / 11; margin: 0 14px 14px; }
     .programs, .duo, .trust, .faq, .contact, .stories, .support, .reviews { padding-top: 96px; }
     .diff { padding-top: 80px; }
-    .dtile { min-height: 164px; padding: 18px 18px 16px; }
-    .dtile b { font-size: 16px; }
+    .dtile { min-height: 236px; padding: 20px 20px 18px; }
+    .dtile .art, .dtile:nth-child(4) .art, .dtile:nth-child(5) .art { width: 42%; }
+    .dtile b { font-size: 18px; }
     .story-row { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding: 4px 4px 14px; scrollbar-width: none; }
     .story-row::-webkit-scrollbar { display: none; }
     .story { flex: 0 0 66%; scroll-snap-align: start; }
@@ -490,7 +496,7 @@
     .wheel { width: 240px; }
     .picker { gap: 6px; }
   }
-  @media (max-width: 480px) { .diff-grid { grid-template-columns: 1fr; } .dtile { min-height: 0; } .dtile b { padding-top: 18px; } }
+  @media (max-width: 480px) { .diff-grid { grid-template-columns: 1fr; } .dtile, .dtile:nth-child(5) { grid-column: auto; min-height: 220px; } .dtile .art, .dtile:nth-child(4) .art, .dtile:nth-child(5) .art { width: 44%; } }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; animation: none !important; }
     .rv { opacity: 1; transform: none; }
@@ -557,20 +563,18 @@
 
   <section class="diff" id="fark" aria-labelledby="diff-h">
     <div class="container">
-      <div class="center rv"><div class="eyebrow">SK Fen Bilimleri</div><h2 class="h2" id="diff-h">Farkımız ne?</h2><p class="lead">Ders anlatmakla yetinmeyiz; ölçer, planlar, takip eder ve veliyle paylaşırız. Bu düzenin parçaları:</p></div>
+      <div class="center rv"><div class="eyebrow">SK Fen Bilimleri</div><h2 class="h2" id="diff-h">Farkımız ne?</h2><p class="lead">Çoğu kurumda ders anlatılır, deneme yapılır. SK’de aradaki bağ kurulur: ölçülür, planlanır, takip edilir ve veliyle paylaşılır.</p></div>
       <div class="diff-grid rv">
-        <a class="dtile c-coral" href="deneme-kulubu.html"><svg viewBox="0 0 24 24"><path d="M9 4h6v3H9z"/><path d="M7 5H5v15h14V5h-2"/><path d="M9 13l2 2 4-4"/></svg><b>Hata Karnesi</b><span>Her hata konu ve kazanım bazında kaydedilir; sonraki plan buna göre şekillenir.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
-        <div class="dtile"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 20v-7M12 20V6M17 20v-10"/></svg><b>Seviye belirleme</b><span>Her program, öğrencinin seviyesini ölçmekle başlar; eksik kazanımlar baştan belirlenir.</span></div>
-        <div class="dtile c-blue"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/></svg><b>Kişisel çalışma planı</b><span>Haftalık plan koçla birlikte hazırlanır; her denemeden sonra güncellenir.</span></div>
-        <a class="dtile c-green" href="ozel-ders.html"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 20c0-2.6 1.4-4.5 3.5-5"/></svg><b>Hedefli birebir ders</b><span>Özel ders, Hata Karnesi’nde çıkan eksik konuya göre planlanır.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
-        <div class="dtile"><svg viewBox="0 0 24 24"><path d="M5 19l1-4L16 5l3 3L9 18z"/><path d="M13 8l3 3"/></svg><b>Öğretmen açıklaması</b><span>Hata Karnesi’ndeki her eksik için öğretmen ne yapılacağını not eder.</span></div>
-        <a class="dtile c-yellow" href="deneme-kulubu.html"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 12h6M9 16h6"/></svg><b>Deneme Kulübü</b><span>LGS ve YKS denemeleri; sonuç puan değil, sonraki çalışmanın verisidir.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
-        <div class="dtile"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H9l-5 4z"/></svg><b>Koçluk görüşmeleri</b><span>Düzenli görüşmelerle hedef netleşir, çalışma disiplini oturur.</span><span class="todo">Görüşme sıklığı eklenecek</span></div>
-        <div class="dtile c-lilac"><svg viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg><b>Veli bilgilendirme</b><span>Deneme sonucu, Hata Karnesi ve plan veliyle paylaşılır.</span><span class="todo">Sıklık eklenecek</span></div>
-        <a class="dtile" href="vip-kutuphane.html"><svg viewBox="0 0 24 24"><path d="M4 5h7a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-7a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h7z"/></svg><b>VIP Kütüphane</b><span>Odaklanılan, takip edilen, kontrollü bir çalışma alanı.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
-        <a class="dtile c-atom" href="atomica.html"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="4"/><path d="M13 20l4-8 4 8z"/><rect x="4" y="14" width="6" height="6" rx="1"/></svg><b>Atomica Matematik Atölyesi</b><span>Materyallerle dokunarak, deneyerek öğrenilen matematik.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
-        <div class="dtile"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg><b>Yeniden ölçme</b><span>Kısa ölçmelerle ilerleme görülür; plan sonuca göre yenilenir.</span></div>
-        <div class="dtile"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg><b>Derste ve evde aynı sistem</b><span>Atomica ve dijital platformlarla destek ders dışında da sürer.</span></div>
+        <a class="dtile c-coral" href="deneme-kulubu.html"><b>Deneme sonucu puan olarak kalmaz.</b><span>Yanlışlar Hata Karnesi’ne işlenir; o haftanın çalışma planı buna göre değişir.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>
+          <svg class="art" viewBox="0 0 200 160" aria-hidden="true"><rect x="18" y="20" width="96" height="124" rx="8" fill="#fff" fill-opacity=".7"/><line x1="34" y1="44" x2="70" y2="44"/><circle cx="92" cy="44" r="6"/><line x1="34" y1="66" x2="70" y2="66"/><circle cx="92" cy="66" r="6" fill="currentColor"/><path d="M89 63l6 6M95 63l-6 6" stroke="#fff"/><line x1="34" y1="88" x2="70" y2="88"/><circle cx="92" cy="88" r="6"/><line x1="34" y1="110" x2="70" y2="110"/><circle cx="92" cy="110" r="6"/><path d="M114 66c18 0 22 10 40 10" stroke-dasharray="4 5"/><rect x="138" y="56" width="50" height="56" rx="8" fill="#fff" fill-opacity=".7"/><line x1="138" y1="70" x2="188" y2="70"/><rect x="146" y="78" width="8" height="8" rx="2"/><rect x="159" y="78" width="8" height="8" rx="2" fill="currentColor"/><rect x="172" y="78" width="8" height="8" rx="2"/><rect x="146" y="92" width="8" height="8" rx="2"/><rect x="159" y="92" width="8" height="8" rx="2"/><rect x="172" y="92" width="8" height="8" rx="2"/></svg></a>
+        <a class="dtile c-green" href="ozel-ders.html"><b>Özel ders isteyene değil, ihtiyaca verilir.</b><span>Hangi konuda birebir ders gerektiğine Hata Karnesi karar verir; ders sonrası yeniden ölçülür.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>
+          <svg class="art" viewBox="0 0 200 160" aria-hidden="true"><circle cx="70" cy="58" r="14" fill="#fff" fill-opacity=".7"/><path d="M44 112c0-16 12-26 26-26s26 10 26 26"/><circle cx="134" cy="68" r="11" fill="#fff" fill-opacity=".7"/><path d="M114 112c0-13 9-22 20-22s20 9 20 22"/><rect x="24" y="112" width="156" height="10" rx="4" fill="#fff" fill-opacity=".8"/><line x1="40" y1="122" x2="40" y2="146"/><line x1="164" y1="122" x2="164" y2="146"/><path d="M84 103h32l5 9H79z" fill="#fff" fill-opacity=".9"/><line x1="100" y1="103" x2="100" y2="112"/></svg></a>
+        <a class="dtile c-lilac" href="atomica.html"><b>Matematik atölyede, materyalle öğrenilir.</b><span>5. sınıfta Atomica Matematik Atölyesi: fiziksel materyal, öğretmen ve dijital içerik aynı masada.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>
+          <svg class="art" viewBox="0 0 200 160" aria-hidden="true"><path d="M40 110l40-50 40 50z" fill="#fff" fill-opacity=".7"/><path d="M80 60l40 50 20-26z" fill="currentColor" fill-opacity=".22"/><path d="M152 70a22 22 0 1 1-22 22h22z" fill="#fff" fill-opacity=".7"/><path d="M152 70v22h22a22 22 0 0 0-22-22z" fill="currentColor" fill-opacity=".22"/><rect x="28" y="112" width="152" height="8" rx="4" fill="#fff" fill-opacity=".8"/><rect x="150" y="36" width="36" height="26" rx="4" fill="#fff" fill-opacity=".85"/><path d="M161 56l7-10 7 10z" fill="currentColor" fill-opacity=".45"/></svg></a>
+        <div class="dtile c-blue"><b>Veli “nasıl gidiyor?” diye sormak zorunda kalmaz.</b><span>Deneme sonucu, Hata Karnesi ve güncel plan veliyle paylaşılır.</span><span class="todo">Paylaşım sıklığı eklenecek</span>
+          <svg class="art" viewBox="0 0 200 160" aria-hidden="true"><rect x="112" y="22" width="64" height="126" rx="12" fill="#fff" fill-opacity=".8"/><line x1="134" y1="34" x2="154" y2="34"/><rect x="120" y="50" width="48" height="28" rx="6" fill="currentColor" fill-opacity=".14"/><line x1="128" y1="60" x2="152" y2="60"/><line x1="128" y1="68" x2="144" y2="68"/><rect x="120" y="86" width="48" height="28" rx="6" fill="currentColor" fill-opacity=".14"/><line x1="128" y1="96" x2="152" y2="96"/><line x1="128" y1="104" x2="144" y2="104"/><path d="M58 72a24 24 0 0 1 48 0v16l6 8H52l6-8z" fill="#fff" fill-opacity=".8"/><path d="M76 102a6 6 0 0 0 12 0"/></svg></div>
+        <a class="dtile c-yellow" href="vip-kutuphane.html"><b>Çalışma disiplini evde değil, kurumda kurulur.</b><span>Koçla hazırlanan haftalık plan; VIP Kütüphane’de takip edilen, odaklı çalışma.</span><i class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>
+          <svg class="art" viewBox="0 0 200 160" aria-hidden="true"><path d="M44 46h36l10 24H34z" fill="#fff" fill-opacity=".85"/><line x1="62" y1="70" x2="62" y2="134"/><path d="M44 134h36"/><rect x="98" y="104" width="60" height="12" rx="3" fill="#fff" fill-opacity=".8"/><rect x="104" y="90" width="48" height="12" rx="3" fill="currentColor" fill-opacity=".2"/><rect x="100" y="76" width="54" height="12" rx="3" fill="#fff" fill-opacity=".8"/><circle cx="160" cy="48" r="18" fill="#fff" fill-opacity=".85"/><path d="M160 38v10l7 5"/><line x1="24" y1="134" x2="184" y2="134"/></svg></a>
       </div>
     </div>
   </section>
