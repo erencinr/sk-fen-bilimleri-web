@@ -314,11 +314,9 @@
   .sup .list li { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
   .sup .list li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--c-blue-ink); flex: none; }
   .sup .list b { font-weight: 500; color: var(--ink); }
-  .sup .fig { position: relative; margin-top: 26px; height: 250px; }
-  .sup .fig .shape { position: absolute; left: 0; right: 0; bottom: 0; height: 64%; border-radius: 28px 28px 0 0; }
-  .sup .fig img { position: absolute; left: 50%; bottom: 0; max-height: 94%; max-width: 86%; width: auto; transform: translateX(-50%); filter: drop-shadow(0 18px 24px rgba(17,19,24,.16)); }
-  .sup .fig.photo img { inset: 0; left: 0; width: 100%; height: 100%; max-width: none; max-height: none; object-fit: cover; transform: none; filter: none; border-radius: 28px 28px 0 0; }
-  .sup .team { margin-top: 18px; }
+  .sup .fig { position: relative; margin-top: auto; padding-top: 26px; height: 326px; }
+  .sup .fig .shape { position: absolute; left: 0; right: 0; bottom: 0; height: 60%; border-radius: 28px 28px 0 0; }
+  .sup .fig img { position: absolute; left: 50%; top: 26px; height: var(--h, 120%); width: auto; max-width: none; transform: translateX(-50%); filter: drop-shadow(0 18px 24px rgba(17,19,24,.16)); }
 
   /* Öğrenci ve veli yorumları — yatay kaydırma */
   .reviews { padding: 140px 0 40px; }
@@ -374,10 +372,6 @@
   .gallery img { width: 100%; height: 100%; object-fit: cover; }
   .gallery figcaption { position: absolute; left: 12px; bottom: 12px; background: rgba(255,255,255,.94); font-size: 13px; font-weight: 500; padding: 6px 11px; border-radius: 999px; }
   .g-note { text-align: center; margin-top: 18px; color: var(--muted); font-size: 14.5px; }
-  .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; text-align: center; }
-  .tm i { display: block; width: 56px; height: 56px; margin: 0 auto 8px; border-radius: 50%; background: var(--c-blue) url("assets/brand/sk-logo.svg") center / 26px no-repeat; }
-  .tm b { display: block; font-size: 14px; font-weight: 500; }
-  .tm small { color: var(--muted); font-size: 12.5px; }
   @media (max-width: 900px) { .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 160px 160px; } .gallery .g1 { grid-column: span 2; grid-row: auto; } .gallery .g4 { grid-column: span 2; } }
   .faq-list { max-width: 720px; margin: 46px auto 0; display: grid; gap: 10px; }
   .faq details { background: #fff; border-radius: 18px; padding: 0 22px; border: 1px solid var(--line); }
@@ -608,24 +602,20 @@
           <div class="eyebrow">Ekibimiz</div>
           <h3><em>Profesyonel destek,</em> tanıdık yüzler</h3>
           <p>Yönetici, öğretmen ve koçlar aynı sistemin içinde çalışır; veli görüşmelerini Ayşe Hanım yürütür.</p>
-          <div class="team"><div class="tm"><i></i><b>Ayşe Hanım</b><small>Veli görüşmeleri</small></div><div class="tm"><i></i><b><span class="todo">İsim</span></b><small>Yönetici</small></div><div class="tm"><i></i><b><span class="todo">İsim</span></b><small>Öğretmen</small></div></div>
-          <div class="fig photo"><img src="gorseller/program-birebir.webp" alt="Öğrenciyle çalışan öğretmen; temsili görsel" loading="lazy" style="object-position:50% 35%"></div>
+          <div class="fig"><div class="shape" style="background:var(--c-blue)"></div><img src="gorseller/ekip.webp" alt="SK Fen Bilimleri ekibi; temsili görsel" loading="lazy" style="--h:172%"></div>
         </div>
         <div class="sup rv">
           <div class="eyebrow">Birebir koçluk</div>
           <h3><em>Doğru rehberlik,</em> düzenli takip</h3>
           <p>Koç, haftalık planı öğrenciyle birlikte hazırlar; hedefi netleştirir, çalışma disiplinini oturtur.</p>
-          <ul class="list"><li><b>Haftalık çalışma planı</b></li><li><b>Hedef ve motivasyon görüşmesi</b><span class="todo">Görüşme sıklığı eklenecek</span></li><li><b>Veliye düzenli bilgilendirme</b></li></ul>
-          <div class="fig"><div class="shape" style="background:var(--c-coral)"></div><img src="gorseller/kimler-birebir.webp" alt="Koçuyla çalışan öğrenci; temsili görsel" loading="lazy"></div>
+          <div class="fig"><div class="shape" style="background:var(--c-coral)"></div><img src="gorseller/kocluk-masa.webp" alt="Koçuyla masada çalışan öğrenci; temsili görsel" loading="lazy" style="--h:116%"></div>
         </div>
         <div class="sup rv">
           <div class="eyebrow">Derste ve evde</div>
           <h3><em>Dijital platformlar,</em> aynı sistem</h3>
           <p>Ders dışında da öğrencinin yanında olan içerik ve uygulamalar; hepsi aynı çalışma planına bağlı.</p>
-          <ul class="list"><li><b>Atomica</b> Etkileşimli matematik içerikleri</li><li><b>3-4-5 All Star</b><span class="todo">Öğrenciye faydası eklenecek</span></li><li><b>Kunduz</b><span class="todo">Öğrenciye faydası eklenecek</span></li></ul>
-          <div class="fig"><div class="shape" style="background:var(--c-green)"></div><img src="gorseller/kimler-lise.webp" alt="Tabletle çalışan öğrenci; temsili görsel" loading="lazy"></div>
+          <div class="fig"><div class="shape" style="background:var(--c-green)"></div><img src="gorseller/dijital-ogrenciler.webp" alt="3-4-5 All Star kitabı ve tabletle öğrenciler; temsili görsel" loading="lazy" style="--h:160%"></div>
         </div>
-      </div>
     </div>
   </section>
 
