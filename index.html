@@ -314,9 +314,12 @@
   .sup .list li { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
   .sup .list li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--c-blue-ink); flex: none; }
   .sup .list b { font-weight: 500; color: var(--ink); }
-  .sup .fig { position: relative; margin-top: auto; padding-top: 26px; height: 326px; }
-  .sup .fig .shape { position: absolute; left: 0; right: 0; bottom: 0; height: 60%; border-radius: 28px 28px 0 0; }
-  .sup .fig img { position: absolute; left: 50%; top: 26px; height: var(--h, 120%); width: auto; max-width: none; transform: translateX(-50%); filter: drop-shadow(0 18px 24px rgba(17,19,24,.16)); }
+  .sup > p { margin-bottom: 28px; }
+  .sup .vframe { position: relative; display: block; margin: auto 0 28px; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: linear-gradient(180deg, #EDEDEA 0%, #DEDEDA 100%); border: 1px solid var(--line); transition: transform .4s var(--ease); }
+  .sup .vframe:hover { transform: translateY(-3px); }
+  .sup .vframe .cr { position: absolute; left: 50%; top: 50%; width: 30%; transform: translate(-50%, -50%); opacity: .07; }
+  .sup .vframe .play { position: absolute; left: 50%; top: 50%; width: 60px; height: 60px; border-radius: 50%; background: var(--navy); display: grid; place-items: center; transform: translate(-50%, -50%); box-shadow: 0 14px 28px -12px rgba(29,42,107,.65); transition: transform .3s var(--ease); }
+  .sup .vframe:hover .play { transform: translate(-50%, -50%) scale(1.08); }
 
   /* Öğrenci ve veli yorumları — yatay kaydırma */
   .reviews { padding: 140px 0 40px; }
@@ -603,20 +606,21 @@
           <div class="eyebrow">Ekibimiz</div>
           <h3><em>Profesyonel destek,</em> tanıdık yüzler</h3>
           <p>Yönetici, öğretmen ve koçlar aynı sistemin içinde çalışır; veli görüşmelerini Ayşe Hanım yürütür.</p>
-          <div class="fig"><div class="shape" style="background:var(--c-blue)"></div><img src="gorseller/ekip.webp" alt="SK Fen Bilimleri ekibi; temsili görsel" loading="lazy" style="--h:172%"></div>
+          <a class="vframe" href="#iletisim" aria-label="Tanıtım videosu (eklenecek)"><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a>
         </div>
         <div class="sup rv">
           <div class="eyebrow">Birebir koçluk</div>
           <h3><em>Doğru rehberlik,</em> düzenli takip</h3>
           <p>Koç, haftalık planı öğrenciyle birlikte hazırlar; hedefi netleştirir, çalışma disiplinini oturtur.</p>
-          <div class="fig"><div class="shape" style="background:var(--c-coral)"></div><img src="gorseller/kocluk-masa.webp" alt="Koçuyla masada çalışan öğrenci; temsili görsel" loading="lazy" style="--h:116%"></div>
+          <a class="vframe" href="#iletisim" aria-label="Tanıtım videosu (eklenecek)"><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a>
         </div>
         <div class="sup rv">
           <div class="eyebrow">Derste ve evde</div>
           <h3><em>Dijital platformlar,</em> aynı sistem</h3>
           <p>Ders dışında da öğrencinin yanında olan içerik ve uygulamalar; hepsi aynı çalışma planına bağlı.</p>
-          <div class="fig"><div class="shape" style="background:var(--c-green)"></div><img src="gorseller/dijital-ogrenciler.webp" alt="3-4-5 All Star kitabı ve tabletle öğrenciler; temsili görsel" loading="lazy" style="--h:160%"></div>
+          <a class="vframe" href="#iletisim" aria-label="Tanıtım videosu (eklenecek)"><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a>
         </div>
+      <p class="g-note rv"><span class="todo">Örnek düzen: her karta kısa yatay tanıtım videosu eklenecek</span></p>
     </div>
   </section>
 
