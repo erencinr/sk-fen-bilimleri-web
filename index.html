@@ -315,6 +315,12 @@
   .sup .list li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--c-blue-ink); flex: none; }
   .sup .list b { font-weight: 500; color: var(--ink); }
   .sup > p { margin-bottom: 28px; }
+  .sup .vframe.poster { background: #16181D; }
+  .sup .vframe .bg { position: absolute; inset: -10%; width: 120%; height: 120%; object-fit: cover; filter: blur(18px) brightness(.75); opacity: .9; }
+  .sup .vframe .pst { position: absolute; left: 50%; top: 0; height: 100%; width: auto; transform: translateX(-50%); }
+  .sup .vframe { margin-bottom: 12px; }
+  .sup .ig-cap { margin: 0 0 28px; font-size: 14px; color: var(--muted); }
+  .sup .ig-cap .todo { height: 22px; font-size: 12px; padding: 0 8px; }
   .sup .vframe { position: relative; display: block; margin: auto 0 28px; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: linear-gradient(180deg, #EDEDEA 0%, #DEDEDA 100%); border: 1px solid var(--line); transition: transform .4s var(--ease); }
   .sup .vframe:hover { transform: translateY(-3px); }
   .sup .vframe .cr { position: absolute; left: 50%; top: 50%; width: 30%; transform: translate(-50%, -50%); opacity: .07; }
@@ -606,21 +612,20 @@
           <div class="eyebrow">Ekibimiz</div>
           <h3><em>Profesyonel destek,</em> tanıdık yüzler</h3>
           <p>Yönetici, öğretmen ve koçlar aynı sistemin içinde çalışır; veli görüşmelerini Ayşe Hanım yürütür.</p>
-          <a class="vframe" href="#iletisim" aria-label="Tanıtım videosu (eklenecek)"><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a>
+          <a class="vframe poster" href="https://www.instagram.com/p/Dd8fio5uZ3_/" target="_blank" rel="noopener" aria-label="Matematik öğretmenimiz Zühre Kamberoğlu ile tanışın (Instagram’da açılır)"><img class="bg" src="gorseller/ig-zuhre-kamberoglu.webp" alt="" aria-hidden="true"><img class="pst" src="gorseller/ig-zuhre-kamberoglu.webp" alt="Matematik öğretmenimiz Zühre Kamberoğlu" loading="lazy"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><p class="ig-cap">Matematik öğretmenimiz Zühre Kamberoğlu · Instagram’da izle</p>
         </div>
         <div class="sup rv">
           <div class="eyebrow">Birebir koçluk</div>
           <h3><em>Doğru rehberlik,</em> düzenli takip</h3>
           <p>Koç, haftalık planı öğrenciyle birlikte hazırlar; hedefi netleştirir, çalışma disiplinini oturtur.</p>
-          <a class="vframe" href="#iletisim" aria-label="Tanıtım videosu (eklenecek)"><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a>
+          <a class="vframe" href="#iletisim" aria-label="Tanıtım videosu (eklenecek)"><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><p class="ig-cap">Koçluk görüşmesinden kısa video <span class="todo">Eklenecek</span></p>
         </div>
         <div class="sup rv">
           <div class="eyebrow">Derste ve evde</div>
           <h3><em>Dijital platformlar,</em> aynı sistem</h3>
           <p>Ders dışında da öğrencinin yanında olan içerik ve uygulamalar; hepsi aynı çalışma planına bağlı.</p>
-          <a class="vframe" href="#iletisim" aria-label="Tanıtım videosu (eklenecek)"><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a>
+          <a class="vframe" href="#iletisim" aria-label="Tanıtım videosu (eklenecek)"><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><p class="ig-cap">Platformların derste kullanımı <span class="todo">Eklenecek</span></p>
         </div>
-      <p class="g-note rv"><span class="todo">Örnek düzen: her karta kısa yatay tanıtım videosu eklenecek</span></p>
     </div>
   </section>
 
