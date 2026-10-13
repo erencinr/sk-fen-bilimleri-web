@@ -99,6 +99,16 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .bg-blue { background: var(--c-blue); } .bg-coral { background: var(--c-coral); } .bg-yellow { background: var(--c-yellow); } .bg-green { background: var(--c-green); } .bg-lilac { background: var(--c-lilac); } .bg-white { background: #fff; border: 1px solid var(--line); }
 .t-blue { background: var(--c-blue); color: var(--c-blue-ink); } .t-coral { background: var(--c-coral); color: var(--c-coral-ink); } .t-yellow { background: var(--c-yellow); color: var(--c-yellow-ink); } .t-green { background: var(--c-green); color: var(--c-green-ink); } .t-lilac { background: var(--c-lilac); color: var(--c-lilac-ink); }
 
+/* Split: görsel + metin */
+.split { display: grid; grid-template-columns: 1fr 1.1fr; gap: 50px; align-items: center; margin-top: 40px; }
+.split-fig { position: relative; height: 440px; }
+.split-fig .shape { position: absolute; left: 6%; right: 6%; bottom: 0; height: 72%; border-radius: 999px 999px 28px 28px; }
+.split-fig img { position: absolute; left: 50%; bottom: 0; max-height: 100%; max-width: 100%; width: auto; transform: translateX(-50%); filter: drop-shadow(0 24px 30px rgba(17,19,24,.16)); }
+.split .lead { margin-top: 14px; font-size: 17px; color: var(--ink-2); }
+.ticks { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 10px; font-size: 15.5px; }
+.ticks li { display: flex; gap: 10px; align-items: flex-start; }
+.ticks li::before { content: ""; flex: none; width: 18px; height: 18px; margin-top: 2px; border-radius: 50%; background: var(--c-blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2324408F' stroke-width='3'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center no-repeat; }
+
 /* Video placeholder */
 .video { margin-top: 40px; aspect-ratio: 16 / 8; border-radius: 24px; background: #fff; border: 1px dashed #D9D9D3; display: grid; place-items: center; text-align: center; color: var(--muted); }
 .video .play { width: 64px; height: 64px; border-radius: 50%; background: var(--navy); display: grid; place-items: center; margin: 0 auto 12px; }
@@ -141,6 +151,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .facts, .cards, .cards.three, .foot-grid { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
   .p-vis { height: 320px; }
+  .split { grid-template-columns: 1fr; gap: 24px; }
+  .split-fig { height: 320px; }
   .p-vis .cut { max-width: 96%; }
   .sec { padding-top: 80px; }
   .band { padding: 40px 22px; }
