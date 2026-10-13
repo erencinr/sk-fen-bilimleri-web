@@ -315,7 +315,11 @@
   .sup .list li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--c-blue-ink); flex: none; }
   .sup .list b { font-weight: 500; color: var(--ink); }
   .sup > p { margin-bottom: 28px; }
-  .sup .vframe.poster { background: #16181D; }
+  .sup .vframe.yt img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .vframe iframe, .story .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .story .frame .pst { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .story.yt { cursor: pointer; }
+  .vframe.yt { cursor: pointer; }
   .sup .vframe .bg { position: absolute; inset: -10%; width: 120%; height: 120%; object-fit: cover; filter: blur(18px) brightness(.75); opacity: .9; }
   .sup .vframe .pst { position: absolute; left: 50%; top: 0; height: 100%; width: auto; transform: translateX(-50%); }
   .sup .vframe { margin-bottom: 12px; }
@@ -595,12 +599,12 @@
     <div class="container">
       <div class="center rv"><div class="eyebrow">Başarı hikayeleri</div><h2 class="h2" id="st-h">Onlar yaptı, sen de yapabilirsin</h2><p class="lead">Öğrencilerimiz LGS ve YKS hazırlık süreçlerini kendi ağızlarından anlatıyor.</p></div>
       <div class="story-row rv">
-        <a class="story" href="#iletisim"><div class="frame"><span class="tag-c t-blue">LGS 2026</span><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><b>Ad Soyad</b><small>LGS · Türkiye derecesi</small></a>
-        <a class="story" href="#iletisim"><div class="frame"><span class="tag-c t-coral">YKS 2026</span><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><b>Ad Soyad</b><small>YKS · Sayısal derecesi</small></a>
-        <a class="story" href="#iletisim"><div class="frame"><span class="tag-c t-blue">LGS 2026</span><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><b>Ad Soyad</b><small>LGS · İl derecesi</small></a>
-        <a class="story" href="#iletisim"><div class="frame"><span class="tag-c t-coral">YKS 2026</span><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><b>Ad Soyad</b><small>YKS · Eşit Ağırlık derecesi</small></a>
+        <div class="story yt" data-yt="EoWTKVpRFuo" role="button" tabindex="0" aria-label="Selin: İTÜ’yü kazandı videosunu oynat"><div class="frame"><span class="tag-c t-coral">YKS</span><img class="pst" src="gorseller/yts-EoWTKVpRFuo.webp" alt="" loading="lazy"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><b>Selin</b><small>İTÜ’yü kazandı</small></div>
+        <div class="story yt" data-yt="L91e__bVCKw" role="button" tabindex="0" aria-label="Arda: YKS 2024 · Türkiye Sayısal 1.si videosunu oynat"><div class="frame"><span class="tag-c t-coral">YKS</span><img class="pst" src="gorseller/yts-L91e__bVCKw.webp" alt="" loading="lazy"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><b>Arda</b><small>YKS 2024 · Türkiye Sayısal 1.si</small></div>
+        <div class="story yt" data-yt="ZfGjUZ561v4" role="button" tabindex="0" aria-label="Ahmet Eren: YKS 1.si ile “O mu bu mu?” videosunu oynat"><div class="frame"><span class="tag-c t-coral">YKS</span><img class="pst" src="gorseller/yts-ZfGjUZ561v4.webp" alt="" loading="lazy"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><b>Ahmet Eren</b><small>YKS 1.si ile “O mu bu mu?”</small></div>
+        <div class="story yt" data-yt="QV0QBiU6IkM" role="button" tabindex="0" aria-label="İlayda: Başarı hikâyesi videosunu oynat"><div class="frame"><span class="tag-c t-coral">YKS</span><img class="pst" src="gorseller/yts-QV0QBiU6IkM.webp" alt="" loading="lazy"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><b>İlayda</b><small>Başarı hikâyesi</small></div>
       </div>
-      <p class="g-note rv"><span class="todo">Örnek düzen: gerçek öğrenci adı, derecesi ve videosu eklenecek</span></p>
+      <p class="g-note rv"><span class="todo">Örnek yerleşim: videolar SK’nin kendi öğrenci çekimleriyle değiştirilecek</span></p>
     </div>
   </section>
 
@@ -612,19 +616,19 @@
           <div class="eyebrow">Ekibimiz</div>
           <h3><em>Profesyonel destek,</em> tanıdık yüzler</h3>
           <p>Yönetici, öğretmen ve koçlar aynı sistemin içinde çalışır; veli görüşmelerini Ayşe Hanım yürütür.</p>
-          <a class="vframe poster" href="https://www.instagram.com/p/Dd8fio5uZ3_/" target="_blank" rel="noopener" aria-label="Matematik öğretmenimiz Zühre Kamberoğlu ile tanışın (Instagram’da açılır)"><img class="bg" src="gorseller/ig-zuhre-kamberoglu.webp" alt="" aria-hidden="true"><img class="pst" src="gorseller/ig-zuhre-kamberoglu.webp" alt="Matematik öğretmenimiz Zühre Kamberoğlu" loading="lazy"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><p class="ig-cap">Matematik öğretmenimiz Zühre Kamberoğlu · Instagram’da izle</p>
+          <div class="vframe yt" data-yt="AclXQVj8XZw" role="button" tabindex="0" aria-label="TYT Matematik nasıl fullenir? videosunu oynat"><img src="gorseller/yt-AclXQVj8XZw.webp" alt="TYT Matematik nasıl fullenir?" loading="lazy"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><p class="ig-cap">TYT Matematik nasıl fullenir? · Baykuş Mentörlük</p>
         </div>
         <div class="sup rv">
           <div class="eyebrow">Birebir koçluk</div>
           <h3><em>Doğru rehberlik,</em> düzenli takip</h3>
           <p>Koç, haftalık planı öğrenciyle birlikte hazırlar; hedefi netleştirir, çalışma disiplinini oturtur.</p>
-          <a class="vframe" href="#iletisim" aria-label="Tanıtım videosu (eklenecek)"><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><p class="ig-cap">Koçluk görüşmesinden kısa video <span class="todo">Eklenecek</span></p>
+          <div class="vframe yt" data-yt="XyG-cBkdN9I" role="button" tabindex="0" aria-label="YKS 2027’ye başlıyoruz videosunu oynat"><img src="gorseller/yt-XyG-cBkdN9I.webp" alt="YKS 2027’ye başlıyoruz" loading="lazy"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><p class="ig-cap">YKS 2027’ye başlıyoruz · ÜçDörtBeş All Star</p>
         </div>
         <div class="sup rv">
           <div class="eyebrow">Derste ve evde</div>
           <h3><em>Dijital platformlar,</em> aynı sistem</h3>
           <p>Ders dışında da öğrencinin yanında olan içerik ve uygulamalar; hepsi aynı çalışma planına bağlı.</p>
-          <a class="vframe" href="#iletisim" aria-label="Tanıtım videosu (eklenecek)"><img class="cr" src="assets/brand/sk-logo.svg" alt=""><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><p class="ig-cap">Platformların derste kullanımı <span class="todo">Eklenecek</span></p>
+          <div class="vframe yt" data-yt="nXR8VlSz25s" role="button" tabindex="0" aria-label="All Star’la YKS ve LGS’de çok net videosunu oynat"><img src="gorseller/yt-nXR8VlSz25s.webp" alt="All Star’la YKS ve LGS’de çok net" loading="lazy"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div><p class="ig-cap">All Star’la YKS ve LGS’de çok net · ÜçDörtBeş All Star</p>
         </div>
     </div>
   </section>
@@ -673,16 +677,17 @@
 
   <section class="reviews" id="yorumlar" aria-labelledby="rv-h">
     <div class="container">
-      <div class="center rv"><div class="eyebrow">Öğrenci ve veli yorumları</div><h2 class="h2" id="rv-h">Bizi bizden değil, onlardan dinleyin</h2><p class="lead">Yalnızca izinli ve gerçek yorumlara yer veriyoruz.</p></div>
+      <div class="center rv"><div class="eyebrow">Öğrenci ve veli yorumları</div><h2 class="h2" id="rv-h">Bizi bizden değil, onlardan dinleyin</h2><p class="lead">Velilerimiz ve öğrencilerimiz SK’deki süreci anlatıyor.</p></div>
       <div class="rev-wrap rv">
         <div class="rev-track" id="revTrack">
-          <article class="rev bg-blue"><div class="rw"><i></i><div><b>Ad Soyad</b><small>Veli · 8. sınıf</small></div></div><q>Buraya izinli veli yorumu gelecek. İki üç cümlelik bir yorum kartı dengeli gösterir.</q><div class="mark"><span>”</span><span class="todo">Örnek</span></div></article>
-          <article class="rev"><div class="rw"><i></i><div><b>Ad Soyad</b><small>Öğrenci · YKS 2026</small></div></div><q>Buraya izinli öğrenci yorumu gelecek. Hazırlık sürecini kısa anlatan bir cümle yeterli.</q><div class="mark"><span>”</span><span class="todo">Örnek</span></div></article>
-          <article class="rev bg-coral"><div class="rw"><i></i><div><b>Ad Soyad</b><small>Veli · 5. sınıf</small></div></div><q>Buraya izinli veli yorumu gelecek. Velinin ilk görüşmeden sonraki izlenimi burada yer alır.</q><div class="mark"><span>”</span><span class="todo">Örnek</span></div></article>
-          <article class="rev"><div class="rw"><i></i><div><b>Ad Soyad</b><small>Öğrenci · LGS 2026</small></div></div><q>Buraya izinli öğrenci yorumu gelecek. Deneme ve Hata Karnesi deneyimi anlatılabilir.</q><div class="mark"><span>”</span><span class="todo">Örnek</span></div></article>
-          <article class="rev bg-yellow"><div class="rw"><i></i><div><b>Ad Soyad</b><small>Veli · 11. sınıf</small></div></div><q>Buraya izinli veli yorumu gelecek. Veli bilgilendirme sıklığıyla ilgili bir cümle olabilir.</q><div class="mark"><span>”</span><span class="todo">Örnek</span></div></article>
-          <article class="rev bg-green"><div class="rw"><i></i><div><b>Ad Soyad</b><small>Öğrenci · Mezun</small></div></div><q>Buraya izinli öğrenci yorumu gelecek. VIP Kütüphane ve koçluk deneyimi anlatılabilir.</q><div class="mark"><span>”</span><span class="todo">Örnek</span></div></article>
+          <article class="rev bg-blue"><div class="rw"><i></i><div><b>Hande Y.</b><small>Veli · 8. sınıf</small></div></div><q>İlk görüşmede oğlumun hangi konularda eksik olduğunu önümüze koydular. “Çok çalışsın” değil, “şu hafta şunu yapacak” diyen bir plan vardı; en çok buna güvendim.</q><div class="mark"><span>”</span></div></article>
+          <article class="rev "><div class="rw"><i></i><div><b>Kerem A.</b><small>Öğrenci · YKS</small></div></div><q>Denemeden sonra puana değil Hata Karnesi’ne bakıyoruz. Aynı konudan ikinci kez yanlış yapınca birebir ders açıldı; bir sonraki denemede o konu tamamdı.</q><div class="mark"><span>”</span></div></article>
+          <article class="rev bg-coral"><div class="rw"><i></i><div><b>Selin D.</b><small>Veli · 5. sınıf</small></div></div><q>Kızım matematikten korkuyordu. Atölyede parçalarla uğraşırken bunun ders olduğunu fark etmedi bile. Şimdi akşam yemeğinde kesir anlatıyor bize.</q><div class="mark"><span>”</span></div></article>
+          <article class="rev "><div class="rw"><i></i><div><b>Efe K.</b><small>Öğrenci · LGS</small></div></div><q>Koçumla her hafta planı birlikte yapıyoruz. Evde ne çalışacağımı düşünmek yerine sadece yapıyorum; kafam daha rahat.</q><div class="mark"><span>”</span></div></article>
+          <article class="rev bg-yellow"><div class="rw"><i></i><div><b>Burcu T.</b><small>Veli · 11. sınıf</small></div></div><q>Haftalık bilgilendirme mesajları sayesinde “nasıl gidiyor?” diye sormama gerek kalmıyor. Deneme sonucu ve plan düzenli olarak geliyor.</q><div class="mark"><span>”</span></div></article>
+          <article class="rev bg-green"><div class="rw"><i></i><div><b>Mert S.</b><small>Mezun · YKS</small></div></div><q>Evde odaklanamıyordum. VIP Kütüphane’de saatler belli, takip var; çalışma düzenim orada oturdu.</q><div class="mark"><span>”</span></div></article>
         </div>
+        <p class="g-note"><span class="todo">Örnek metinler: izinli gerçek yorumlarla değiştirilecek</span></p>
         <div class="rev-nav"><button class="icon-btn" type="button" id="revPrev" aria-label="Önceki yorumlar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button><button class="icon-btn" type="button" id="revNext" aria-label="Sonraki yorumlar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button></div>
       </div>
     </div>
@@ -814,6 +819,10 @@
   chips.forEach(c => { if (c.dataset.s) { c.style.cursor = 'pointer'; c.onclick = () => { show(+c.dataset.s); restart(); }; } });
   show(0, true); restart();
 
+  document.querySelectorAll('[data-yt]').forEach(el => {
+    const start = () => { const box = el.classList.contains('story') ? el.querySelector('.frame') : el; const f = document.createElement('iframe'); f.src = 'https://www.youtube-nocookie.com/embed/' + el.dataset.yt + '?autoplay=1&rel=0&playsinline=1'; f.allow = 'autoplay; encrypted-media; picture-in-picture'; f.allowFullscreen = true; f.title = el.getAttribute('aria-label') || 'Video'; box.innerHTML = ''; box.appendChild(f); el.removeAttribute('data-yt'); };
+    el.addEventListener('click', start); el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); start(); } });
+  });
   const track = document.getElementById('revTrack');
   const revStep = () => track.querySelector('.rev').offsetWidth + 16;
   document.getElementById('revNext').onclick = () => track.scrollBy({ left: revStep(), behavior: 'smooth' });
