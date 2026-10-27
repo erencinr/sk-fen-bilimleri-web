@@ -56,6 +56,24 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .mnav a.sub { padding-left: 18px; font-size: 15.5px; font-weight: 400; color: var(--ink-2); }
 .mnav .cta { display: flex; justify-content: center; width: 100%; margin-top: 16px; border-bottom: 0; color: #fff; }
 
+/* Duyuru şeridi (duyurular.json) */
+.duyuru { position: relative; z-index: 28; background: var(--navy); color: #fff; }
+.duyuru[hidden] { display: none; }
+.duyuru .in { width: min(1180px, 100% - 40px); margin-inline: auto; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; min-height: 52px; padding: 8px 0; }
+.duyuru .tag { display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border-radius: 999px; background: var(--c-yellow); color: var(--c-yellow-ink); font-size: 12.5px; font-weight: 600; letter-spacing: .02em; white-space: nowrap; }
+.duyuru .txt { font-size: 15px; line-height: 1.35; min-width: 0; }
+.duyuru .txt a { color: #fff; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; margin-left: 8px; white-space: nowrap; }
+.duyuru .ctl { display: flex; align-items: center; gap: 6px; }
+.duyuru .ddots { display: flex; gap: 5px; margin-right: 6px; }
+.duyuru .ddots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.35); }
+.duyuru .ddots i.on { background: #fff; }
+.duyuru button { width: 30px; height: 30px; border-radius: 50%; border: 0; background: rgba(255,255,255,.12); color: #fff; display: grid; place-items: center; transition: background .2s; }
+.duyuru button:hover { background: rgba(255,255,255,.22); }
+.duyuru .slide { animation: duyuruIn .45s var(--ease) both; }
+@keyframes duyuruIn { from { opacity: 0; transform: translateY(6px); } }
+@media (max-width: 760px) { .duyuru .in { grid-template-columns: auto 1fr; } .duyuru .ctl { grid-column: 1 / -1; justify-content: flex-end; } .duyuru .txt { font-size: 14px; } .duyuru .txt a { display: block; margin: 2px 0 0; } }
+@media (prefers-reduced-motion: reduce) { .duyuru .slide { animation: none; } }
+
 /* Page hero */
 .p-hero { text-align: center; padding: 44px 20px 0; }
 .crumb { font-size: 13.5px; color: var(--muted); }
