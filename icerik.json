@@ -1,0 +1,55 @@
+{
+  "duyurular": [
+    { "etiket": "Duyuru", "metin": "Ekim LGS deneme sonuçları açıklandı; Hata Karneleri hazır.", "link": "deneme-kulubu.html", "link_metni": "Deneme Kulübü", "aktif": true },
+    { "etiket": "Yeni", "metin": "5. sınıflar için Atomica Matematik Atölyesi grupları açılıyor.", "link": "atomica.html", "link_metni": "Atölyeyi incele", "aktif": true },
+    { "etiket": "Kayıt", "metin": "YKS 2027 hazırlık grupları için görüşme randevuları alınıyor.", "link": "index.html#iletisim", "link_metni": "Görüşme planla", "aktif": true }
+  ],
+  "iletisim": {
+    "whatsapp": "905398569980",
+    "sabit_hat": "0216 505 0 222",
+    "sabit_hat_saat": "09.00–18.30",
+    "adres": "Altıntepe Mah. Bağdat Cad. No: 101",
+    "harita_link": "https://share.google/GG1858TpRNTLzTRQy"
+  },
+  "hero": {
+    "konum": "Maltepe · Küçükyalı",
+    "baslik": "Maltepe’de öğrencinin ihtiyacına",
+    "baslik_vurgu": "göre şekillenen eğitim.",
+    "metin": "LGS ve YKS hazırlığı, birebir özel ders, deneme analizi ve koçluk; hepsi öğrencinin kişisel çalışma planında birleşir.",
+    "etiketler": ["Her adımda yanındayız", "Hedefine birlikte", "Sen de yapabilirsin"]
+  },
+  "fark": [
+    { "baslik": "Deneme sonucu puan olarak kalmaz.", "metin": "Yanlışlar Hata Karnesi’ne işlenir; o haftanın çalışma planı buna göre değişir." },
+    { "baslik": "Özel ders isteyene değil, ihtiyaca verilir.", "metin": "Hangi konuda birebir ders gerektiğine Hata Karnesi karar verir; ders sonrası yeniden ölçülür." },
+    { "baslik": "Matematik atölyede, materyalle öğrenilir.", "metin": "5. sınıfta Atomica Matematik Atölyesi: fiziksel materyal, öğretmen ve dijital içerik aynı masada." },
+    { "baslik": "Veli “nasıl gidiyor?” diye sormak zorunda kalmaz.", "metin": "Deneme sonucu, Hata Karnesi ve güncel plan veliyle paylaşılır." },
+    { "baslik": "Çalışma disiplini evde değil, kurumda kurulur.", "metin": "Koçla hazırlanan haftalık plan; VIP Kütüphane’de takip edilen, odaklı çalışma." }
+  ],
+  "basari": [
+    { "youtube": "EoWTKVpRFuo", "etiket": "YKS", "ad": "Selin", "aciklama": "İTÜ’yü kazandı" },
+    { "youtube": "L91e__bVCKw", "etiket": "YKS", "ad": "Arda", "aciklama": "YKS 2024 · Türkiye Sayısal 1.si" },
+    { "youtube": "ZfGjUZ561v4", "etiket": "YKS", "ad": "Ahmet Eren", "aciklama": "YKS 1.si ile “O mu bu mu?”" },
+    { "youtube": "QV0QBiU6IkM", "etiket": "YKS", "ad": "İlayda", "aciklama": "Başarı hikâyesi" }
+  ],
+  "destek": [
+    { "ust": "Ekibimiz", "vurgu": "Profesyonel destek,", "baslik": "tanıdık yüzler", "metin": "Yönetici, öğretmen ve koçlar aynı sistemin içinde çalışır; veli görüşmelerini Ayşe Hanım yürütür.", "youtube": "AclXQVj8XZw" },
+    { "ust": "Birebir koçluk", "vurgu": "Doğru rehberlik,", "baslik": "düzenli takip", "metin": "Koç, haftalık planı öğrenciyle birlikte hazırlar; hedefi netleştirir, çalışma disiplinini oturtur.", "youtube": "XyG-cBkdN9I" },
+    { "ust": "Derste ve evde", "vurgu": "Dijital platformlar,", "baslik": "aynı sistem", "metin": "Ders dışında da öğrencinin yanında olan içerik ve uygulamalar; hepsi aynı çalışma planına bağlı.", "youtube": "nXR8VlSz25s" }
+  ],
+  "yorumlar": [
+    { "ad": "Hande Y.", "rol": "Veli · 8. sınıf", "metin": "İlk görüşmede oğlumun hangi konularda eksik olduğunu önümüze koydular. “Çok çalışsın” değil, “şu hafta şunu yapacak” diyen bir plan vardı; en çok buna güvendim." },
+    { "ad": "Kerem A.", "rol": "Öğrenci · YKS", "metin": "Denemeden sonra puana değil Hata Karnesi’ne bakıyoruz. Aynı konudan ikinci kez yanlış yapınca birebir ders açıldı; bir sonraki denemede o konu tamamdı." },
+    { "ad": "Selin D.", "rol": "Veli · 5. sınıf", "metin": "Kızım matematikten korkuyordu. Atölyede parçalarla uğraşırken bunun ders olduğunu fark etmedi bile. Şimdi akşam yemeğinde kesir anlatıyor bize." },
+    { "ad": "Efe K.", "rol": "Öğrenci · LGS", "metin": "Koçumla her hafta planı birlikte yapıyoruz. Evde ne çalışacağımı düşünmek yerine sadece yapıyorum; kafam daha rahat." },
+    { "ad": "Burcu T.", "rol": "Veli · 11. sınıf", "metin": "Haftalık bilgilendirme mesajları sayesinde “nasıl gidiyor?” diye sormama gerek kalmıyor. Deneme sonucu ve plan düzenli olarak geliyor." },
+    { "ad": "Mert S.", "rol": "Mezun · YKS", "metin": "Evde odaklanamıyordum. VIP Kütüphane’de saatler belli, takip var; çalışma düzenim orada oturdu." }
+  ],
+  "sss": [
+    { "soru": "Tanışma görüşmesinde neler hedeflenir?", "cevap": "Öğrencinin sınıfı, hedefi ve ihtiyacı birlikte değerlendirilir; buna göre kurumumuzda uygulanan programlardan en uygun olanına öğrenci dahil edilir." },
+    { "soru": "Hata Karnesi ne işe yarar?", "cevap": "Deneme ve ölçmelerdeki hatalar konu ve kazanım bazında kaydedilir; sonraki çalışma planı bu veriye göre şekillenir." },
+    { "soru": "Birebir özel ders nasıl ilerliyor?", "cevap": "İhtiyaç analiziyle başlar, ders ve öğretmen eşleştirmesi yapılır. Gelişim kısa ölçmelerle takip edilir; gerekirse ana akademik sisteme ve koçluğa bağlanır." },
+    { "soru": "Deneme Kulübü’ne kimler katılabilir?", "cevap": "LGS ve YKS’ye hazırlanan öğrenciler katılabilir; SK öğrencisi olmayanlar için de katılım mümkündür. Takvim ve kayıt için bizimle iletişime geçebilirsiniz." },
+    { "soru": "Atomica Matematik Atölyesi hangi sınıflar için?", "cevap": "Atölye şu anda 5. sınıf matematik odağında çalışır. Haftada bir gün 50+50 dakika, 6–9 kişilik gruplarla uygulanır." },
+    { "soru": "Ücretsiz tanışma dersi var mı?", "cevap": "Evet. Ücretsiz tanışma dersleri için lütfen randevu alınız; gün ve saati birlikte belirleyelim." }
+  ]
+}

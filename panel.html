@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SK Fen Bilimleri · Site Paneli</title>
+<link rel="icon" href="assets/brand/sk-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#F6F6F4; --ink:#111318; --ink-2:#3B3F4A; --muted:#7A7E88; --line:#E6E6E2; --navy:#1D2A6B; --navy-h:#26368A; --blue:#E4EBFF; --blue-ink:#24408F; --green:#DDF1E5; --green-ink:#1F6B45; --coral:#FDE4DB; --coral-ink:#A23B22; --yellow:#FFF0C7; --yellow-ink:#8A5A00; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Geist", -apple-system, "Helvetica Neue", sans-serif; font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .top { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; padding: 0 22px; background: rgba(246,246,244,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+  .brand img { width: 28px; }
+  .brand small { color: var(--muted); font-weight: 400; margin-left: 6px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; height: 42px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--navy); color: #fff; font: inherit; font-weight: 500; cursor: pointer; transition: background .2s; }
+  .btn:hover { background: var(--navy-h); } .btn[disabled] { opacity: .5; cursor: default; }
+  .btn.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+  .btn.small { height: 32px; padding: 0 12px; font-size: 13.5px; }
+  .btn.danger { background: #fff; color: var(--coral-ink); border: 1px solid var(--line); }
+  .wrap { width: min(880px, 100% - 32px); margin: 28px auto 80px; }
+  .login { max-width: 420px; margin: 80px auto; background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 30px; }
+  .login h1 { margin: 0 0 6px; font-size: 22px; font-weight: 500; }
+  .login p { margin: 0 0 18px; color: var(--muted); }
+  label { display: block; font-size: 13px; font-weight: 500; color: var(--ink-2); margin: 0 0 5px; }
+  input[type=text], input[type=password], textarea, select { width: 100%; font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; outline: none; transition: border-color .2s, background .2s; }
+  input:focus, textarea:focus { border-color: var(--navy); background: #fff; }
+  textarea { min-height: 76px; resize: vertical; }
+  .field { margin-bottom: 12px; }
+  .hint { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+  section.sec { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 22px 24px; margin-bottom: 16px; }
+  section.sec > h2 { margin: 0 0 4px; font-size: 19px; font-weight: 500; letter-spacing: -.01em; }
+  section.sec > p.d { margin: 0 0 16px; color: var(--muted); font-size: 14px; }
+  .item { position: relative; border: 1px solid var(--line); border-radius: 16px; padding: 16px 16px 6px; margin-bottom: 10px; background: var(--bg); }
+  .item .n { position: absolute; right: 14px; top: 10px; display: flex; gap: 6px; align-items: center; }
+  .item .idx { font-size: 12px; color: var(--muted); font-weight: 500; margin-right: 4px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+  .chk { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; margin: 4px 0 10px; }
+  .chk input { width: 18px; height: 18px; accent-color: var(--navy); }
+  .thumb { width: 100%; max-width: 180px; aspect-ratio: 16/9; object-fit: cover; border-radius: 10px; background: #e9e9e6; display: block; margin-top: 6px; }
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; display: flex; justify-content: center; gap: 12px; padding: 14px; background: rgba(246,246,244,.92); backdrop-filter: blur(12px); border-top: 1px solid var(--line); }
+  .status { font-size: 14px; display: flex; align-items: center; gap: 8px; color: var(--ink-2); }
+  .status.ok { color: var(--green-ink); } .status.err { color: var(--coral-ink); }
+  .hidden { display: none !important; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } .top { padding: 0 14px; } }
+</style>
+</head>
+<body>
+<div class="top"><div class="brand"><img src="assets/brand/sk-logo.svg" alt="">SK Fen Bilimleri <small>Site paneli</small></div><div><a class="btn ghost small" href="index.html" target="_blank" rel="noopener">Siteyi aç ↗</a> <button class="btn ghost small hidden" id="cikis" type="button">Çıkış</button></div></div>
+
+<div class="login" id="login">
+  <h1>Giriş</h1>
+  <p>Panel şifresini girin. Değişiklikler kaydedince 1–3 dakika içinde sitede görünür.</p>
+  <div class="field"><label for="sifre">Şifre</label><input id="sifre" type="password" autocomplete="current-password"></div>
+  <button class="btn" id="gir" type="button">Giriş yap</button>
+  <div class="status hidden" id="loginMsg"></div>
+</div>
+
+<div class="wrap hidden" id="app"></div>
+
+<div class="bar hidden" id="bar"><span class="status" id="durum"></span><button class="btn" id="kaydet" type="button">Kaydet ve yayınla</button></div>
+
+<script>
+(() => {
+  const SERVIS = 'https://sk-whatsapp-asistan.skfenbilimleri.workers.dev';
+  const $ = s => document.querySelector(s);
+  const esc = v => String(v == null ? '' : v).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const ytId = v => { const m = String(v || '').match(/(?:v=|\/shorts\/|youtu\.be\/|\/embed\/)([\w-]{11})/); return m ? m[1] : String(v || '').trim(); };
+
+  // Panelde düzenlenebilen alanlar
+  const SEMA = [
+    { key: 'duyurular', baslik: 'Duyurular', d: 'Sitenin üstündeki şerit. Birden fazla duyuru varsa sırayla döner; “Yayında” kapalıysa görünmez.', liste: true, ekle: 'Duyuru ekle', alanlar: [
+      { k: 'etiket', l: 'Etiket (Duyuru, Yeni, Kayıt…)' }, { k: 'link_metni', l: 'Bağlantı yazısı' },
+      { k: 'metin', l: 'Metin', t: 'textarea', tam: true }, { k: 'link', l: 'Bağlantı (örn. deneme-kulubu.html ya da tam adres)', tam: true }, { k: 'aktif', l: 'Yayında', t: 'checkbox' } ] },
+    { key: 'iletisim', baslik: 'İletişim', d: 'Numaralar ve adres; sitedeki tüm WhatsApp düğmeleri buradaki numaraya gider.', alanlar: [
+      { k: 'whatsapp', l: 'WhatsApp numarası (ülke koduyla, boşluksuz: 905…)' }, { k: 'sabit_hat', l: 'Sabit hat' }, { k: 'sabit_hat_saat', l: 'Sabit hat saatleri' },
+      { k: 'adres', l: 'Adres', tam: true }, { k: 'harita_link', l: 'Google Haritalar bağlantısı', tam: true } ] },
+    { key: 'hero', baslik: 'Açılış ekranı', d: 'Ana sayfanın en üstündeki başlık ve metinler.', alanlar: [
+      { k: 'konum', l: 'Konum etiketi' }, { k: 'baslik', l: 'Başlık (koyu kısım)' }, { k: 'baslik_vurgu', l: 'Başlık devamı (gri kısım)' },
+      { k: 'metin', l: 'Alt metin', t: 'textarea', tam: true }, { k: 'etiketler', l: 'Görselin etrafındaki 3 etiket (her satıra bir tane)', t: 'satirlar', tam: true } ] },
+    { key: 'fark', baslik: 'Farkımız ne? (5 kutu)', d: 'Kutuların başlık ve açıklamaları. Çizimler sabittir.', liste: true, sabit: true, alanlar: [ { k: 'baslik', l: 'Başlık', tam: true }, { k: 'metin', l: 'Açıklama', t: 'textarea', tam: true } ] },
+    { key: 'basari', baslik: 'Başarı hikayeleri (4 dikey video)', d: 'YouTube Shorts bağlantısını yapıştırmanız yeterli; kapak görseli otomatik gelir.', liste: true, sabit: true, alanlar: [
+      { k: 'youtube', l: 'YouTube bağlantısı veya kimliği', t: 'yt', tam: true }, { k: 'ad', l: 'Öğrenci adı' }, { k: 'aciklama', l: 'Açıklama (derece vb.)' }, { k: 'etiket', l: 'Köşe etiketi (LGS / YKS)' } ] },
+    { key: 'destek', baslik: 'Tam destek yanındayız (3 kart)', d: 'Kart metinleri ve yatay videolar.', liste: true, sabit: true, alanlar: [
+      { k: 'ust', l: 'Üst etiket' }, { k: 'vurgu', l: 'Başlığın mavi kısmı' }, { k: 'baslik', l: 'Başlığın devamı' }, { k: 'metin', l: 'Açıklama', t: 'textarea', tam: true }, { k: 'youtube', l: 'YouTube bağlantısı veya kimliği', t: 'yt', tam: true } ] },
+    { key: 'yorumlar', baslik: 'Öğrenci ve veli yorumları', d: 'Yalnızca izin alınmış gerçek yorumlar.', liste: true, ekle: 'Yorum ekle', alanlar: [ { k: 'ad', l: 'Ad' }, { k: 'rol', l: 'Rol (Veli · 8. sınıf gibi)' }, { k: 'metin', l: 'Yorum', t: 'textarea', tam: true } ] },
+    { key: 'sss', baslik: 'Sık sorulanlar', d: 'Soru ve cevaplar; ilk soru açık gelir.', liste: true, ekle: 'Soru ekle', alanlar: [ { k: 'soru', l: 'Soru', tam: true }, { k: 'cevap', l: 'Cevap', t: 'textarea', tam: true } ] }
+  ];
+
+  let ICERIK = null;
+  const sifre = () => sessionStorage.getItem('sk_panel_sifre') || '';
+
+  async function istek(yol, opts = {}) {
+    const r = await fetch(SERVIS + yol, { ...opts, headers: { 'content-type': 'application/json', 'x-sifre': sifre(), ...(opts.headers || {}) } });
+    const j = await r.json().catch(() => ({ hata: 'Sunucudan okunamayan cevap' }));
+    if (!r.ok) throw new Error(j.hata || ('Hata ' + r.status));
+    return j;
+  }
+
+  // ---- Giriş ----
+  $('#gir').onclick = async () => {
+    sessionStorage.setItem('sk_panel_sifre', $('#sifre').value.trim());
+    const m = $('#loginMsg'); m.className = 'status'; m.textContent = 'Kontrol ediliyor…';
+    try { ICERIK = await istek('/panel/icerik'); ciz(); $('#login').classList.add('hidden'); $('#app').classList.remove('hidden'); $('#bar').classList.remove('hidden'); $('#cikis').classList.remove('hidden'); }
+    catch (e) { m.className = 'status err'; m.textContent = e.message; sessionStorage.removeItem('sk_panel_sifre'); }
+  };
+  $('#sifre').addEventListener('keydown', e => { if (e.key === 'Enter') $('#gir').click(); });
+  $('#cikis').onclick = () => { sessionStorage.removeItem('sk_panel_sifre'); location.reload(); };
+  if (sifre()) $('#gir').click();
+
+  // ---- Form çizimi ----
+  function alan(f, v, yol) {
+    const id = 'f_' + yol.replace(/[^\w]/g, '_');
+    if (f.t === 'checkbox') return `<label class="chk"><input type="checkbox" id="${id}" data-yol="${yol}" ${v !== false ? 'checked' : ''}> ${esc(f.l)}</label>`;
+    if (f.t === 'textarea') return `<div class="field ${f.tam ? 'tam' : ''}"><label for="${id}">${esc(f.l)}</label><textarea id="${id}" data-yol="${yol}">${esc(v)}</textarea></div>`;
+    if (f.t === 'satirlar') return `<div class="field tam"><label for="${id}">${esc(f.l)}</label><textarea id="${id}" data-yol="${yol}" data-t="satirlar">${esc((v || []).join('\n'))}</textarea></div>`;
+    if (f.t === 'yt') { const vid = ytId(v); return `<div class="field tam"><label for="${id}">${esc(f.l)}</label><input type="text" id="${id}" data-yol="${yol}" data-t="yt" value="${esc(v)}"><img class="thumb" src="${vid ? 'https://i.ytimg.com/vi/' + esc(vid) + '/hqdefault.jpg' : ''}" alt=""></div>`; }
+    return `<div class="field ${f.tam ? 'tam' : ''}"><label for="${id}">${esc(f.l)}</label><input type="text" id="${id}" data-yol="${yol}" value="${esc(v)}"></div>`;
+  }
+  function blok(sec, obj, yol, i) {
+    const tam = sec.alanlar.filter(f => f.tam || f.t === 'checkbox'), kisa = sec.alanlar.filter(f => !f.tam && f.t !== 'checkbox');
+    const ic = `<div class="grid2">${kisa.map(f => alan(f, obj[f.k], yol + '.' + f.k)).join('')}</div>${tam.map(f => alan(f, obj[f.k], yol + '.' + f.k)).join('')}`;
+    if (!sec.liste) return ic;
+    const ctl = sec.sabit ? '' : `<button class="btn small ghost" type="button" data-yukari="${yol}" title="Yukarı taşı">↑</button><button class="btn small danger" type="button" data-sil="${yol}">Sil</button>`;
+    return `<div class="item" data-item="${yol}"><div class="n"><span class="idx">${i + 1}</span>${ctl}</div>${ic}</div>`;
+  }
+  function ciz() {
+    $('#app').innerHTML = SEMA.map(sec => {
+      const v = ICERIK[sec.key] || (sec.liste ? [] : {});
+      const govde = sec.liste ? v.map((o, i) => blok(sec, o, sec.key + '.' + i, i)).join('') + (sec.sabit ? '' : `<button class="btn ghost small" type="button" data-ekle="${sec.key}">+ ${esc(sec.ekle || 'Ekle')}</button>`) : blok(sec, v, sec.key, 0);
+      return `<section class="sec" id="sec_${sec.key}"><h2>${esc(sec.baslik)}</h2><p class="d">${esc(sec.d)}</p>${govde}</section>`;
+    }).join('');
+  }
+
+  // ---- Formdan veriye ----
+  function topla() {
+    const out = JSON.parse(JSON.stringify(ICERIK));
+    document.querySelectorAll('[data-yol]').forEach(el => {
+      const p = el.dataset.yol.split('.'); let o = out;
+      for (let i = 0; i < p.length - 1; i++) { const k = /^\d+$/.test(p[i]) ? +p[i] : p[i]; if (o[k] == null) o[k] = /^\d+$/.test(p[i + 1]) ? [] : {}; o = o[k]; }
+      const son = p[p.length - 1];
+      let v = el.type === 'checkbox' ? el.checked : el.value.trim();
+      if (el.dataset.t === 'satirlar') v = el.value.split('\n').map(s => s.trim()).filter(Boolean);
+      if (el.dataset.t === 'yt') v = ytId(v);
+      o[son] = v;
+    });
+    return out;
+  }
+  function durumYaz(cls, msg) { const d = $('#durum'); d.className = 'status ' + cls; d.textContent = msg; }
+
+  // ---- Liste işlemleri (ekle / sil / yukarı) ----
+  $('#app').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.ekle) { ICERIK = topla(); const sec = SEMA.find(s => s.key === b.dataset.ekle); const bos = {}; sec.alanlar.forEach(f => bos[f.k] = f.t === 'checkbox' ? true : ''); (ICERIK[sec.key] = ICERIK[sec.key] || []).push(bos); ciz(); document.getElementById('sec_' + sec.key).scrollIntoView({ block: 'end', behavior: 'smooth' }); }
+    if (b.dataset.sil) { if (!confirm('Bu kayıt silinsin mi?')) return; ICERIK = topla(); const [k, i] = b.dataset.sil.split('.'); ICERIK[k].splice(+i, 1); ciz(); }
+    if (b.dataset.yukari) { ICERIK = topla(); const [k, i] = b.dataset.yukari.split('.'); const a = ICERIK[k]; if (+i > 0) { [a[i - 1], a[i]] = [a[i], a[i - 1]]; ciz(); } }
+  });
+  $('#app').addEventListener('input', e => { if (e.target.dataset.t === 'yt') { const img = e.target.nextElementSibling, id = ytId(e.target.value); if (img) img.src = id ? 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg' : ''; } });
+
+  // ---- Kaydet ----
+  $('#kaydet').onclick = async () => {
+    const btn = $('#kaydet'); btn.disabled = true; durumYaz('', 'Kaydediliyor…');
+    try { const veri = topla(); await istek('/panel/kaydet', { method: 'POST', body: JSON.stringify({ icerik: veri }) }); ICERIK = veri; durumYaz('ok', 'Kaydedildi. Site 1–3 dakika içinde güncellenir.'); }
+    catch (e) { durumYaz('err', e.message); }
+    btn.disabled = false;
+  };
+  window.addEventListener('beforeunload', e => { if (ICERIK && JSON.stringify(topla()) !== JSON.stringify(ICERIK)) { e.preventDefault(); e.returnValue = ''; } });
+})();
+</script>
+</body>
+</html>

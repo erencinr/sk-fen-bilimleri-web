@@ -1,8 +1,0 @@
-{
-  "aciklama": "Sitenin üstündeki duyuru şeridi. aktif: false olan duyuru gösterilmez. link boş bırakılabilir.",
-  "duyurular": [
-    { "etiket": "Duyuru", "metin": "Ekim LGS deneme sonuçları açıklandı; Hata Karneleri hazır.", "link": "deneme-kulubu.html", "link_metni": "Deneme Kulübü", "aktif": true },
-    { "etiket": "Yeni", "metin": "5. sınıflar için Atomica Matematik Atölyesi grupları açılıyor.", "link": "atomica.html", "link_metni": "Atölyeyi incele", "aktif": true },
-    { "etiket": "Kayıt", "metin": "YKS 2027 hazırlık grupları için görüşme randevuları alınıyor.", "link": "index.html#iletisim", "link_metni": "Görüşme planla", "aktif": true }
-  ]
-}
