@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SK Fen Bilimleri · Kayıt Paneli</title>
+<link rel="icon" href="assets/brand/sk-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#F6F6F4; --ink:#111318; --ink-2:#3B3F4A; --muted:#7A7E88; --line:#E6E6E2; --navy:#1D2A6B; --navy-h:#26368A; --blue:#E4EBFF; --blue-ink:#24408F; --green:#DDF1E5; --green-ink:#1F6B45; --coral:#FDE4DB; --coral-ink:#A23B22; --yellow:#FFF0C7; --yellow-ink:#8A5A00; --lilac:#ECE6FB; --lilac-ink:#4B3A8C; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Geist", -apple-system, "Helvetica Neue", sans-serif; font-size: 14.5px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .top { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 62px; padding: 0 20px; background: rgba(246,246,244,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; } .brand img { width: 26px; } .brand small { color: var(--muted); font-weight: 400; margin-left: 6px; }
+  .tabs { display: flex; gap: 4px; } .tabs button { height: 36px; padding: 0 14px; border-radius: 999px; border: 0; background: transparent; font: inherit; font-weight: 500; color: var(--ink-2); cursor: pointer; } .tabs button.on { background: #fff; border: 1px solid var(--line); color: var(--ink); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 40px; padding: 0 16px; border-radius: 999px; border: 0; background: var(--navy); color: #fff; font: inherit; font-weight: 500; cursor: pointer; transition: background .2s; white-space: nowrap; }
+  .btn:hover { background: var(--navy-h); } .btn[disabled] { opacity: .5; cursor: default; }
+  .btn.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); } .btn.small { height: 32px; padding: 0 12px; font-size: 13px; }
+  .wrap { width: min(1240px, 100% - 32px); margin: 22px auto 60px; }
+  .login { max-width: 420px; margin: 70px auto; background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 30px; }
+  .login h1 { margin: 0 0 6px; font-size: 22px; font-weight: 500; } .login p { margin: 0 0 18px; color: var(--muted); }
+  label { display: block; font-size: 12.5px; font-weight: 500; color: var(--ink-2); margin: 0 0 5px; }
+  input, select, textarea { width: 100%; font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px; outline: none; transition: border-color .2s, background .2s; }
+  input:focus, select:focus, textarea:focus { border-color: var(--navy); background: #fff; } textarea { min-height: 70px; resize: vertical; }
+  .field { margin-bottom: 12px; }
+  .bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+  .bar input, .bar select { width: auto; min-width: 160px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .chip { height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font: inherit; font-size: 13.5px; color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+  .chip.on { background: var(--navy); color: #fff; border-color: var(--navy); } .chip b { font-weight: 500; opacity: .7; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; } th { font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); font-weight: 500; background: #FAFAF8; }
+  tr.row { cursor: pointer; } tr.row:hover td { background: #FAFAF8; } tr:last-child td { border-bottom: 0; }
+  .st { display: inline-flex; align-items: center; height: 24px; padding: 0 9px; border-radius: 999px; font-size: 12.5px; font-weight: 500; white-space: nowrap; }
+  .st-Yeni { background: var(--yellow); color: var(--yellow-ink); } .st-Aranacak { background: var(--blue); color: var(--blue-ink); } .st-Görüşüldü { background: var(--lilac); color: var(--lilac-ink); } .st-Randevu { background: var(--blue); color: var(--blue-ink); } .st-Teklif { background: var(--lilac); color: var(--lilac-ink); } .st-Kayıt { background: var(--green); color: var(--green-ink); } .st-Ulaşılamadı { background: #EFEFEC; color: var(--ink-2); } .st-Vazgeçti { background: var(--coral); color: var(--coral-ink); }
+  .muted { color: var(--muted); } .small { font-size: 12.5px; }
+  .empty { padding: 40px; text-align: center; color: var(--muted); background: #fff; border: 1px solid var(--line); border-radius: 18px; }
+  .drawer { position: fixed; inset: 0 0 0 auto; width: min(560px, 100%); background: #fff; border-left: 1px solid var(--line); box-shadow: -20px 0 50px -30px rgba(17,19,24,.35); z-index: 20; overflow: auto; padding: 22px 24px 40px; transform: translateX(100%); transition: transform .3s cubic-bezier(.2,.7,.1,1); }
+  .drawer.open { transform: none; } .scrim { position: fixed; inset: 0; background: rgba(17,19,24,.25); z-index: 19; display: none; } .scrim.on { display: block; }
+  .drawer h2 { margin: 0; font-size: 20px; font-weight: 500; } .drawer .close { position: absolute; right: 16px; top: 16px; }
+  .kv { display: grid; grid-template-columns: 130px 1fr; gap: 6px 12px; margin: 16px 0; font-size: 14px; } .kv dt { color: var(--muted); } .kv dd { margin: 0; }
+  .sec { border-top: 1px solid var(--line); padding-top: 16px; margin-top: 16px; } .sec h3 { margin: 0 0 10px; font-size: 14px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: var(--muted); }
+  .stbtns { display: flex; flex-wrap: wrap; gap: 6px; }
+  .note { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; } .note .m { font-size: 12px; color: var(--muted); margin-bottom: 3px; }
+  .hist { font-size: 12.5px; color: var(--ink-2); } .hist div { padding: 4px 0; border-bottom: 1px dashed var(--line); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+  .rep { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px; } .card h3 { margin: 0 0 10px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  .card .big { font-size: 34px; font-weight: 500; letter-spacing: -.02em; } .card .r { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid var(--line); } .card .r:last-child { border-bottom: 0; }
+  .status { font-size: 13.5px; color: var(--ink-2); } .status.ok { color: var(--green-ink); } .status.err { color: var(--coral-ink); }
+  .hidden { display: none !important; }
+  @media (max-width: 760px) { th:nth-child(5), td:nth-child(5), th:nth-child(6), td:nth-child(6) { display: none; } .grid2 { grid-template-columns: 1fr; } .kv { grid-template-columns: 1fr; gap: 2px; } .tabs button { padding: 0 10px; } }
+</style>
+</head>
+<body>
+<div class="top"><div class="brand"><img src="assets/brand/sk-logo.svg" alt="">SK Fen Bilimleri <small>Kayıt paneli</small></div><div class="tabs hidden" id="tabs"><button class="on" data-t="liste" type="button">Başvurular</button><button data-t="rapor" type="button">Rapor</button></div><div><span class="small muted hidden" id="kim"></span> <button class="btn ghost small hidden" id="cikis" type="button">Çıkış</button></div></div>
+
+<div class="login" id="login">
+  <h1>Kayıt paneli</h1><p>Kullanıcı adı ve şifrenizle girin.</p>
+  <div class="field"><label for="ku">Kullanıcı adı</label><input id="ku" autocomplete="username"></div>
+  <div class="field"><label for="ks">Şifre</label><input id="ks" type="password" autocomplete="current-password"></div>
+  <button class="btn" id="gir" type="button">Giriş yap</button>
+  <div class="status hidden" id="loginMsg"></div>
+</div>
+
+<div class="wrap hidden" id="app">
+  <div id="liste">
+    <div class="bar"><input id="q" placeholder="Ad, telefon, kayıt no ara…"><select id="fprog"><option value="">Tüm programlar</option></select><select id="fatanan"><option value="">Tüm kayıt uzmanları</option></select><button class="btn ghost small" id="yenile" type="button">Yenile</button><a class="btn ghost small" id="csv" href="#" download>CSV indir</a><span class="status" id="durum"></span></div>
+    <div class="chips" id="dchips"></div>
+    <div id="tablo"></div>
+  </div>
+  <div id="rapor" class="hidden"><div class="rep" id="repGrid"></div></div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Başvuru detayı"></aside>
+
+<script>
+(() => {
+  const SERVIS = 'https://sk-whatsapp-asistan.skfenbilimleri.workers.dev';
+  const $ = s => document.querySelector(s);
+  const esc = v => String(v == null ? '' : v).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const S = { token: sessionStorage.getItem('sk_crm_token') || '', kim: sessionStorage.getItem('sk_crm_kim') || '', ekip: [], durumlar: [], kayitlar: [], durumF: '' };
+  const stCls = d => 'st st-' + String(d || '').split(' ')[0];
+  const tarihTR = iso => { try { return new Date(iso).toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short', timeZone: 'Europe/Istanbul' }); } catch { return iso; } };
+
+  async function api(yol, opts = {}) {
+    const r = await fetch(SERVIS + yol, { ...opts, headers: { 'content-type': 'application/json', 'x-token': S.token, ...(opts.headers || {}) } });
+    const j = await r.json().catch(() => ({ hata: 'Sunucudan okunamayan cevap' }));
+    if (r.status === 401 && yol !== '/crm/giris') { cikis(); throw new Error(j.hata || 'Oturum süresi doldu.'); }
+    if (!r.ok) throw new Error(j.hata || ('Hata ' + r.status));
+    return j;
+  }
+  function cikis() { sessionStorage.removeItem('sk_crm_token'); sessionStorage.removeItem('sk_crm_kim'); location.reload(); }
+  function durumYaz(cls, msg) { const d = $('#durum'); d.className = 'status ' + cls; d.textContent = msg; if (msg) setTimeout(() => { if (d.textContent === msg) d.textContent = ''; }, 4000); }
+
+  // ---- Giriş ----
+  $('#gir').onclick = async () => {
+    const m = $('#loginMsg'); m.className = 'status'; m.classList.remove('hidden'); m.textContent = 'Kontrol ediliyor…';
+    try { const j = await api('/crm/giris', { method: 'POST', body: JSON.stringify({ kullanici: $('#ku').value, sifre: $('#ks').value }) });
+      S.token = j.token; S.kim = j.kullanici; sessionStorage.setItem('sk_crm_token', j.token); sessionStorage.setItem('sk_crm_kim', j.kullanici); basla(); }
+    catch (e) { m.className = 'status err'; m.textContent = e.message; }
+  };
+  $('#ks').addEventListener('keydown', e => { if (e.key === 'Enter') $('#gir').click(); });
+  $('#cikis').onclick = cikis;
+  $('#tabs').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $('#tabs .on').classList.remove('on'); b.classList.add('on'); $('#liste').classList.toggle('hidden', b.dataset.t !== 'liste'); $('#rapor').classList.toggle('hidden', b.dataset.t !== 'rapor'); if (b.dataset.t === 'rapor') rapor(); });
+
+  async function basla() {
+    $('#login').classList.add('hidden'); $('#app').classList.remove('hidden'); $('#tabs').classList.remove('hidden'); $('#cikis').classList.remove('hidden');
+    $('#kim').classList.remove('hidden'); $('#kim').textContent = S.kim;
+    $('#csv').href = SERVIS + '/crm/disa?token=' + encodeURIComponent(S.token);
+    await yukle();
+  }
+  async function yukle() {
+    durumYaz('', 'Yükleniyor…');
+    try {
+      const p = new URLSearchParams(); if ($('#q').value) p.set('q', $('#q').value); if (S.durumF) p.set('durum', S.durumF); if ($('#fprog').value) p.set('program', $('#fprog').value); if ($('#fatanan').value) p.set('atanan', $('#fatanan').value);
+      const j = await api('/crm/basvurular?' + p);
+      S.kayitlar = j.kayitlar; S.durumlar = j.durumlar; S.ekip = j.ekip;
+      // filtre seçenekleri
+      const progs = [...new Set(j.kayitlar.map(k => k.program_ad))].sort();
+      const fp = $('#fprog'); const cur = fp.value; fp.innerHTML = '<option value="">Tüm programlar</option>' + [...new Set(j.kayitlar.map(k => k.program))].map(s => `<option value="${esc(s)}">${esc(j.kayitlar.find(k => k.program === s).program_ad)}</option>`).join(''); fp.value = cur;
+      const fa = $('#fatanan'); const ca = fa.value; fa.innerHTML = '<option value="">Tüm kayıt uzmanları</option>' + S.ekip.map(e => `<option value="${esc(e)}">${esc(e)}</option>`).join(''); fa.value = ca;
+      cizChips(); cizTablo(); durumYaz('', '');
+    } catch (e) { durumYaz('err', e.message); }
+  }
+  function cizChips() {
+    const tum = S.kayitlar.length;
+    $('#dchips').innerHTML = `<button class="chip ${S.durumF ? '' : 'on'}" data-d="" type="button">Tümü <b>${tum}</b></button>` + S.durumlar.map(d => `<button class="chip ${S.durumF === d ? 'on' : ''}" data-d="${esc(d)}" type="button">${esc(d)}</button>`).join('');
+  }
+  $('#dchips').addEventListener('click', e => { const c = e.target.closest('.chip'); if (!c) return; S.durumF = c.dataset.d; yukle(); });
+  $('#q').addEventListener('input', () => { clearTimeout(S.t); S.t = setTimeout(yukle, 350); });
+  $('#fprog').onchange = yukle; $('#fatanan').onchange = yukle; $('#yenile').onclick = yukle;
+  function cizTablo() {
+    if (!S.kayitlar.length) { $('#tablo').innerHTML = '<div class="empty">Bu filtrelere uyan başvuru yok.</div>'; return; }
+    $('#tablo').innerHTML = `<table><thead><tr><th>Tarih</th><th>Veli</th><th>Program</th><th>Durum</th><th>Sınıf</th><th>Kayıt uzmanı</th><th>Sonraki arama</th></tr></thead><tbody>` +
+      S.kayitlar.map(k => `<tr class="row" data-no="${esc(k.no)}"><td class="small muted">${esc(k.tarih)}<br>${esc(k.saat)}</td><td><b>${esc(k.veli_adi)}</b><br><span class="small muted">${esc(k.telefon)} · ${esc(k.iletisim)}</span></td><td>${esc(k.program_ad)}${k.secenek ? '<br><span class="small muted">' + esc(k.secenek) + '</span>' : ''}</td><td><span class="${stCls(k.durum)}">${esc(k.durum)}</span>${k.not_sayisi ? ' <span class="small muted">· ' + k.not_sayisi + ' not</span>' : ''}</td><td>${esc(k.sinif)}</td><td>${esc(k.atanan || '—')}</td><td class="small">${esc(k.sonraki_arama || '')}</td></tr>`).join('') + '</tbody></table>';
+  }
+  $('#tablo').addEventListener('click', e => { const r = e.target.closest('tr.row'); if (r) ac(r.dataset.no); });
+
+  // ---- Detay çekmecesi ----
+  const dr = $('#drawer'), scrim = $('#scrim');
+  const kapat = () => { dr.classList.remove('open'); scrim.classList.remove('on'); };
+  scrim.onclick = kapat; document.addEventListener('keydown', e => { if (e.key === 'Escape') kapat(); });
+  async function ac(no) {
+    dr.innerHTML = '<p class="muted">Yükleniyor…</p>'; dr.classList.add('open'); scrim.classList.add('on');
+    try { const j = await api('/crm/basvuru?no=' + encodeURIComponent(no)); cizDetay(j.kayit, j.diger_basvurular); }
+    catch (e) { dr.innerHTML = `<p class="status err">${esc(e.message)}</p>`; }
+  }
+  function cizDetay(k, digerler) {
+    const kapali = ['Ulaşılamadı', 'Vazgeçti'].includes(k.durum);
+    dr.innerHTML = `<button class="btn ghost small close" id="dkapat" type="button">Kapat ✕</button>
+      <h2>${esc(k.veli_adi)}</h2><div class="muted small">${esc(k.no)} · ${esc(k.tarih)} ${esc(k.saat)}</div>
+      <dl class="kv"><dt>Telefon</dt><dd><a href="tel:${esc(k.telefon)}">${esc(k.telefon)}</a> · <a href="https://wa.me/9${esc(k.telefon)}" target="_blank" rel="noopener">WhatsApp</a></dd><dt>Öğrenci sınıfı</dt><dd>${esc(k.sinif || '—')}</dd><dt>Program</dt><dd>${esc(k.program_ad)}${k.secenek ? ' · ' + esc(k.secenek) : ''}</dd><dt>İletişim tercihi</dt><dd>${esc(k.iletisim)}${k.zaman ? ' · ' + esc(k.zaman) : ''}</dd><dt>Velinin notu</dt><dd>${esc(k.not || '—')}</dd><dt>Ticari ileti izni</dt><dd>${k.ticari ? 'Evet' : 'Hayır'}</dd><dt>Kaynak</dt><dd class="small">${esc(k.kaynak || '—')}${k.utm && Object.keys(k.utm).length ? '<br>' + esc(JSON.stringify(k.utm)) : ''}</dd></dl>
+      <div class="sec"><h3>Durum</h3><div class="stbtns">${S.durumlar.map(d => `<button class="chip ${k.durum === d ? 'on' : ''}" data-durum="${esc(d)}" type="button">${esc(d)}</button>`).join('')}</div>
+        <div class="grid2" style="margin-top:12px"><div class="field"><label>Kayıt uzmanı</label><select id="d-atanan"><option value="">Atanmadı</option>${S.ekip.map(e => `<option value="${esc(e)}" ${k.atanan === e ? 'selected' : ''}>${esc(e)}</option>`).join('')}</select></div><div class="field"><label>Sonraki arama</label><input id="d-sonraki" type="date" value="${esc(k.sonraki_arama || '')}"></div></div>
+        <div class="field ${kapali ? '' : 'hidden'}" id="d-neden-alan"><label>Sonuç nedeni</label><input id="d-neden" value="${esc(k.sonuc_nedeni || '')}" placeholder="Örn. fiyat, uzaklık, başka kurum…"></div>
+        <button class="btn small" id="d-kaydet" type="button">Kaydet</button> <span class="status" id="d-durum"></span></div>
+      <div class="sec"><h3>Görüşme notları</h3><div id="d-notlar">${(k.notlar || []).slice().reverse().map(n => `<div class="note"><div class="m">${esc(tarihTR(n.t))} · ${esc(n.kim)}</div>${esc(n.metin)}</div>`).join('') || '<p class="muted small">Henüz not yok.</p>'}</div>
+        <div class="field"><textarea id="d-not" placeholder="Görüşme notu yazın…"></textarea></div><button class="btn ghost small" id="d-notekle" type="button">Not ekle</button></div>
+      <div class="sec"><h3>Bu velinin diğer başvuruları</h3>${digerler.length ? digerler.map(d => `<div class="note"><div class="m">${esc(d.tarih)} · ${esc(d.no)}</div>${esc(d.program_ad)} · <span class="${stCls(d.durum)}">${esc(d.durum)}</span></div>`).join('') : '<p class="muted small">Başka başvurusu yok.</p>'}</div>
+      <div class="sec"><h3>Değişiklik geçmişi</h3><div class="hist">${(k.gecmis || []).slice().reverse().map(g => `<div>${esc(tarihTR(g.t))} · <b>${esc(g.kim)}</b> · ${esc(g.alan)}: ${esc(g.eski || '—')} → ${esc(g.yeni || '—')}</div>`).join('') || '<span class="muted small">Değişiklik yok.</span>'}</div></div>`;
+    $('#dkapat').onclick = kapat;
+    let secilen = k.durum;
+    dr.querySelector('.stbtns').addEventListener('click', e => { const c = e.target.closest('.chip'); if (!c) return; secilen = c.dataset.durum; dr.querySelectorAll('.stbtns .chip').forEach(x => x.classList.toggle('on', x.dataset.durum === secilen)); $('#d-neden-alan').classList.toggle('hidden', !['Ulaşılamadı', 'Vazgeçti'].includes(secilen)); });
+    const kaydet = async (ek = {}) => { const s = $('#d-durum'); s.className = 'status'; s.textContent = 'Kaydediliyor…';
+      try { const j = await api('/crm/guncelle', { method: 'POST', body: JSON.stringify({ no: k.no, durum: secilen, atanan: $('#d-atanan').value, sonraki_arama: $('#d-sonraki').value, sonuc_nedeni: $('#d-neden').value, ...ek }) }); cizDetay(j.kayit, digerler); yukle(); }
+      catch (e) { s.className = 'status err'; s.textContent = e.message; } };
+    $('#d-kaydet').onclick = () => kaydet();
+    $('#d-notekle').onclick = () => { const t = $('#d-not').value.trim(); if (t) kaydet({ not: t }); };
+  }
+
+  // ---- Rapor ----
+  async function rapor() {
+    $('#repGrid').innerHTML = '<p class="muted">Yükleniyor…</p>';
+    try { const r = await api('/crm/rapor');
+      const kart = (b, m) => `<div class="card"><h3>${esc(b)}</h3>${Object.entries(m).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<div class="r"><span>${esc(k)}</span><b>${v}</b></div>`).join('') || '<span class="muted">—</span>'}</div>`;
+      const huni = ['Yeni', 'Aranacak', 'Görüşüldü', 'Randevu', 'Teklif Sunuldu', 'Kayıt'].map(d => `<div class="r"><span>${d}</span><b>${r.durum[d] || 0}</b></div>`).join('') + `<div class="r"><span class="muted">Ulaşılamadı / Vazgeçti</span><b>${(r.durum['Ulaşılamadı'] || 0) + (r.durum['Vazgeçti'] || 0)}</b></div>`;
+      $('#repGrid').innerHTML = `<div class="card"><h3>Toplam başvuru</h3><div class="big">${r.toplam}</div><div class="muted small">Son 30 gün: ${r.son30} · Kayıt dönüşümü: ${r.toplam ? Math.round(100 * (r.durum['Kayıt'] || 0) / r.toplam) : 0}%</div></div><div class="card"><h3>Huni</h3>${huni}</div>${kart('Programa göre', r.program)}${kart('Kayıt uzmanına göre', r.atanan)}${kart('Kaynağa göre', r.kaynak)}${kart('Aya göre', r.ay)}`;
+    } catch (e) { $('#repGrid').innerHTML = `<p class="status err">${esc(e.message)}</p>`; }
+  }
+
+  if (S.token) basla();
+})();
+</script>
+</body>
+</html>
