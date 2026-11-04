@@ -3,7 +3,7 @@
   "slug": "akademik-yasam-kulubu",
   "ad": "Akademik Yaşam Kulübü",
   "kisa": "Okul sonrası ödev, etüt ve çalışma disiplini; haftada 3 ya da 5 gün.",
-  "sinif": "İlkokul ve ortaokul",
+  "sinif": "4–8. sınıf",
   "duzen": "Etüt 3: haftada 3 gün × 3 saat · Etüt 5: haftada 5 gün × 3 saat",
   "secenekler": [
    "Etüt 3 (haftada 3 gün)",
@@ -26,17 +26,17 @@
  {
   "slug": "ingilizce-dil-kulubu",
   "ad": "İngilizce Dil Kulübü",
-  "kisa": "Konuşarak, dinleyerek ve etkinlikle öğrenilen İngilizce; haftada 50 + 50 dakika.",
-  "sinif": "İlkokul ve ortaokul",
-  "duzen": "Haftada 50 + 50 dakika",
+  "kisa": "Konuşarak, dinleyerek ve etkinlikle öğrenilen İngilizce; hafta sonu 50 + 50 dakika, 9 kişilik gruplar.",
+  "sinif": "4–8. sınıf",
+  "duzen": "Hafta sonu · 50 + 50 dakika · 9 kişilik grup",
   "secenekler": []
  },
  {
   "slug": "akil-ve-zeka-oyunlari",
   "ad": "Akıl ve Zekâ Oyunları",
-  "kisa": "Dikkat, strateji, mantık ve problem çözme; haftada 2 gün × 3 saat.",
-  "sinif": "İlkokul ve ortaokul",
-  "duzen": "Haftada 2 gün × 3 saat",
+  "kisa": "Dikkat, strateji, mantık ve problem çözme; hafta sonu 3 saatlik seanslar.",
+  "sinif": "4–8. sınıf",
+  "duzen": "Hafta sonu · 2 gün × 3 saat",
   "secenekler": []
  },
  {
@@ -60,7 +60,7 @@
   "ad": "Lise Ara Sınıf (9–10–11)",
   "kisa": "Okul derslerinde akademik destek ve TYT temeli; eksikler YKS yılından önce kapanır.",
   "sinif": "9, 10 ve 11. sınıf",
-  "duzen": "<span class=\"todo\">Haftalık ders düzeni eklenecek</span>",
+  "duzen": "Hafta içi ve hafta sonu · iki haftada bir deneme · 12 kişilik grup",
   "secenekler": []
  },
  {
@@ -68,7 +68,7 @@
   "ad": "YKS Hazırlık (12. sınıf ve mezun)",
   "kisa": "TYT ve YKS’de hedef, netler ve konu eksikleri; deneme, koçluk ve VIP Kütüphane ile birlikte yönetilir.",
   "sinif": "12. sınıf ve mezun",
-  "duzen": "<span class=\"todo\">Haftalık ders düzeni eklenecek</span>",
+  "duzen": "Her hafta branş ve genel deneme · 12 kişilik grup · Sayısal ve Eşit Ağırlık",
   "secenekler": []
  },
  {
@@ -76,7 +76,7 @@
   "ad": "Bireysel Öğrenci Koçluğu",
   "kisa": "Hedef, çalışma planı, motivasyon ve düzenli akademik takip; öğrenciye özel.",
   "sinif": "Ortaokul, lise ve mezun",
-  "duzen": "<span class=\"todo\">Görüşme sıklığı eklenecek</span>",
+  "duzen": "Her hafta 40 dakikalık görüşme",
   "secenekler": []
  },
  {
