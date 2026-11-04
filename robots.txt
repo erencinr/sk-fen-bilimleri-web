@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://erencinr.github.io/sk-fen-bilimleri-web/sitemap.xml
