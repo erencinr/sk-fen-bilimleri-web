@@ -1,0 +1,118 @@
+[
+ {
+  "slug": "akademik-yasam-kulubu",
+  "ad": "Akademik Yaşam Kulübü",
+  "kisa": "Okul sonrası ödev, etüt ve çalışma disiplini; haftada 3 ya da 5 gün.",
+  "sinif": "İlkokul ve ortaokul",
+  "duzen": "Etüt 3: haftada 3 gün × 3 saat · Etüt 5: haftada 5 gün × 3 saat",
+  "secenekler": [
+   "Etüt 3 (haftada 3 gün)",
+   "Etüt 5 (haftada 5 gün)",
+   "Kararsızım"
+  ]
+ },
+ {
+  "slug": "atomica",
+  "ad": "Atomica Matematik Atölyesi",
+  "kisa": "Materyalle keşfederek, birlikte düşünerek öğrenilen matematik; 6 ya da 9 kişilik gruplar.",
+  "sinif": "5. sınıf",
+  "duzen": "Haftada 50 + 50 dakika · 6 veya 9 kişilik grup",
+  "secenekler": [
+   "6 kişilik butik grup",
+   "9 kişilik grup",
+   "Kararsızım"
+  ]
+ },
+ {
+  "slug": "ingilizce-dil-kulubu",
+  "ad": "İngilizce Dil Kulübü",
+  "kisa": "Konuşarak, dinleyerek ve etkinlikle öğrenilen İngilizce; haftada 50 + 50 dakika.",
+  "sinif": "İlkokul ve ortaokul",
+  "duzen": "Haftada 50 + 50 dakika",
+  "secenekler": []
+ },
+ {
+  "slug": "akil-ve-zeka-oyunlari",
+  "ad": "Akıl ve Zekâ Oyunları",
+  "kisa": "Dikkat, strateji, mantık ve problem çözme; haftada 2 gün × 3 saat.",
+  "sinif": "İlkokul ve ortaokul",
+  "duzen": "Haftada 2 gün × 3 saat",
+  "secenekler": []
+ },
+ {
+  "slug": "ortaokul",
+  "ad": "5–6–7. Sınıf Grup Dersleri",
+  "kisa": "Haftada 10 ders: Matematik, Türkçe, Fen ve İngilizce; iki haftada bir deneme.",
+  "sinif": "5, 6 ve 7. sınıf",
+  "duzen": "Haftada 10 ders × 35 dk · iki haftada bir deneme",
+  "secenekler": []
+ },
+ {
+  "slug": "lgs",
+  "ad": "8. Sınıf LGS Hazırlık",
+  "kisa": "Haftada 16 ders, iki haftada bir deneme, Hata Karnesi ve koçlukla sistemli LGS hazırlığı.",
+  "sinif": "8. sınıf",
+  "duzen": "Haftada 16 ders × 35 dk · iki haftada bir deneme",
+  "secenekler": []
+ },
+ {
+  "slug": "lise",
+  "ad": "Lise Ara Sınıf (9–10–11)",
+  "kisa": "Okul derslerinde akademik destek ve TYT temeli; eksikler YKS yılından önce kapanır.",
+  "sinif": "9, 10 ve 11. sınıf",
+  "duzen": "<span class=\"todo\">Haftalık ders düzeni eklenecek</span>",
+  "secenekler": []
+ },
+ {
+  "slug": "yks",
+  "ad": "YKS Hazırlık (12. sınıf ve mezun)",
+  "kisa": "TYT ve YKS’de hedef, netler ve konu eksikleri; deneme, koçluk ve VIP Kütüphane ile birlikte yönetilir.",
+  "sinif": "12. sınıf ve mezun",
+  "duzen": "<span class=\"todo\">Haftalık ders düzeni eklenecek</span>",
+  "secenekler": []
+ },
+ {
+  "slug": "ogrenci-koclugu",
+  "ad": "Bireysel Öğrenci Koçluğu",
+  "kisa": "Hedef, çalışma planı, motivasyon ve düzenli akademik takip; öğrenciye özel.",
+  "sinif": "Ortaokul, lise ve mezun",
+  "duzen": "<span class=\"todo\">Görüşme sıklığı eklenecek</span>",
+  "secenekler": []
+ },
+ {
+  "slug": "ozel-ders",
+  "ad": "Birebir Özel Ders",
+  "kisa": "Öğrencinin ihtiyacına göre planlanan 90 dakikalık birebir seanslar.",
+  "sinif": "Tüm sınıflar",
+  "duzen": "90 dakikalık birebir seans",
+  "secenekler": []
+ },
+ {
+  "slug": "deneme-kulubu",
+  "ad": "Deneme Kulübü",
+  "kisa": "Ara sınıflar ile LGS/YKS için düzenli deneme; sonuç, yanlış ve kazanım analizi.",
+  "sinif": "5–12. sınıf ve mezun",
+  "duzen": "Ara Sınıflar Deneme Kulübü · LGS / YKS Deneme Kulübü",
+  "secenekler": [
+   "Ara Sınıflar Deneme Kulübü",
+   "LGS / YKS Deneme Kulübü",
+   "Kararsızım"
+  ]
+ },
+ {
+  "slug": "vip-kutuphane",
+  "ad": "VIP Kütüphane",
+  "kisa": "09.00–22.00 açık, kontrollü ve takipli çalışma alanı.",
+  "sinif": "8–12. sınıf ve mezun",
+  "duzen": "Her gün 09.00 – 22.00",
+  "secenekler": []
+ },
+ {
+  "slug": "atolye-kati",
+  "ad": "Atölye Katı (1–4. sınıf)",
+  "kisa": "Okul sonrası etüt, Atomica, İngilizce ve zekâ oyunları aynı katta.",
+  "sinif": "1–4. sınıf",
+  "duzen": "Okul sonrası",
+  "secenekler": []
+ }
+]

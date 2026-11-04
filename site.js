@@ -73,6 +73,31 @@
     show(0); restart(); bar.hidden = false;
   }
 
+  // ---- Katalog filtreleri ----
+  const fl = document.getElementById('filters');
+  if (fl) {
+    const secili = { sinif: null, ihtiyac: null, tur: null };
+    const uygula = () => {
+      let n = 0;
+      document.querySelectorAll('#katGrid .kat').forEach(k => {
+        const ok = Object.entries(secili).every(([f, v]) => !v || (k.dataset[f] || '').split(' ').includes(v));
+        k.classList.toggle('gizli', !ok); if (ok) n++;
+      });
+      document.getElementById('katBos').hidden = n > 0;
+      document.getElementById('fclear').hidden = !Object.values(secili).some(Boolean);
+    };
+    fl.addEventListener('click', e => {
+      const c = e.target.closest('.chip'); if (!c) return;
+      if (c.id === 'fclear') { Object.keys(secili).forEach(k => secili[k] = null); fl.querySelectorAll('.chip.on').forEach(x => x.classList.remove('on')); uygula(); return; }
+      const f = c.dataset.f, v = c.dataset.v;
+      secili[f] = secili[f] === v ? null : v;
+      fl.querySelectorAll(`.chip[data-f="${f}"]`).forEach(x => x.classList.toggle('on', x.dataset.v === secili[f]));
+      uygula();
+    });
+    const q = new URLSearchParams(location.search).get('sinif');
+    if (q) { const c = fl.querySelector(`.chip[data-f="sinif"][data-v="${q}"]`); if (c) c.click(); }
+  }
+
   const btn = document.querySelector('.menu-btn'), panel = document.getElementById('mnav');
   if (btn && panel) {
     btn.setAttribute('aria-expanded', 'false');
