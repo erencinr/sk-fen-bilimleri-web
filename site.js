@@ -108,3 +108,15 @@
     addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
   }
 })();
+
+// --- GA4 olayları: WhatsApp, telefon ve başvuru tıklamaları
+(function(){
+  function ga_olay(ad, p){ try { if (typeof gtag === 'function') gtag('event', ad, p || {}); } catch (e) {} }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a'); if (!a) return;
+    var h = a.getAttribute('href') || '';
+    if (a.hasAttribute('data-wa') || h.indexOf('wa.me') >= 0) ga_olay('whatsapp_click', { sayfa: location.pathname });
+    else if (h.indexOf('tel:') === 0) ga_olay('telefon_click', { sayfa: location.pathname });
+    else if (h.indexOf('basvuru.html') >= 0) ga_olay('basvuru_cta', { sayfa: location.pathname, program: (h.split('program=')[1] || '').split('&')[0] });
+  }, true);
+})();

@@ -45,7 +45,7 @@
       const r = await fetch(SERVIS, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(veri) });
       const j = await r.json().catch(() => ({}));
       if (!r.ok || !j.no) throw new Error(j.hata || 'Gönderilemedi, lütfen tekrar deneyin ya da WhatsApp’tan yazın.');
-      try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'form_submit_success', program: veri.program }); } catch {}
+      try { if (typeof gtag === 'function') gtag('event', 'form_submit_success', { program: veri.program, sinif: veri.sinif }); } catch {}
       location.href = 'tesekkurler.html?no=' + encodeURIComponent(j.no);
     } catch (err) {
       if (durum) { durum.className = 'form-note on err'; durum.textContent = err.message; }
