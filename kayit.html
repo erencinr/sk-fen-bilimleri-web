@@ -20,6 +20,7 @@
   .btn:hover { background: var(--navy-h); } .btn[disabled] { opacity: .5; cursor: default; }
   .btn.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); } .btn.small { height: 32px; padding: 0 12px; font-size: 13px; }
   .wrap { width: min(1240px, 100% - 32px); margin: 22px auto 60px; }
+  html, body { overflow-x: hidden; }
   .login { max-width: 420px; margin: 70px auto; background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 30px; }
   .login h1 { margin: 0 0 6px; font-size: 22px; font-weight: 500; } .login p { margin: 0 0 18px; color: var(--muted); }
   label { display: block; font-size: 12.5px; font-weight: 500; color: var(--ink-2); margin: 0 0 5px; }
@@ -31,7 +32,8 @@
   .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
   .chip { height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font: inherit; font-size: 13.5px; color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
   .chip.on { background: var(--navy); color: #fff; border-color: var(--navy); } .chip b { font-weight: 500; opacity: .7; }
-  table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  #tablo { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 640px; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
   th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; } th { font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); font-weight: 500; background: #FAFAF8; }
   tr.row { cursor: pointer; } tr.row:hover td { background: #FAFAF8; } tr:last-child td { border-bottom: 0; }
   .st { display: inline-flex; align-items: center; height: 24px; padding: 0 9px; border-radius: 999px; font-size: 12.5px; font-weight: 500; white-space: nowrap; }
