@@ -348,6 +348,10 @@
   .sup .ig-cap .todo { height: 22px; font-size: 12px; padding: 0 8px; }
   .sup .vframe { position: relative; display: block; margin: auto 0 28px; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: linear-gradient(180deg, #EDEDEA 0%, #DEDEDA 100%); border: 1px solid var(--line); transition: transform .4s var(--ease); }
   .sup .vframe:hover { transform: translateY(-3px); }
+  .sup .vframe.vid { aspect-ratio: 9 / 16; background: #111; }
+  .sup .vframe.vid video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .sup .vframe.vid.on { cursor: default; transform: none; }
+  .sup .vframe.vid.on .play { display: none; }
   .sup .vframe .cr { position: absolute; left: 50%; top: 50%; width: 30%; transform: translate(-50%, -50%); opacity: .07; }
   .sup .vframe .play { position: absolute; left: 50%; top: 50%; width: 60px; height: 60px; border-radius: 50%; background: var(--navy); display: grid; place-items: center; transform: translate(-50%, -50%); box-shadow: 0 14px 28px -12px rgba(29,42,107,.65); transition: transform .3s var(--ease); }
   .sup .vframe:hover .play { transform: translate(-50%, -50%) scale(1.08); }
@@ -644,19 +648,19 @@
           <div class="eyebrow">Ekibimiz</div>
           <h3><em>Profesyonel destek,</em> tanıdık yüzler</h3>
           <p>Yönetici, öğretmen ve koçlar aynı sistemin içinde çalışır; veli görüşmelerini Ayşe Hanım yürütür.</p>
-          <div class="vframe yt" data-yt="AclXQVj8XZw" role="button" tabindex="0" aria-label="TYT Matematik nasıl fullenir? videosunu oynat"><img src="gorseller/yt-AclXQVj8XZw.webp" alt="TYT Matematik nasıl fullenir?" loading="lazy"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div>
+          <div class="vframe vid" role="button" tabindex="0" aria-label="Ekibimiz videosunu oynat"><video preload="none" playsinline poster="video/ekip.jpg" src="video/ekip.mp4"></video><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div>
         </div>
         <div class="sup rv">
           <div class="eyebrow">Birebir koçluk</div>
           <h3><em>Doğru rehberlik,</em> düzenli takip</h3>
           <p>Koç, haftalık planı öğrenciyle birlikte hazırlar; hedefi netleştirir, çalışma disiplinini oturtur.</p>
-          <div class="vframe yt" data-yt="XyG-cBkdN9I" role="button" tabindex="0" aria-label="YKS 2027’ye başlıyoruz videosunu oynat"><img src="gorseller/yt-XyG-cBkdN9I.webp" alt="YKS 2027’ye başlıyoruz" loading="lazy"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div>
+          <div class="vframe vid" role="button" tabindex="0" aria-label="Ayşe Akkaş: rehberlik ve koçluk videosunu oynat"><video preload="none" playsinline poster="video/ayse-akkas.jpg" src="video/ayse-akkas.mp4"></video><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div>
         </div>
         <div class="sup rv">
           <div class="eyebrow">Derste ve evde</div>
           <h3><em>Dijital platformlar,</em> aynı sistem</h3>
           <p>Ders dışında da öğrencinin yanında olan içerik ve uygulamalar; hepsi aynı çalışma planına bağlı.</p>
-          <div class="vframe yt" data-yt="nXR8VlSz25s" role="button" tabindex="0" aria-label="All Star’la YKS ve LGS’de çok net videosunu oynat"><img src="gorseller/yt-nXR8VlSz25s.webp" alt="All Star’la YKS ve LGS’de çok net" loading="lazy"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div>
+          <div class="vframe vid" role="button" tabindex="0" aria-label="Gizem Aynacı: SK sistemi videosunu oynat"><video preload="none" playsinline poster="video/gizem-aynaci.jpg" src="video/gizem-aynaci.mp4"></video><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></div>
         </div>
     </div>
   </section>
@@ -853,6 +857,10 @@
   // YouTube: tıklanınca kartın içinde oynat (içerik panelden yenilense de çalışsın diye delegasyon)
   const ytBaslat = el => { const box = el.classList.contains('story') ? el.querySelector('.frame') : el; const f = document.createElement('iframe'); f.src = 'https://www.youtube-nocookie.com/embed/' + el.dataset.yt + '?autoplay=1&rel=0&playsinline=1'; f.allow = 'autoplay; encrypted-media; picture-in-picture'; f.allowFullscreen = true; f.title = el.getAttribute('aria-label') || 'Video'; box.innerHTML = ''; box.appendChild(f); el.removeAttribute('data-yt'); };
   document.addEventListener('click', e => { const el = e.target.closest('[data-yt]'); if (el) ytBaslat(el); });
+  // Yerel (mp4) videolar: tıklayınca sesli oynar, diğerleri durur
+  const vidBaslat = el => { const v = el.querySelector('video'); if (!v) return; document.querySelectorAll('.vframe.vid video').forEach(o => { if (o !== v) o.pause(); }); el.classList.add('on'); v.controls = true; v.play(); };
+  document.addEventListener('click', e => { const el = e.target.closest('.vframe.vid'); if (el && !el.classList.contains('on')) vidBaslat(el); });
+  document.addEventListener('keydown', e => { const el = e.target.closest && e.target.closest('.vframe.vid'); if (el && !el.classList.contains('on') && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); vidBaslat(el); } });
   document.addEventListener('keydown', e => { const el = e.target.closest && e.target.closest('[data-yt]'); if (el && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); ytBaslat(el); } });
 
   const track = document.getElementById('revTrack');
