@@ -1,4 +1,8 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /hero-fikirler.html
+Disallow: /kayit.html
+Disallow: /panel.html
+Disallow: /tesekkurler.html
 
-Sitemap: https://erencinr.github.io/sk-fen-bilimleri-web/sitemap.xml
+Sitemap: https://skfenmaltepe.com/sitemap.xml
