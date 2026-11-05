@@ -117,6 +117,7 @@
     var h = a.getAttribute('href') || '';
     if (a.hasAttribute('data-wa') || h.indexOf('wa.me') >= 0) ga_olay('whatsapp_click', { sayfa: location.pathname });
     else if (h.indexOf('tel:') === 0) ga_olay('telefon_click', { sayfa: location.pathname });
+    else if (h.indexOf('mailto:') === 0) ga_olay('eposta_click', { sayfa: location.pathname });
     else if (h.indexOf('basvuru.html') >= 0) ga_olay('basvuru_cta', { sayfa: location.pathname, program: (h.split('program=')[1] || '').split('&')[0] });
   }, true);
 })();
