@@ -500,11 +500,12 @@
     .sup-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 760px) {
-    .hero { padding-top: 24px; height: 760px; }
+    .hero { padding-top: 24px; height: auto; }
     .h-sub { font-size: 16.5px; }
-    .scene { width: 500px; height: 390px; }
+    .hero .actions { gap: 14px; }
+    .scene { position: relative; left: auto; transform: none; margin: 26px auto 0; width: 100%; max-width: 440px; height: 370px; max-height: none; }
     .chip-f { font-size: 12.5px; padding: 8px 11px; }
-    .chip-f.f1 { left: 15%; top: 26%; } .chip-f.f2 { right: 13%; top: 12%; } .chip-f.f3 { right: auto; left: 13%; top: 88%; }
+    .chip-f.f1 { left: 0; top: 30%; } .chip-f.f2 { right: 0; top: 14%; } .chip-f.f3 { right: auto; left: 2%; top: 84%; }
     .system { overflow: hidden; }
     .stage { width: 1100px; max-width: none; left: 50%; transform: translateX(-50%) scale(.42); transform-origin: top center; margin-bottom: -360px; }
     .arrow { display: none; }
