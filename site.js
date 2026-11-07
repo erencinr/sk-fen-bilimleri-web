@@ -1,7 +1,7 @@
 // SK Fen Bilimleri — tüm sayfalarda ortak: mobil menü ve WhatsApp bağlantıları
 (() => {
   // ---- WhatsApp ayarı: numarayı ülke koduyla, boşluksuz yaz (örn. 905321234567) ----
-  const WHATSAPP_NUMARA = '905398569980';
+  const WHATSAPP_NUMARA = '905306281142';
   const WHATSAPP_MESAJ = 'Merhaba, SK Fen Bilimleri programları hakkında bilgi almak istiyorum.';
 
   waUygula(WHATSAPP_NUMARA);
