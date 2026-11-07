@@ -53,12 +53,18 @@
   .card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px; } .card h3 { margin: 0 0 10px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
   .card .big { font-size: 34px; font-weight: 500; letter-spacing: -.02em; } .card .r { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid var(--line); } .card .r:last-child { border-bottom: 0; }
   .status { font-size: 13.5px; color: var(--ink-2); } .status.ok { color: var(--green-ink); } .status.err { color: var(--coral-ink); }
+  .badge { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: var(--coral, #F4D6D3); color: var(--coral-ink, #9B2F2A); font-size: 11.5px; font-weight: 600; margin-left: 4px; }
+  .wa-list { display: grid; gap: 8px; } .wa-row { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 12px 14px; cursor: pointer; } .wa-row:hover { background: #FAFAF8; }
+  .wa-row .son { color: var(--ink-2); font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .wa-row.bekliyor { border-color: #E9B8B4; } .wa-row .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #D9453B; margin-right: 6px; vertical-align: middle; }
+  .chat { display: flex; flex-direction: column; gap: 6px; max-height: 50vh; overflow-y: auto; padding: 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 16px; }
+  .bub { max-width: 82%; padding: 8px 12px; border-radius: 14px; font-size: 13.5px; line-height: 1.45; white-space: pre-wrap; word-break: break-word; } .bub.u { align-self: flex-start; background: #fff; border: 1px solid var(--line); border-bottom-left-radius: 4px; } .bub.a { align-self: flex-end; background: var(--blue); color: var(--blue-ink); border-bottom-right-radius: 4px; } .bub.p { align-self: flex-end; background: var(--green); color: var(--green-ink); border-bottom-right-radius: 4px; } .bub .m { display: block; font-size: 11px; opacity: .65; margin-top: 3px; } .bub.sys { align-self: center; background: transparent; color: var(--muted); font-size: 12px; font-style: italic; }
+  .wa-send { display: flex; gap: 8px; align-items: flex-end; margin-top: 10px; } .wa-send textarea { min-height: 44px; }
   .hidden { display: none !important; }
   @media (max-width: 760px) { .top { height: auto; min-height: 56px; flex-wrap: wrap; padding: 8px 12px; row-gap: 6px; } .brand small { display: none; } th:nth-child(5), td:nth-child(5), th:nth-child(6), td:nth-child(6) { display: none; } .grid2 { grid-template-columns: 1fr; } .kv { grid-template-columns: 1fr; gap: 2px; } .tabs button { padding: 0 10px; } }
 </style>
 </head>
 <body>
-<div class="top"><div class="brand"><img src="assets/brand/sk-logo.svg" alt="">SK Fen Bilimleri <small>Kayıt paneli</small></div><div class="tabs hidden" id="tabs"><button class="on" data-t="liste" type="button">Başvurular</button><button data-t="rapor" type="button">Rapor</button></div><div><span class="small muted hidden" id="kim"></span> <button class="btn ghost small hidden" id="cikis" type="button">Çıkış</button></div></div>
+<div class="top"><div class="brand"><img src="assets/brand/sk-logo.svg" alt="">SK Fen Bilimleri <small>Kayıt paneli</small></div><div class="tabs hidden" id="tabs"><button class="on" data-t="liste" type="button">Başvurular</button><button data-t="wa" type="button">WhatsApp <span class="badge hidden" id="waBadge">0</span></button><button data-t="rapor" type="button">Rapor</button></div><div><span class="small muted hidden" id="kim"></span> <button class="btn ghost small hidden" id="cikis" type="button">Çıkış</button></div></div>
 
 <div class="login" id="login">
   <h1>Kayıt paneli</h1><p>Kullanıcı adı ve şifrenizle girin.</p>
@@ -74,6 +80,7 @@
     <div class="chips" id="dchips"></div>
     <div id="tablo"></div>
   </div>
+  <div id="wa" class="hidden"><div class="bar"><input id="waq" placeholder="Ad veya numara ara…"><button class="chip" id="waBekleyen" type="button">Sadece bekleyenler</button><button class="btn ghost small" id="waYenile" type="button">Yenile</button><span class="status" id="waDurum"></span></div><div class="wa-list" id="waListe"></div></div>
   <div id="rapor" class="hidden"><div class="rep" id="repGrid"></div></div>
 </div>
 
@@ -108,13 +115,14 @@
   };
   $('#ks').addEventListener('keydown', e => { if (e.key === 'Enter') $('#gir').click(); });
   $('#cikis').onclick = cikis;
-  $('#tabs').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $('#tabs .on').classList.remove('on'); b.classList.add('on'); $('#liste').classList.toggle('hidden', b.dataset.t !== 'liste'); $('#rapor').classList.toggle('hidden', b.dataset.t !== 'rapor'); if (b.dataset.t === 'rapor') rapor(); });
+  $('#tabs').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $('#tabs .on').classList.remove('on'); b.classList.add('on'); ['liste', 'wa', 'rapor'].forEach(t => $('#' + t).classList.toggle('hidden', b.dataset.t !== t)); if (b.dataset.t === 'rapor') rapor(); if (b.dataset.t === 'wa') waYukle(); });
 
   async function basla() {
     $('#login').classList.add('hidden'); $('#app').classList.remove('hidden'); $('#tabs').classList.remove('hidden'); $('#cikis').classList.remove('hidden');
     $('#kim').classList.remove('hidden'); $('#kim').textContent = S.kim;
     $('#csv').href = SERVIS + '/crm/disa?token=' + encodeURIComponent(S.token);
-    await yukle();
+    await yukle(); waSayac();
+    setInterval(waSayac, 60000);
   }
   async function yukle() {
     durumYaz('', 'Yükleniyor…');
@@ -173,6 +181,43 @@
       catch (e) { s.className = 'status err'; s.textContent = e.message; } };
     $('#d-kaydet').onclick = () => kaydet();
     $('#d-notekle').onclick = () => { const t = $('#d-not').value.trim(); if (t) kaydet({ not: t }); };
+  }
+
+  // ---- WhatsApp sohbetleri ----
+  S.wa = []; S.waSadeceBekleyen = false;
+  const waSaat = iso => iso ? tarihTR(iso) : '';
+  const waAd = s => s.veli_adi || s.profil || ('+' + s.tel);
+  const waBaloncuk = h => h.r === 'a' && /^\[.*\]$/.test(h.t) ? `<div class="bub sys">${esc(h.t.slice(1, -1))}</div>` : `<div class="bub ${esc(h.r)}">${esc(h.t)}<span class="m">${h.r === 'u' ? 'Veli' : h.r === 'p' ? 'Danışman' + (h.kim ? ' · ' + esc(h.kim) : '') : 'Asistan'}${h.at ? ' · ' + esc(waSaat(h.at)) : ''}</span></div>`;
+  async function waSayac() { try { const j = await api('/crm/wa/sohbetler'); S.wa = j.sohbetler; const n = S.wa.filter(x => x.bekliyor && !x.ele_alindi).length; const b = $('#waBadge'); b.textContent = n; b.classList.toggle('hidden', !n); if (!$('#wa').classList.contains('hidden')) waCiz(); } catch {} }
+  async function waYukle() { const d = $('#waDurum'); d.className = 'status'; d.textContent = 'Yükleniyor…'; try { await waSayac(); waCiz(); d.textContent = ''; } catch (e) { d.className = 'status err'; d.textContent = e.message; } }
+  function waCiz() {
+    const q = $('#waq').value.trim().toLowerCase();
+    let l = S.wa.filter(x => !q || (waAd(x) + ' ' + x.tel).toLowerCase().includes(q)); if (S.waSadeceBekleyen) l = l.filter(x => x.bekliyor && !x.ele_alindi);
+    $('#waListe').innerHTML = l.length ? l.map(x => `<div class="wa-row ${x.bekliyor && !x.ele_alindi ? 'bekliyor' : ''}" data-tel="${esc(x.tel)}"><div><b>${x.bekliyor && !x.ele_alindi ? '<span class="dot"></span>' : ''}${esc(waAd(x))}</b> <span class="small muted">+${esc(x.tel)}${x.ogrenci_sinifi ? ' · ' + esc(x.ogrenci_sinifi) + '. sınıf' : ''}${x.program ? ' · ' + esc(x.program) : ''}</span></div><div class="small muted">${esc(waSaat(x.son_mesaj_at))}</div><div class="son">${x.son ? (x.son.r === 'u' ? 'Veli: ' : x.son.r === 'p' ? 'Danışman: ' : 'Bot: ') + esc(x.son.t) : ''}</div><div>${x.insan_modu ? '<span class="st st-Randevu">Danışmanda</span>' : x.durum === 'devir' ? '<span class="st st-Yeni">Devir</span>' : x.durum === 'ziyaret' ? '<span class="st st-Görüşüldü">Randevu</span>' : '<span class="st st-Aranacak">Bot</span>'}</div></div>`).join('') : '<div class="empty">Henüz WhatsApp sohbeti yok.</div>';
+  }
+  $('#waq').addEventListener('input', waCiz); $('#waYenile').onclick = waYukle;
+  $('#waBekleyen').onclick = () => { S.waSadeceBekleyen = !S.waSadeceBekleyen; $('#waBekleyen').classList.toggle('on', S.waSadeceBekleyen); waCiz(); };
+  $('#waListe').addEventListener('click', e => { const r = e.target.closest('.wa-row'); if (r) waAc(r.dataset.tel); });
+  async function waAc(tel) {
+    dr.innerHTML = '<p class="muted">Yükleniyor…</p>'; dr.classList.add('open'); scrim.classList.add('on');
+    try { const j = await api('/crm/wa/sohbet?tel=' + encodeURIComponent(tel)); waDetay(j); } catch (e) { dr.innerHTML = `<p class="status err">${esc(e.message)}</p>`; }
+  }
+  function waDetay(j) {
+    const o = j.ozet; const acik = o.son_veli_at && (Date.now() - Date.parse(o.son_veli_at)) < 24 * 3600 * 1000;
+    let yerel = o.tel; if (yerel.startsWith('90') && yerel.length === 12) yerel = '0' + yerel.slice(2);
+    dr.innerHTML = `<button class="btn ghost small close" id="dkapat" type="button">Kapat ✕</button>
+      <h2>${esc(waAd(o))}</h2><div class="muted small"><a href="tel:+${esc(o.tel)}">+${esc(o.tel)}</a>${o.profil && o.profil !== o.veli_adi ? ' · WhatsApp adı: ' + esc(o.profil) : ''}${o.ogrenci_sinifi ? ' · ' + esc(o.ogrenci_sinifi) + '. sınıf' : ''}${o.program ? ' · ' + esc(o.program) : ''}${j.basvurular.length ? ' · Başvuru: ' + j.basvurular.map(esc).join(', ') : ''}</div>
+      <div class="sec"><div class="stbtns"><button class="chip ${o.insan_modu ? 'on' : ''}" id="waDevral" type="button">${o.insan_modu ? 'Sohbet danışmanda · Bota bırak' : 'Sohbeti devral (bot sussun)'}</button><button class="chip ${o.ele_alindi ? 'on' : ''}" id="waEle" type="button">${o.ele_alindi ? 'İlgilenildi ✓' : 'İlgilenildi olarak işaretle'}</button></div></div>
+      <div class="sec"><h3>Konuşma</h3><div class="chat" id="waChat">${j.history.map(waBaloncuk).join('') || '<div class="bub sys">Mesaj yok</div>'}</div>
+        <div class="wa-send"><textarea id="waMetin" placeholder="${acik ? 'Veliye cevap yazın (bot numarasından gider)…' : 'Velinin son mesajından 24 saat geçti; WhatsApp serbest mesaja izin vermiyor. Veliyi arayın.'}" ${acik ? '' : 'disabled'}></textarea><button class="btn small" id="waGonder" type="button" ${acik ? '' : 'disabled'}>Gönder</button></div>
+        <div class="status" id="waMsg"></div><p class="muted small" style="margin:8px 0 0">Cevap yazınca bot bu sohbette 12 saat susar; veli yazarsa buraya düşer ve danışmana bildirim gider. "Bota bırak" ile otomatik cevap yeniden açılır.</p></div>`;
+    $('#dkapat').onclick = kapat; const chat = $('#waChat'); chat.scrollTop = chat.scrollHeight;
+    const yenile = async j2 => { waDetay(j2 && j2.history ? j2 : await api('/crm/wa/sohbet?tel=' + encodeURIComponent(o.tel))); waSayac(); };
+    $('#waGonder').onclick = async () => { const t = $('#waMetin').value.trim(); if (!t) return; const m = $('#waMsg'); m.className = 'status'; m.textContent = 'Gönderiliyor…'; $('#waGonder').disabled = true;
+      try { const r = await api('/crm/wa/gonder', { method: 'POST', body: JSON.stringify({ tel: o.tel, metin: t }) }); await yenile({ ozet: r.ozet, history: r.history, basvurular: j.basvurular }); } catch (e) { m.className = 'status err'; m.textContent = e.message; $('#waGonder').disabled = false; } };
+    $('#waMetin').addEventListener('keydown', e => { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) $('#waGonder').click(); });
+    $('#waDevral').onclick = async () => { try { await api('/crm/wa/mod', { method: 'POST', body: JSON.stringify({ tel: o.tel, insan: !o.insan_modu }) }); await yenile(); } catch (e) { $('#waMsg').className = 'status err'; $('#waMsg').textContent = e.message; } };
+    $('#waEle').onclick = async () => { try { await api('/crm/wa/mod', { method: 'POST', body: JSON.stringify({ tel: o.tel, insan: o.insan_modu, ele_alindi: !o.ele_alindi }) }); await yenile(); } catch (e) { $('#waMsg').className = 'status err'; $('#waMsg').textContent = e.message; } };
   }
 
   // ---- Rapor ----
