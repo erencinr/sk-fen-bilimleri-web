@@ -188,8 +188,9 @@
   const waSaat = iso => iso ? tarihTR(iso) : '';
   const waAd = s => s.veli_adi || s.profil || ('+' + s.tel);
   const waBaloncuk = h => h.r === 'a' && /^\[.*\]$/.test(h.t) ? `<div class="bub sys">${esc(h.t.slice(1, -1))}</div>` : `<div class="bub ${esc(h.r)}">${esc(h.t)}<span class="m">${h.r === 'u' ? 'Veli' : h.r === 'p' ? 'Danışman' + (h.kim ? ' · ' + esc(h.kim) : '') : 'Asistan'}${h.at ? ' · ' + esc(waSaat(h.at)) : ''}</span></div>`;
-  async function waSayac() { try { const j = await api('/crm/wa/sohbetler'); S.wa = j.sohbetler; const n = S.wa.filter(x => x.bekliyor && !x.ele_alindi).length; const b = $('#waBadge'); b.textContent = n; b.classList.toggle('hidden', !n); if (!$('#wa').classList.contains('hidden')) waCiz(); } catch {} }
-  async function waYukle() { const d = $('#waDurum'); d.className = 'status'; d.textContent = 'Yükleniyor…'; try { await waSayac(); waCiz(); d.textContent = ''; } catch (e) { d.className = 'status err'; d.textContent = e.message; } }
+  async function waCek() { const j = await api('/crm/wa/sohbetler'); S.wa = j.sohbetler || []; const n = S.wa.filter(x => x.bekliyor && !x.ele_alindi).length; const b = $('#waBadge'); b.textContent = n; b.classList.toggle('hidden', !n); }
+  async function waSayac() { try { await waCek(); if (!$('#wa').classList.contains('hidden')) waCiz(); } catch {} }
+  async function waYukle() { const d = $('#waDurum'); d.className = 'status'; d.textContent = 'Yükleniyor…'; try { await waCek(); waCiz(); d.textContent = ''; } catch (e) { d.className = 'status err'; d.textContent = 'Sohbetler alınamadı: ' + e.message; $('#waListe').innerHTML = `<div class="empty">Sohbetler yüklenemedi (${esc(e.message)}). Yenile'ye basın.</div>`; } }
   function waCiz() {
     const q = $('#waq').value.trim().toLowerCase();
     let l = S.wa.filter(x => !q || (waAd(x) + ' ' + x.tel).toLowerCase().includes(q)); if (S.waSadeceBekleyen) l = l.filter(x => x.bekliyor && !x.ele_alindi);
